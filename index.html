@@ -1,0 +1,2646 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Tim Bosson Portfolio</title>
+<meta name="description" content="Portfolio de Tim Bosson, étudiant en direction artistique et design graphique à l’École Brassart, à Lyon : identité, édition, publicité, interface.">
+<link rel="canonical" href="https://timbosson.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Tim Bosson">
+<meta property="og:title" content="Tim Bosson — Portfolio">
+<meta property="og:description" content="Étudiant en direction artistique et design graphique à Lyon : identité, édition, publicité, interface.">
+<meta property="og:url" content="https://timbosson.com/">
+<meta property="og:image" content="https://timbosson.com/assets/preview.jpg">
+<meta property="og:image:width" content="1201">
+<meta property="og:image:height" content="631">
+<meta property="og:image:alt" content="Dessin à la main de Tim Bosson, au trait noir sur fond blanc.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;700&family=DM+Mono:wght@300&display=swap">
+<style>
+/* Projet 11 « Illustrations, Lyon » retiré : la sélection compte dix projets (le compteur, la liste et la navigation suivent le nombre de projets).
+   Signature manuscrite à droite de la Vision · mentions légales (#mentions-legales, lien dans le footer, textes modifiables dans le panneau) · C.V en PDF (fichier à ajouter dans « Modifier le contenu » → Parcours (C.V) ; à la mise en ligne définitive : assets/CV_Tim_Bosson_2026.pdf) ·
+   balises de partage pour timbosson.com (assets/preview.jpg) · NOMADE sans cadres « détail » (deux formats paysage) · relecture complète des textes.
+   V16. Titres : Stolzl Bold en majuscules · textes : Stolzl Book · annotations : Cherry Light (le nom de l'accueil reste en Stolzl Thin).
+   Galerie sans encadrés sur les images : seul le titre « Projet — Domaine » reste, sur une seule ligne · aucun titrage ne passe à la ligne ·
+   Projets : un projet à la fois dans une scène épinglée (les textes et images défilent, puis la colonne de gauche glisse et le projet suivant apparaît en fondu), footer après le dernier ·
+   Islafood : un seul cadre « détail » en 3:2 · Fanzine : pas de cadre « mise en situation » tant qu'il est vide ·
+   liste des projets et footer en Stolzl Book · Vision : citation plus grande, justifiée, qui s'écrit mot par mot (machine à écrire fluide), sans signature, marges réduites, guillemets anglais “ ” ·
+   accueil : « Portfolio » et « C.V » centrés en hauteur, à gauche (alignés sur le nom) · projets : plus d'étiquette « Agrandir » au survol des images (la galerie de l'accueil la garde) ·
+   bouton « C.V — PDF » (lien à saisir dans le mode édition). */
+/* Polices. Titres : Stolzl Bold (majuscules). Textes : Stolzl Book. Nom en haut de l'accueil : Stolzl Thin. Annotations : Cherry Light.
+   Stolzl et Cherry ne sont pas hébergées ici : la page les prend sur l'ordinateur
+   où elles sont installées, ou depuis les fichiers ajoutés dans « Modifier le contenu » → Polices.
+   Sans elles, Lexend et DM Mono (Google Fonts) prennent le relais avec les mêmes graisses. */
+@font-face{font-family:"TB Stolzl";font-weight:700;font-display:swap;src:local("Stolzl Bold"),local("Stolzl-Bold"),local("StolzlBold"),local("Stolzl Bold Regular")}
+@font-face{font-family:"TB Stolzl";font-weight:400;font-display:swap;src:local("Stolzl Book"),local("Stolzl-Book"),local("StolzlBook"),local("Stolzl Book Regular"),local("Stolzl Regular"),local("Stolzl-Regular"),local("StolzlRegular"),local("Stolzl")}
+@font-face{font-family:"TB Stolzl";font-weight:100;font-display:swap;src:local("Stolzl Thin"),local("Stolzl-Thin"),local("StolzlThin"),local("Stolzl Thin Regular")}
+@font-face{font-family:"TB Stolzl";font-weight:300;font-display:swap;src:local("Stolzl Light"),local("Stolzl-Light"),local("StolzlLight"),local("Stolzl Light Regular")}
+@font-face{font-family:"TB Cherry";font-weight:300;font-display:swap;src:local("Cherry Light"),local("Cherry-Light"),local("CherryLight"),local("Cherry Mono Light"),local("CherryMono-Light")}
+
+/* Layout: 10 colonnes, marges 60px, gouttières 20px sur un canevas de 1440px (Figma).
+   --u vaut 1px à 1440 de large : toute la mise en page garde les proportions de la maquette. */
+:root{
+  --paper:#ffffff;
+  --ink:#000000;
+  --grey:#5a5a5a;       /* texte secondaire lisible (AA) */
+  --grey-soft:#bdbdbd;  /* gris Figma : départ du défilement gris → noir, éléments inactifs */
+  --rule:#dbdbdb;
+  --ph:#d9d9d9;         /* placeholders Figma */
+
+  /* Hiérarchie : Stolzl Bold en majuscules = titres, Stolzl Book = textes, Cherry Light = annotations et éléments de composition */
+  --sans:"TB Stolzl","Stolzl","Lexend","Helvetica Neue",Arial,sans-serif;
+  --display:var(--sans);
+  --mono:"TB Cherry","Cherry","DM Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --w-b:700;            /* Stolzl Bold : titres */
+  --w-r:400;            /* Stolzl Book : textes */
+  --w-t:100;            /* Stolzl Thin : le nom en haut de l'accueil, rien d'autre */
+  --w-l:300;            /* Cherry Light : annotations */
+
+  /* Pictogrammes : traits fins, utilisés comme masques (ils prennent la couleur du texte) */
+  --i-plus:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.2'%3E%3Cpath d='M8 1.5v13M1.5 8h13'/%3E%3C/svg%3E");
+  --i-minus:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.2'%3E%3Cpath d='M1.5 8h13'/%3E%3C/svg%3E");
+  --i-x:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.2'%3E%3Cpath d='M2.5 2.5l11 11M13.5 2.5l-11 11'/%3E%3C/svg%3E");
+  --i-ar:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.2'%3E%3Cpath d='M1 8h13.6M9.4 3.2L14.6 8l-5.2 4.8'/%3E%3C/svg%3E");
+
+  --u:calc(100vw / 1440);
+  --m:calc(60 * var(--u));
+  --g:calc(20 * var(--u));
+  /* Trois niveaux bien séparés.
+     Titres (Stolzl Bold, majuscules) : --fs-h titres de page · --fs-d noms dans les listes · accueil et citations plus grands.
+     Textes (Stolzl Book)             : --fs-l texte d'accroche · --fs-b texte courant · --fs-m légendes.
+     Annotations (Cherry Light)       : --fs-s. */
+  --fs-h:calc(64 * var(--u));
+  --fs-d:calc(30 * var(--u));
+  --fs-l:max(18px, calc(21 * var(--u)));
+  --fs-b:max(16.5px, calc(18 * var(--u)));
+  --fs-m:max(14px, calc(15.5 * var(--u)));
+  --fs-s:max(11px, calc(12 * var(--u)));
+  --bar:calc(56 * var(--u));
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-stopped{overflow:hidden}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{background:var(--paper);-webkit-hyphens:none;hyphens:none}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-weight:var(--w-r);font-size:var(--fs-m);line-height:1.3;
+  font-synthesis:none;overflow-x:clip;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+img{display:block;max-width:100%}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:var(--w-b);text-transform:uppercase}
+ul,ol{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+::selection{background:var(--ink);color:var(--paper)}
+
+.wrap{
+  padding-left:max(var(--m), 16px, env(safe-area-inset-left, 0px));
+  padding-right:max(var(--m), 16px, env(safe-area-inset-right, 0px));
+}
+.grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));column-gap:var(--g)}
+.c1-5{grid-column:1 / span 5}
+.c1-6{grid-column:1 / span 6}
+.c1-4{grid-column:1 / span 4}
+.c5-10{grid-column:5 / span 6}
+.c7-10{grid-column:7 / span 4}
+.c7-8{grid-column:7 / span 2}
+.c9-10{grid-column:9 / span 2}
+.mono,.label,.lnk{font-family:var(--mono);font-weight:var(--w-l);font-size:var(--fs-s);letter-spacing:.06em;text-transform:uppercase;line-height:1.4}
+/* Titres : Stolzl Bold, toujours en majuscules */
+.f-big,.p-title,.proj-title,.gal-cap,.topbar a,.idx-row .t,.acc-btn .t,.lz-head .t,.ct-obj label,.vz-q p,.h-link{font-family:var(--display);font-weight:var(--w-b);text-transform:uppercase;letter-spacing:.012em}
+/* Titrages : jamais de retour à la ligne (le script réduit très légèrement la taille d'un titre trop long plutôt que de le couper) */
+.f-big,.p-title,.proj-title,.gal-cap,.topbar a,.idx-row .t,.acc-btn .t,.lz-head .t,.ct-obj label,.h-link{white-space:nowrap}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Pictogrammes minimalistes : plus, moins, croix, flèches */
+.ic{display:inline-block;flex:none;width:1em;height:1em;vertical-align:-.14em;background:currentColor;
+  -webkit-mask:var(--ic) center / contain no-repeat;mask:var(--ic) center / contain no-repeat;transition:transform .5s var(--ease),opacity .3s}
+.ic-plus{--ic:var(--i-plus)}.ic-minus{--ic:var(--i-minus)}.ic-x{--ic:var(--i-x)}.ic-ar{--ic:var(--i-ar)}
+.ic.l{transform:rotate(180deg)}.ic.u{transform:rotate(-90deg)}.ic.d{transform:rotate(90deg)}.ic.ne{transform:rotate(-45deg)}
+.lnk .ic{width:1.15em;height:1.15em;vertical-align:-.2em}
+.lnk:hover .ic-ar:not(.l):not(.u):not(.d){transform:translateX(3px)}
+.lnk:hover .ic-ar.l{transform:rotate(180deg) translateX(3px)}
+.lnk:hover .ic-ar.u{transform:rotate(-90deg) translateX(3px)}
+.muted{color:var(--grey)}
+.todo{font-family:var(--mono);font-weight:var(--w-l);font-size:.62em;letter-spacing:.04em;text-transform:uppercase;color:var(--grey);background:#f2f2f2;padding:.1em .4em}
+
+/* Liens texte, sans encadré */
+.lnk{display:inline-flex;align-items:center;gap:.6em;min-height:28px;transition:color .2s}
+.lnk:hover{color:var(--grey)}
+.lnk[aria-disabled="true"]{color:var(--grey);pointer-events:none}
+.lnk-arrows{display:flex;gap:18px}
+.lnk-arrows .lnk{font-size:max(14px, calc(16 * var(--u)));min-width:28px;justify-content:center}
+
+/* Grille 10 colonnes, touche G */
+.gridview{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:0;transition:opacity .3s}
+.gridview .grid{height:100%}
+.gridview .grid span{background:rgba(0,0,0,.04);border-left:1px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.12)}
+html.show-grid .gridview{opacity:1}
+
+/* ——— Header épuré : Tim Bosson / C.V ——— */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:60;background:var(--paper);
+  height:calc(var(--bar) + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-size:var(--fs-m);line-height:1;border-bottom:1px solid var(--ink);
+  transition:opacity .4s var(--ease),visibility .4s;
+}
+.topbar.is-hidden{opacity:0;visibility:hidden}
+.topbar a{transition:color .2s;display:inline-flex;align-items:center;gap:.5em}
+.topbar a:hover{color:var(--grey)}
+.topbar .ic{width:.8em;height:.8em}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:61;background:var(--paper)}
+
+/* ——— Vues ——— */
+main{position:relative;z-index:1;overflow-x:clip;transition:opacity .45s ease}
+main.is-leaving{opacity:0}
+.view[hidden]{display:none}
+.page{padding-top:calc(var(--bar) + 90 * var(--u))}
+
+/* Entrées de texte (au chargement d'une page uniquement) */
+.mask{display:inline-block;overflow:hidden;vertical-align:top;padding-block:.14em .04em;margin-block:-.14em -.04em}
+.mask>.mi{display:inline-block;transform:translateY(112%);transition:transform 1.1s var(--ease)}
+.play .mask>.mi{transform:none}
+.play .d1 .mi{transition-delay:.08s}.play .d2 .mi{transition-delay:.16s}
+.fade{opacity:0;transform:translateY(8px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.play .fade{opacity:1;transform:none;transition-delay:.4s}
+.play .fade.late{transition-delay:.55s}
+.play .fade.late2{transition-delay:.7s}
+.play .fade.f1{transition-delay:.5s}.play .fade.f2{transition-delay:.62s}.play .fade.f3{transition-delay:.74s}
+
+/* ——— HERO ———
+   D'après la maquette : le nom en Thin en haut à gauche, deux liens en Bold à gauche (les lettres roulent au survol), une flèche pour défiler,
+   et le personnage en très grand, qui déborde à droite et en bas et flotte quand on bouge la souris.
+   --hk = unité de la composition : 1px sur un écran de 1920 × 1024 ; elle se réduit avec la largeur ou la hauteur de la fenêtre. */
+.hero{position:relative;height:100vh;height:100svh;min-height:440px;overflow:hidden;overflow:clip;--hk:min(calc(var(--u) * .75), calc(100vh / 1024))}
+@supports (height:100svh){.hero{--hk:min(calc(var(--u) * .75), calc(100svh / 1024))}}
+.h-name{position:absolute;left:var(--m);top:calc(64 * var(--hk));z-index:2;margin:0;font-family:var(--display);font-weight:var(--w-t);text-transform:uppercase;
+  font-size:max(22px, calc(38 * var(--hk)));line-height:1;letter-spacing:.004em;white-space:nowrap}
+.h-cta{position:absolute;left:var(--m);top:0;bottom:0;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;pointer-events:none}
+.h-cta .h-link{pointer-events:auto}
+.h-link{--lh:1.263;display:block;font-size:max(22px, calc(38 * var(--hk)));line-height:var(--lh);letter-spacing:.004em;color:var(--ink);white-space:nowrap}
+.h-link:focus-visible{outline-offset:6px}
+/* Les lettres roulent : chaque lettre est en double dans une fenêtre d'une ligne, le survol fait glisser la pile vers le haut, lettre après lettre */
+.roll{display:inline-flex;white-space:pre}
+.rc{position:relative;display:block;overflow:hidden;height:calc(1em * var(--lh))}
+.rc>span{display:block;height:calc(1em * var(--lh));line-height:calc(1em * var(--lh));transition:transform .62s cubic-bezier(.7,0,.2,1) calc(var(--i, 0) * 22ms);backface-visibility:hidden}
+.h-link:focus-visible .rc>span{transform:translateY(-100%)}
+@media (hover:hover){.h-link:hover .rc>span{transform:translateY(-100%)}}
+.h-doodle{position:absolute;z-index:0;width:calc(1474 * var(--hk));right:calc(-128 * var(--hk));top:calc(50% - 592 * var(--hk));transform:rotate(-1deg);will-change:transform}
+.h-doodle img{width:100%;height:auto;clip-path:circle(0% at 4% 96%);transition:clip-path 1.6s var(--ease) .3s}
+.play .h-doodle img{clip-path:circle(150% at 4% 96%)}
+.h-doodle .float{animation:float 5.5s ease-in-out infinite alternate;transform-origin:60% 70%}
+@keyframes float{from{transform:translateY(0) rotate(0)}to{transform:translateY(calc(8 * var(--hk))) rotate(.4deg)}}
+.h-hint{position:absolute;left:calc(var(--m) - 9 * var(--hk));bottom:calc(48 * var(--hk));z-index:2;display:block;width:max(14px, calc(29 * var(--hk)));height:max(42px, calc(88 * var(--hk)));color:var(--ink)}
+.h-hint svg{display:block;width:100%;height:100%;overflow:visible;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;animation:bob 2.8s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(calc(10 * var(--hk)))}}
+@keyframes nudge{0%,100%{transform:rotate(90deg) translateX(0)}50%{transform:rotate(90deg) translateX(5px)}}
+
+/* ——— Sections ——— */
+.sec{position:relative;margin-top:calc(150 * var(--u))}
+.sec.first{margin-top:0}
+.sec-head{border-top:1px solid var(--ink);padding-top:calc(14 * var(--u));margin-bottom:calc(52 * var(--u));align-items:center;row-gap:10px}
+.sec-head .right{grid-column:7 / span 4;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sec-head.no-rule{border-top:0;padding-top:0;margin-bottom:calc(14 * var(--u))}
+.sec-head .label{display:flex;align-items:center;gap:.8em}
+.sec-head .label::before{content:"";flex:none;width:.95em;height:.95em;background:currentColor;opacity:.55;-webkit-mask:var(--i-plus) center / contain no-repeat;mask:var(--i-plus) center / contain no-repeat}
+
+/* Résumé */
+.portrait{position:relative;overflow:hidden;aspect-ratio:784 / 752;background:var(--ph);margin:0}
+.portrait img{width:100%;height:112%;object-fit:cover;transform:translate3d(0,var(--py,0),0);will-change:transform}
+.js .portrait[data-reveal]{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s var(--ease)}
+.js .portrait[data-reveal].is-in{clip-path:inset(0 0 0 0)}
+.bio{font-size:var(--fs-l);line-height:1.45;margin-top:-.29em}
+.bio p{text-wrap:pretty}
+.bio p+p{margin-top:1.1em}
+[data-words] .w{color:var(--grey-soft)}
+.bio-cta{margin-top:calc(40 * var(--u))}
+
+/* Galerie / carrousel (Figma : carré 696 centré, voisins coupés) */
+.carousel{position:relative;height:calc(696 * var(--u));overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+.carousel:active{cursor:grabbing}
+.slide{position:absolute;top:0;left:calc(50% - 348 * var(--u));width:calc(696 * var(--u));height:100%;will-change:transform;-webkit-user-drag:none}
+.slide .ph{height:100%;transition:transform .9s var(--ease)}
+.slide:hover .ph{transform:scale(.975)}
+/* Aucune étiquette sur les vignettes : le titre « Projet — Domaine » est donné une seule fois, au-dessus du carrousel. */
+.gal-foot{margin-top:calc(-24 * var(--u));margin-bottom:calc(22 * var(--u));align-items:baseline}
+/* Une seule ligne : la taille est la même pour tous les projets, juste réduite si le plus long ne tient pas dans ses 6 colonnes (--cap-fs, calculée par le script) */
+.gal-cap{font-size:var(--cap-fs, var(--fs-d));line-height:1.1}
+.gal-cap.wrap-ok{white-space:normal}
+.gal-cap .mi{transition:transform .6s var(--ease)}
+.counter{font-variant-numeric:tabular-nums}
+
+/* Placeholder (boîte barrée du croquis) */
+.ph{position:relative;background-color:var(--ph);
+  background-image:
+    linear-gradient(to top right,transparent calc(50% - .6px),var(--grey-soft) calc(50% - .6px),var(--grey-soft) calc(50% + .6px),transparent calc(50% + .6px)),
+    linear-gradient(to bottom right,transparent calc(50% - .6px),var(--grey-soft) calc(50% - .6px),var(--grey-soft) calc(50% + .6px),transparent calc(50% + .6px));
+}
+.ph .ph-dim{position:absolute;right:12px;bottom:10px;color:#8a8a8a}
+.ph.has-img{background-image:var(--img);background-size:cover;background-position:center}
+.ph.has-img .ph-dim{display:none}
+.ph-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.ph.tone2{background-color:#cfcfcf}.ph.tone3{background-color:#e2e2e2}.ph.tone4{background-color:#c6c6c6}.ph.tone5{background-color:#dcdcdc}.ph.tone6{background-color:#d2d2d2}
+
+/* ——— Footer (bandeau gris Figma) à rideau ——— */
+.footer-wrap{position:relative;height:calc(340 * var(--u));clip-path:inset(0 0 0 0);margin-top:calc(200 * var(--u))}
+.footer{position:fixed;left:0;right:0;bottom:0;height:calc(340 * var(--u));background:var(--ph);color:var(--ink);
+  display:flex;flex-direction:column;justify-content:space-between;padding-top:calc(40 * var(--u));padding-bottom:calc(28 * var(--u) + env(safe-area-inset-bottom,0px))}
+.f-big{font-size:calc(44 * var(--u));line-height:1;display:inline-flex;align-items:center;gap:.3em;transition:color .2s}
+.f-big .ic{width:.62em;height:.62em;vertical-align:baseline}
+.f-big:hover{color:var(--grey)}
+.f-col h3{margin-bottom:12px}
+.f-col li a{font-weight:var(--w-r);font-size:var(--fs-b);line-height:1.5;transition:color .2s}
+.f-col li a:hover{color:var(--grey)}
+.f-bottom{align-items:baseline}
+.f-c{grid-column:1 / span 3;white-space:nowrap}
+.f-legal{margin-left:1.6em;color:var(--grey);transition:color .2s}
+.f-legal:hover{color:var(--ink)}
+.f-t{grid-column:4 / span 6;white-space:nowrap}
+/* Footer entièrement en Stolzl Book : intitulés de colonnes, mention © et phrase (la Cherry Light reste réservée aux annotations du reste du site) */
+.f-lab,.f-c,.f-t{font-family:var(--sans);font-weight:var(--w-r);font-size:var(--fs-m);letter-spacing:0;text-transform:none;line-height:1.4}
+.f-lab{color:var(--grey)}
+.f-up{grid-column:10;justify-self:end;white-space:nowrap;min-height:0;font-family:var(--sans);font-weight:var(--w-r);font-size:var(--fs-b);letter-spacing:0;text-transform:none;line-height:1.3}
+
+/* ——— Portfolio (index) ——— */
+.p-head{align-items:end;margin-bottom:calc(64 * var(--u))}
+.p-title{font-size:var(--fs-h);line-height:1}
+.p-intro{color:var(--grey);font-size:var(--fs-b);line-height:1.45;max-width:40ch}
+.idx-head,.idx-row{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));column-gap:var(--g);align-items:center}
+.idx-head{padding-bottom:10px;border-bottom:1px solid var(--ink);color:var(--grey)}
+.idx-row{position:relative;border-bottom:1px solid var(--ink);padding-block:calc(18 * var(--u));isolation:isolate}
+.idx-row::before{content:"";position:absolute;inset:0 calc(-1 * max(var(--m),16px));background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease);z-index:-1}
+.idx-row:hover,.idx-row:focus-visible{color:var(--paper)}
+.idx-row:hover::before,.idx-row:focus-visible::before{transform:scaleY(1)}
+.idx-row .t{font-size:var(--fs-d);line-height:1.1}
+.c-t{grid-column:2 / span 4}.c-d{grid-column:7 / span 2}.c-y{grid-column:9}
+.idx-head .arr,.idx-row .arr{grid-column:10;justify-self:end}
+.idx-row .arr{font-size:var(--fs-l);display:inline-flex;transition:transform .45s var(--ease)}
+.idx-row .arr .ic{width:.8em;height:.8em}
+.idx-row:hover .arr{transform:translateX(-8px) rotate(-45deg)}
+.preview{position:fixed;left:0;top:0;width:calc(280 * var(--u));aspect-ratio:1 / 1;z-index:70;pointer-events:none;opacity:0;transform:translate3d(-999px,0,0);transition:opacity .3s}
+.preview.on{opacity:1}
+.preview .ph{width:100%;height:100%}
+.preview .ph-dim{left:12px;right:12px;text-align:right;line-height:1.35}
+
+/* ——— Projets : un projet à la fois, dans une scène épinglée ———
+   Ordinateur : la scène reste fixe sous le header et c'est le défilement de la page qui la fait vivre.
+   1. Le projet affiché défile : textes et images montent dans la colonne de droite (la colonne de gauche, avec le résumé et la liste des projets, reste en place).
+   2. Quand tout est passé, la colonne de gauche défile à son tour, et le projet suivant apparaît en fondu à sa place.
+   Le footer n'apparaît qu'après le dernier projet. Téléphone : les projets restent à la suite, en une seule colonne. */
+.pj{position:relative;padding-top:calc(40 * var(--u));padding-bottom:calc(130 * var(--u))}
+.pj:first-child{padding-top:0}
+.pj:last-child{padding-bottom:0}
+.pj+.pj{border-top:1px solid var(--ink)}
+.proj{align-items:start}
+.proj-aside{grid-column:1 / span 4;padding-right:var(--g)}
+.proj-main{grid-column:5 / span 6;border-left:1px solid var(--ink);padding-left:var(--g)}
+.proj-flow{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--g)}
+@media (min-width:761px){
+  #view-projet.is-stage{padding-top:calc(var(--bar) + env(safe-area-inset-top,0px))}
+  .is-stage #pj-stage{position:sticky;top:calc(var(--bar) + env(safe-area-inset-top,0px));height:calc(100vh - var(--bar) - env(safe-area-inset-top,0px));height:calc(100svh - var(--bar) - env(safe-area-inset-top,0px));
+    overflow:hidden;overflow:clip;transition:opacity .28s ease}
+  .is-stage #pj-stage.is-swap{opacity:0}
+  .is-stage .pj,.is-stage .pj:first-child,.is-stage .pj:last-child{position:absolute;inset:0;padding:0;border:0;visibility:hidden}
+  .is-stage .pj.live{visibility:visible}
+  .is-stage .proj{height:100%;grid-template-rows:minmax(0,1fr)}
+  .is-stage .proj-aside{padding-top:calc(40 * var(--u));will-change:transform,opacity}
+  .is-stage .proj-main{height:100%;overflow:hidden;overflow:clip}
+  .is-stage .proj-flow{padding:calc(40 * var(--u)) 0 calc(90 * var(--u));will-change:transform,opacity}
+}
+/* Titre du projet : une seule ligne, même taille pour tous les projets (--pj-fs, calculée par le script d'après le titre le plus long) */
+.proj-title{font-size:var(--pj-fs, calc(42 * var(--u)));line-height:1.04;margin:14px 0 calc(22 * var(--u))}
+#view-projet.wrap-ok .proj-title{white-space:normal}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;border-top:1px solid var(--ink);padding-top:12px;margin-bottom:calc(20 * var(--u))}
+.meta dt{color:var(--grey)}.meta dd{margin:0}
+.proj-desc{font-size:max(16px, calc(17 * var(--u)));line-height:1.45;margin-bottom:calc(24 * var(--u))}
+/* Liste des projets : Stolzl Book (nom — domaine), le projet en cours en noir */
+.dots{border-top:1px solid var(--ink);padding-top:9px;margin-bottom:calc(16 * var(--u))}
+.proj-aside.compact .dots{display:none}
+.dots a{display:flex;align-items:center;gap:.85em;padding:1px 0;font-family:var(--sans);font-weight:var(--w-r);font-size:max(13.5px, calc(15 * var(--u)));letter-spacing:0;text-transform:none;line-height:1.3;white-space:nowrap;color:var(--grey);transition:color .3s}
+.dots .tx{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.dots .ds::before{content:"\00a0— "}
+.dots a:hover{color:var(--ink)}
+.dots a::before{content:"";width:9px;height:9px;flex:none;background:currentColor;-webkit-mask:var(--i-plus) center / contain no-repeat;mask:var(--i-plus) center / contain no-repeat;transition:transform .5s var(--ease)}
+.dots a:hover::before{transform:rotate(90deg)}
+.dots a[aria-current="page"]{color:var(--ink)}
+.dots a[aria-current="page"]::before{-webkit-mask-image:var(--i-minus);mask-image:var(--i-minus)}
+.proj-nav{display:flex;gap:24px;flex-wrap:wrap}
+.proj-main .ph{width:100%}
+.proj-main .pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--g)}
+.proj-text{font-size:var(--fs-l);line-height:1.45;padding-block:calc(36 * var(--u))}
+/* ——— À propos ——— */
+.ap-grid{align-items:start}
+.ap-photo{grid-column:1 / span 4;aspect-ratio:16 / 9}
+.bio.ap-text{grid-column:5 / span 6;font-size:var(--fs-l);line-height:1.45;max-width:58ch;margin-top:-.3em}
+sup.n{font-family:var(--mono);font-size:max(9.5px, calc(10 * var(--u)));letter-spacing:.04em;line-height:1;margin-left:.3em;vertical-align:super}
+
+/* Parcours / C.V : menu déroulant */
+.acc{border-top:1px solid var(--ink)}
+.acc-item{border-bottom:1px solid var(--ink)}
+.acc-btn,.acc-row{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));column-gap:var(--g);align-items:baseline;width:100%;text-align:left}
+.acc-btn{padding-block:calc(22 * var(--u))}
+.acc-btn .d,.acc-row .d{grid-column:1 / span 2}
+.acc-btn .t{grid-column:3 / span 4;font-size:var(--fs-d);line-height:1.1;transition:color .2s}
+.acc-btn:hover .t{color:var(--grey)}
+.acc-btn .x{grid-column:7 / span 3;color:var(--grey)}
+.acc-btn .pm{grid-column:10;justify-self:end;font-size:max(14px, calc(16 * var(--u)))}
+.acc-btn[aria-expanded="true"] .pm{transform:rotate(45deg)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.acc-panel>div{overflow:hidden}
+.acc-item.open .acc-panel{grid-template-rows:1fr}
+.acc-row{padding-bottom:calc(18 * var(--u))}
+.acc-row:first-child{padding-top:calc(4 * var(--u))}
+.acc-row .t{grid-column:3 / span 4;font-size:var(--fs-b);line-height:1.4}
+.acc-row .x{grid-column:7 / span 4;color:var(--grey);font-size:var(--fs-b);line-height:1.4}
+.cv-actions{margin-top:calc(28 * var(--u))}
+/* Bouton « C.V — PDF » : contour noir, il se remplit au survol. Le lien se saisit dans « Modifier le contenu ». */
+.btn-cv{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:calc(16 * var(--u));min-height:44px;padding:calc(14 * var(--u)) calc(24 * var(--u));border:1px solid var(--ink);
+  font-family:var(--mono);font-weight:var(--w-l);font-size:max(12px, calc(13 * var(--u)));letter-spacing:.08em;text-transform:uppercase;line-height:1;transition:color .45s var(--ease),border-color .3s}
+.btn-cv::before{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease);z-index:-1}
+.btn-cv:hover,.btn-cv:focus-visible{color:var(--paper)}
+.btn-cv:hover::before,.btn-cv:focus-visible::before{transform:scaleY(1)}
+.btn-cv .ic{width:1.25em;height:1.25em;vertical-align:baseline;transition:transform .45s var(--ease)}
+.btn-cv:hover .ic.d,.btn-cv:focus-visible .ic.d{transform:rotate(90deg) translateX(4px)}
+.btn-cv .bc-todo{display:none;font-size:.8em}
+.btn-cv.is-off{border-color:var(--grey-soft);color:var(--grey);pointer-events:none}
+.btn-cv.is-off::before{display:none}
+.btn-cv.is-off .bc-todo{display:inline-block}
+.btn-cv.is-off .ic{opacity:.4}
+html.editing .btn-cv.is-off{pointer-events:auto;cursor:pointer}
+
+/* Vision : la citation, en majuscules Stolzl Bold, dans une boîte pleine largeur (10 colonnes), justifiée comme les textes du site (même moteur de lignes, sans césure).
+   Guillemets anglais : un grand “ gris ouvre la citation, le ” ferme la phrase (ajouté par le script). Pas de signature : elle sera ajoutée à la main.
+   La citation s'écrit mot par mot quand elle arrive à l'écran : un rythme régulier et vif (un mot toutes les 50 ms), chaque mot monte d'un cheveu en s'éclaircissant.
+   Tout est piloté par la feuille de style (--i = rang du mot) : aucune minuterie, un seul mouvement continu. Les mots sont déjà en place, la mise en page ne bouge pas. */
+.vz{position:relative;margin-top:calc(110 * var(--u))}
+.vz-head{margin-bottom:0}
+.vz-q{position:relative;display:flex;flex-direction:column;margin:0;padding-block:calc(56 * var(--u)) calc(6 * var(--u) + var(--sig-pad, 0px))}
+.vz-q::before{content:"\201C";display:block;height:.4em;margin:0 0 calc(28 * var(--u)) -.04em;font-family:var(--display);font-weight:var(--w-b);font-size:calc(180 * var(--u));line-height:1;letter-spacing:0;color:var(--grey-soft)}
+.vz-q p{display:block;width:100%;max-width:none;margin:0;text-align:justify;font-size:max(22px, calc(54 * var(--u)));line-height:1.14;letter-spacing:0;text-wrap:pretty;-webkit-hyphens:none;hyphens:none}
+.vz + .dm{margin-top:calc(110 * var(--u))}
+.vw{display:inline-block;white-space:nowrap;word-spacing:0}
+.vw.brk{white-space:normal;max-width:100%}
+.js .vz-q .vw{opacity:0;transform:translateY(.2em);transition:opacity .45s ease-out,transform .6s var(--ease)}
+.js .vz.is-in .vz-q .vw{opacity:1;transform:none;transition-delay:calc(.2s + var(--i, 0) * 50ms)}
+.js .vz-q::before{opacity:0;transition:opacity .5s ease-out}
+.js .vz.is-in .vz-q::before{opacity:1}
+/* Signature manuscrite : à droite de la fin de la phrase (position calculée par placeSig), elle se dévoile de gauche à droite une fois le dernier mot écrit */
+.vz-sig{position:absolute;top:0;right:calc(max(var(--m), 16px, env(safe-area-inset-right, 0px)) + 110 * var(--u));width:calc(250 * var(--u));margin:0;color:var(--ink);pointer-events:none}
+.vz-sig svg{display:block;width:100%;height:auto;fill:currentColor;overflow:visible}
+.js .vz-sig{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s cubic-bezier(.65, 0, .35, 1) calc(.45s + var(--n, 20) * 50ms)}
+.js .vz.is-in .vz-sig{clip-path:inset(0 0 0 0)}
+
+/* ——— Mentions légales ——— */
+.lg{padding-bottom:calc(20 * var(--u))}
+.lg-sec{border-top:1px solid var(--ink);padding-top:calc(14 * var(--u));padding-bottom:calc(64 * var(--u));row-gap:14px;align-items:start}
+.lg-sec .label{margin:0}
+.lg-txt{display:grid;gap:1.1em;font-size:var(--fs-b);line-height:1.5}
+.lg-txt p{margin:0;text-wrap:pretty}
+.lg-txt a{border-bottom:1px solid currentColor;transition:color .2s,border-color .2s}
+.lg-txt a:hover{color:var(--grey)}
+.lg-date{margin-top:calc(-24 * var(--u));padding-bottom:calc(24 * var(--u))}
+
+/* Domaines d'expertise : la même section sur l'accueil et sur À propos, en menu déroulant comme le C.V (mêmes classes .acc). */
+.dm{position:relative;margin-top:calc(150 * var(--u))}
+.dm-row{padding-bottom:calc(34 * var(--u))}
+.dm-txt{grid-column:3 / span 6;font-size:var(--fs-l);line-height:1.45}
+/* Loisirs : cartes empilées au défilement ; les titres déjà lus restent visibles comme des onglets */
+.lz-stack{--lzh:calc(64 * var(--u));position:relative}
+.lz-stack::after{content:"";display:block;height:1px;margin-inline:max(var(--m),16px);background:var(--ink)}
+.lz-card{position:sticky;top:calc(var(--bar) + var(--i) * var(--lzh));background:var(--paper)}
+.lz-head{position:relative;width:100%;height:var(--lzh);align-items:center;text-align:left;background:var(--paper)}
+.lz-head::before{content:"";position:absolute;top:0;left:max(var(--m),16px);right:max(var(--m),16px);height:1px;background:var(--ink)}
+.lz-head .d{grid-column:1 / span 2}
+.lz-head .t{grid-column:3 / span 4;font-size:var(--fs-d);line-height:1.1;transition:color .4s}
+.lz-head .x{grid-column:7 / span 3;color:var(--grey)}
+.lz-head .pm{grid-column:10;justify-self:end;width:max(14px, calc(16 * var(--u)));height:max(14px, calc(16 * var(--u)));background:currentColor;
+  -webkit-mask:var(--i-ar) center / contain no-repeat;mask:var(--i-ar) center / contain no-repeat;transform:rotate(90deg);transition:transform .5s var(--ease),opacity .3s}
+.lz-card.is-current .lz-head .pm{opacity:0}
+.lz-card.is-past .lz-head .pm{transform:rotate(-90deg)}
+.lz-card.is-past .lz-head .t{color:var(--grey-soft)}
+.lz-card.is-past .lz-head:hover .t{color:var(--grey)}
+.lz-body{padding-top:calc(6 * var(--u));padding-bottom:calc(64 * var(--u));align-items:start}
+.lz-body .lz-txt{grid-column:3 / span 5}
+.lz-img{grid-column:8 / span 3;aspect-ratio:4 / 3}
+.lz-txt{font-size:var(--fs-b);line-height:1.5;color:var(--ink);max-width:62ch}
+.lz-txt p+p{margin-top:.8em}
+
+/* Texte courant justifié, sans aucune césure. Les mots de 1 à 3 lettres et la ponctuation double sont liés au mot voisin par
+   des espaces insécables (fonction typo() du script) : aucun signe ni petit mot ne reste seul en bout de ligne. */
+.bio p,.dm-txt,.proj-desc,.proj-text,.lz-txt p{text-align:justify;text-justify:inter-word;text-wrap:pretty;-webkit-hyphens:none;hyphens:none;overflow-wrap:break-word;word-break:normal}
+h1,h2,.gal-cap,.p-title,.proj-title{text-wrap:balance}
+/* Lignes calculées par le script (typeset) : chaque ligne est étirée jusqu'au bord, la dernière reste à gauche */
+[data-just]{display:block}
+.ln{display:block;white-space:nowrap}
+.w,.nb{display:inline-block;white-space:nowrap;word-spacing:0}
+.ln.j{text-align:justify;text-align-last:justify}
+.todo{display:inline-block;white-space:nowrap}
+.lz-txt .todo,.proj-text .todo,.proj-desc .todo{margin-bottom:.5em}
+
+/* ——— Contact ——— */
+.ct-aside .blk+.blk{margin-top:calc(32 * var(--u))}
+.ct-aside .label{display:block;margin-bottom:8px}
+.ct-aside p,.ct-aside li{font-size:var(--fs-b);line-height:1.5}
+.ct-form{display:grid;gap:calc(34 * var(--u))}
+.ct-form fieldset{border:0;margin:0;padding:0;min-width:0}
+.ct-form legend{padding:0;margin-bottom:12px}
+.ct-obj .opts{display:flex;flex-wrap:wrap;gap:8px 28px}
+.ct-obj input{position:absolute;opacity:0;width:1px;height:1px}
+.ct-obj label{font-size:var(--fs-d);color:var(--grey-soft);cursor:pointer;transition:color .2s}
+.ct-obj label:hover{color:var(--grey)}
+.ct-obj input:checked+label{color:var(--ink)}
+.ct-obj input:focus-visible+label{outline:2px solid var(--ink);outline-offset:4px}
+.field{display:grid;gap:6px}
+.field input,.field textarea{font-family:var(--sans);font-weight:var(--w-r);font-size:var(--fs-l);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);border-radius:0;padding:6px 0 10px;width:100%;outline:none}
+.field textarea{resize:vertical;min-height:7.5em;line-height:1.4}
+.field input:focus,.field textarea:focus{border-bottom-width:2px;padding-bottom:9px}
+.field input::placeholder,.field textarea::placeholder{color:var(--grey-soft)}
+.field .err{font-family:var(--mono);font-size:var(--fs-s);letter-spacing:.04em;min-height:1.4em}
+.field.invalid input,.field.invalid textarea{border-bottom-style:dashed}
+.ct-actions{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.ct-status{max-width:40ch}
+.ct-status a{text-decoration:underline;text-underline-offset:.2em}
+.ct-hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.ct-actions .lnk[disabled]{color:var(--grey);pointer-events:none}
+
+/* ——— Révélations au scroll ——— */
+.js [data-reveal]:not(.portrait){opacity:0;transform:translateY(calc(36 * var(--u)));transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js [data-reveal].is-in:not(.portrait){opacity:1;transform:none}
+.js .idx-row[data-reveal]{transition:opacity 1s var(--ease),transform 1s var(--ease),color .3s}
+/* Projets (téléphone, projets à la suite) : l'accroche de chaque projet se révèle quand il arrive à l'écran.
+   Sur ordinateur (scène épinglée), c'est le défilement qui fait entrer et sortir chaque accroche : ces règles ne s'appliquent pas. */
+.js #view-projet:not(.is-stage) .pj .proj-aside .mask>.mi{transform:translateY(112%);transition:transform 1.1s var(--ease)}
+.js #view-projet:not(.is-stage) .pj.is-in .proj-aside .mask>.mi{transform:none}
+.js #view-projet:not(.is-stage) .pj .proj-aside .fade{opacity:0;transform:translateY(8px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js #view-projet:not(.is-stage) .pj.is-in .proj-aside .fade{opacity:1;transform:none;transition-delay:.3s}
+.js #view-projet:not(.is-stage) .pj.is-in .proj-aside .fade.f1{transition-delay:.4s}
+.js #view-projet:not(.is-stage) .pj.is-in .proj-aside .fade.f2{transition-delay:.5s}
+.js #view-projet:not(.is-stage) .pj.is-in .proj-aside .fade.f3{transition-delay:.6s}
+
+/* ——— Loader : le bonhomme se remplit du gris au noir ——— */
+.loader{position:fixed;inset:0;z-index:200;background:var(--paper);display:grid;place-items:center;transition:opacity .7s ease}
+.loader.out{opacity:0;pointer-events:none}
+.ld-fig{position:relative;width:clamp(150px, 17vw, 250px)}
+.ld-fig img{width:100%;height:auto}
+.ld-base{opacity:.16}
+.ld-fill{position:absolute;inset:0;clip-path:inset(100% 0 0 0)}
+
+/* ——— Curseur : un point, avec beaucoup de retard ——— */
+.cursor,.cursor-label{position:fixed;left:0;top:0;pointer-events:none;z-index:300;display:none}
+html.has-cursor .cursor,html.has-cursor .cursor-label{display:block}
+.cursor{mix-blend-mode:difference}
+.cursor i{display:block;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;transition:transform .45s var(--ease)}
+.cursor.is-media i,.cursor.is-hidden i{transform:scale(0)}
+.cursor-label span{display:inline-flex;align-items:center;justify-content:center;gap:.5em;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-weight:var(--w-l);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;transform:scale(0);transition:transform .45s var(--ease);box-shadow:0 0 0 1px var(--paper)}
+.cursor-label.on span{transform:scale(1)}
+
+/* ——— Téléphone ——— */
+@media (max-width:760px){
+  :root{--m:16px;--g:12px;--fs-h:44px;--fs-d:24px;--fs-l:18.5px;--fs-b:16.5px;--fs-m:14.5px;--fs-s:11px;--bar:50px}
+  .grid,.idx-head,.idx-row,.acc-btn,.acc-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .c1-5,.c1-6,.c1-4,.c5-10,.c7-10,.sec-head .right,.ap-photo,.bio.ap-text{grid-column:1 / -1}
+  .c7-8{grid-column:1 / span 2}.c9-10{grid-column:3 / span 2}
+
+  .hero{height:100vh;height:100svh;min-height:560px;--hk:calc(var(--u) * 3.69)}
+  .h-name{left:16px;top:calc(env(safe-area-inset-top, 0px) + 22px);font-size:19px}
+  .h-cta{left:16px;top:auto;bottom:calc(118 * var(--hk) + env(safe-area-inset-bottom, 0px))}
+  .h-link{font-size:clamp(27px, 8.2vw, 36px)}
+  .h-doodle{width:calc(452 * var(--hk));right:calc(-30 * var(--hk));top:calc(env(safe-area-inset-top, 0px) + 66 * var(--hk))}
+  .h-hint{left:12px;bottom:calc(30 * var(--hk) + env(safe-area-inset-bottom, 0px));width:20px;height:60px}
+
+  .sec{margin-top:72px}
+  .sec-head{margin-bottom:24px;padding-top:12px}
+  .bio{margin-top:22px}
+  .bio-cta{margin-top:20px}
+  .carousel{height:78vw}
+  .slide{width:78vw;left:11vw}
+  .gal-foot{row-gap:10px}
+
+  .footer-wrap{height:auto;margin-top:96px}
+  .footer{height:auto;gap:28px;padding-top:28px}
+  .f-big{font-size:32px}
+  .f-col{margin-top:22px}
+  .f-c,.f-t{grid-column:1 / -1}
+  .f-t{white-space:normal;margin-top:6px}
+  .f-up{grid-column:1 / -1;justify-self:start;margin-top:12px}
+
+  .page{padding-top:calc(var(--bar) + 44px)}
+  .p-head{row-gap:14px;margin-bottom:28px}
+  .hide-m{display:none}
+  .idx-row{padding-block:14px}
+  .c-t{grid-column:2 / span 2}
+  .idx-head .arr,.idx-row .arr{grid-column:4}
+  .preview{display:none}
+  .proj-aside,.proj-main{grid-column:1 / -1;position:static;padding:0;border:0}
+  .proj-main{margin-top:28px}
+  .proj-text{padding-block:14px}
+  .pj{padding-top:28px;padding-bottom:64px}
+  .dots{display:none}   /* sur téléphone, les projets se suivent : la liste répétée à chaque projet serait trop longue */
+  .acc-btn .d{grid-column:1}.acc-btn .t{grid-column:2 / span 2}.acc-btn .x{display:none}.acc-btn .pm{grid-column:4}
+  .acc-row .d,.acc-row .t,.acc-row .x{grid-column:1 / -1}
+  .acc-row .t,.acc-row .x{margin-top:4px}
+  .bio.ap-text,.ct-form{margin-top:24px}
+  .lz-body .lz-txt{grid-column:1 / -1}
+  .lz-stack{--lzh:52px}
+  .lz-head .d{grid-column:1}.lz-head .t{grid-column:2 / span 2}.lz-head .x{display:none}.lz-head .pm{grid-column:4}
+  .lz-img{grid-column:1 / -1;aspect-ratio:4 / 3;margin-top:14px}
+  .vz{margin-top:64px}
+  .vz-q{padding-block:30px var(--sig-pad, 0px)}
+  .vz-sig{width:clamp(92px, 30vw, 124px);right:calc(max(var(--m), 16px, env(safe-area-inset-right, 0px)) + 22px)}
+  .vz-q::before{font-size:96px;margin-bottom:18px}
+  .vz-q p{font-size:clamp(23px, 7.4vw, 34px);max-width:none;text-align:left}
+  .vz + .dm{margin-top:64px}
+  .dm{margin-top:72px}
+  .dm-txt{grid-column:1 / -1}
+  .proj-title{font-size:var(--pj-fs, var(--fs-h))}
+  .idx-row .t,.acc-btn .t,.lz-head .t{white-space:normal}   /* colonnes très étroites sur téléphone : les titres de liste peuvent passer à la ligne */
+  .bio p,.dm-txt,.proj-desc,.proj-text,.lz-txt p{text-align:left}
+}
+
+/* Dégradé blanc en bas d'écran : il reste du contenu à faire défiler */
+.scroll-fade{position:fixed;left:0;right:0;bottom:0;height:clamp(64px, 13vh, 150px);z-index:55;pointer-events:none;
+  background:linear-gradient(to top, #fff 0%, rgba(255,255,255,.85) 35%, rgba(255,255,255,0) 100%);transition:opacity .5s ease}
+.scroll-fade.off{opacity:0}
+
+/* ——— Panneau « Modifier le contenu » (visible pour les éditeurs uniquement) ——— */
+.ed-toggle{position:fixed;left:max(16px, env(safe-area-inset-left, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:150;
+  background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:11px 14px}
+.ed-toggle:hover{background:#333}
+.ed{--w-r:400;font-weight:var(--w-r);position:fixed;top:0;right:0;bottom:0;width:min(440px, 100vw);z-index:160;background:var(--paper);border-left:1px solid var(--ink);
+  display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .5s var(--ease),visibility .5s}
+.ed.open{transform:none;visibility:visible}
+.ed-head{display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top, 0px)) 20px 14px;border-bottom:1px solid var(--ink)}
+.ed-title{font-size:18px}
+.ed-x{display:grid;place-items:center;width:32px;height:32px;font-size:16px}
+.ed-note{padding:10px 20px;background:#f2f2f2;font-family:var(--mono);font-weight:var(--w-l);font-size:11px;line-height:1.5}
+.ed-hint{font-size:13px;line-height:1.45;color:var(--grey);padding:12px 0 4px}
+.ed-fontf .ed-img-btns{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 16px}
+.ed-body{flex:1;overflow:auto;overscroll-behavior:contain;padding:4px 20px 40px}
+.ed-intro{font-size:14px;line-height:1.45;color:var(--grey);padding:14px 0 6px}
+.ed details>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ed details>summary::-webkit-details-marker{display:none}
+.ed details>summary::after{content:"";flex:none;width:12px;height:12px;background:currentColor;-webkit-mask:var(--i-plus) center / contain no-repeat;mask:var(--i-plus) center / contain no-repeat}
+.ed details[open]>summary::after{-webkit-mask-image:var(--i-minus);mask-image:var(--i-minus)}
+.ed-g{border-bottom:1px solid var(--ink)}
+.ed-g>summary{font-size:19px;padding:16px 0}
+.ed-sub{border-top:1px solid var(--rule)}
+.ed-sub>summary{padding:12px 0;font-size:15px}
+.ed-sub>summary .ed-sum-t{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;flex:none}
+.ed-sub>summary .ed-sum-v{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--grey)}
+.ed-f{display:grid;gap:6px;margin:10px 0 18px;scroll-margin:80px}
+.ed-f.flash{animation:edflash 1.2s ease}
+@keyframes edflash{0%,40%{background:#efefef;box-shadow:0 0 0 8px #efefef}100%{background:transparent;box-shadow:0 0 0 8px transparent}}
+.ed-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+.ed-f input,.ed-f textarea{font-family:var(--sans);font-weight:var(--w-r);font-size:16px;line-height:1.4;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);border-radius:0;padding:6px 0 8px;width:100%;outline:none;resize:vertical}
+.ed-f input:focus,.ed-f textarea:focus{border-bottom-width:2px;padding-bottom:7px}
+.ed-img{display:flex;gap:14px;align-items:center}
+.ed-thumb{width:96px;aspect-ratio:4 / 3;flex:none}
+.ed-img-btns{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.ed-btn{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.ed-btn:hover{color:var(--grey)}
+.ed-link{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey)}
+.ed-link:hover{color:var(--ink)}
+.ed-link[disabled]{opacity:.35;pointer-events:none}
+.ed-msg{font-family:var(--mono);font-size:10.5px;color:var(--grey)}
+.ed-foot{border-top:1px solid var(--ink);padding:14px 20px calc(14px + env(safe-area-inset-bottom, 0px));display:flex;gap:14px;align-items:center;justify-content:space-between}
+.ed-status{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--grey);min-width:0}
+.ed-actions{display:flex;gap:16px;align-items:center;flex:none}
+.ed-save{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:11px 16px}
+.ed-save[disabled]{opacity:.3;cursor:default}
+html.editing [data-edit],html.editing [data-img]{outline:1px dashed #9a9a9a;outline-offset:3px;cursor:pointer}
+html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid var(--ink)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .mask>.mi{transform:none}
+  .fade{opacity:1;transform:none}
+  .h-doodle img{clip-path:none}
+  [data-words] .w{color:var(--ink)}
+  .js [data-reveal]:not(.portrait){opacity:1;transform:none}
+  .js .portrait[data-reveal]{clip-path:none}
+  .js .vz-q .vw{opacity:1;transform:none}
+  .js .vz-q::before{opacity:1}
+  .js .vz-sig{clip-path:none}
+  .js #view-projet:not(.is-stage) .pj .proj-aside .mask>.mi{transform:none}
+  .js #view-projet:not(.is-stage) .pj .proj-aside .fade{opacity:1;transform:none}
+}
+</style>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<noscript><style>.loader{display:none}</style></noscript>
+</head>
+<body>
+<div class="gridview wrap" aria-hidden="true"><div class="grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="ld-fig">
+    <img class="ld-base" src="assets/doodle.png" alt="">
+    <img class="ld-fill" id="ld-fill" src="assets/doodle.png" alt="">
+  </div>
+</div>
+
+<header class="topbar wrap is-hidden" id="topbar">
+  <a href="#accueil">Tim Bosson</a>
+  <a href="#cv">C.V<i class="ic ic-ar ne" aria-hidden="true"></i></a>
+</header>
+
+<main id="app" lang="fr">
+
+  <!-- ================= ACCUEIL ================= -->
+  <section class="view" id="view-accueil" data-view="accueil">
+    <div class="hero" id="hero">
+      <h1 class="h-name"><span class="mask"><span class="mi">Tim Bosson</span></span></h1>
+      <nav class="h-cta fade late2" aria-label="Accès rapide">
+        <a class="h-link" href="#portfolio" data-roll="Portfolio">Portfolio</a>
+        <a class="h-link" href="#cv" data-roll="C.V">C.V</a>
+      </nav>
+      <div class="h-doodle" id="doodle" aria-hidden="true"><div class="float"><img src="assets/doodle.png" alt=""></div></div>
+      <button class="h-hint fade late2" type="button" id="h-hint" aria-label="Défiler vers la suite"><svg viewBox="0 0 29 88" aria-hidden="true" focusable="false"><path d="M14.5 1.4v85M1.8 74.2l12.7 12.7 12.7-12.7"/></svg></button>
+    </div>
+
+    <!-- Résumé -->
+    <section class="sec first" id="resume" aria-labelledby="t-resume">
+      <div class="sec-head wrap grid">
+        <h2 class="c1-4 label" id="t-resume">Résumé</h2>
+      </div>
+      <div class="wrap grid">
+        <figure class="c1-5 portrait" data-reveal data-parallax>
+          <img src="assets/portrait.jpg" data-img="portrait" data-fallback="assets/portrait.jpg" alt="Portrait de profil de Tim Bosson, en noir et blanc">
+        </figure>
+        <div class="c7-10">
+          <div class="bio" data-words>
+            <p data-edit="bio.0" data-just>Attiré depuis toujours par l’édition, l’amour des lettres et la force de l'image, mon cheminement vers le design graphique s'est imposé comme une évidence. Après un temps d'exploration, j'ai trouvé mon ancrage à l’École Brassart, où je prépare aujourd'hui un Mastère en Direction Artistique.</p>
+            <p data-edit="bio.1" data-just>Mon univers créatif ne s'arrête pas aux frontières du visuel. L’écriture, intimement liée à la musique, ainsi que les jeux de stratégie qui ont façonné ma jeunesse, sont autant de mondes qui ont forgé mon regard.</p>
+            <p data-edit="bio.2" data-just>Ces terrains d’expression pluriels nourrissent ma sensibilité à la communication et mon attachement à la culture populaire.</p>
+          </div>
+          <div class="bio-cta"><a class="lnk" href="#a-propos">Lire mon parcours<i class="ic ic-ar" aria-hidden="true"></i></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="sec" aria-labelledby="t-gal" id="galerie">
+      <div class="sec-head wrap grid">
+        <h2 class="c1-4 label" id="t-gal">Galerie</h2>
+        <div class="right">
+          <span class="mono counter" id="gal-count">02 / 06</span>
+          <span class="lnk-arrows">
+            <button class="lnk" type="button" id="gal-prev" aria-label="Projet précédent"><i class="ic ic-ar l" aria-hidden="true"></i></button>
+            <button class="lnk" type="button" id="gal-next" aria-label="Projet suivant"><i class="ic ic-ar" aria-hidden="true"></i></button>
+          </span>
+        </div>
+      </div>
+      <div class="wrap grid gal-foot">
+        <p class="c1-6 gal-cap"><span class="mask"><span class="mi" id="gal-cap">Projet 02 — Identité</span></span></p>
+        <div class="c7-10" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+          <a class="lnk" href="#projet-02" id="gal-open">Ouvrir la fiche<i class="ic ic-ar" aria-hidden="true"></i></a>
+          <a class="lnk" href="#portfolio">Tous les projets<i class="ic ic-ar" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="carousel" id="carousel" aria-roledescription="carrousel" aria-label="Projets à la une"></div>
+    </section>
+
+    <!-- Domaines d'expertise : la même section que sur À propos (construite par le script) -->
+    <section class="dm" id="domaines" data-dm></section>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+  <section class="view page" id="view-portfolio" data-view="portfolio" hidden>
+    <div class="wrap grid p-head">
+      <h1 class="c1-6 p-title"><span class="mask"><span class="mi">PORTFOLIO</span></span> <span class="mono muted" id="p-count" style="vertical-align:top">(06)</span></h1>
+      <p class="c7-10 p-intro fade" data-edit="portfolio.intro">Une sélection de projets. Chaque ligne ouvre la fiche du projet.</p>
+    </div>
+    <div class="wrap">
+      <div class="idx-head mono">
+        <span>N°</span><span class="c-t">Projet</span><span class="c-d hide-m">Discipline</span><span class="c-y hide-m">Année</span><span class="arr">Voir</span>
+      </div>
+      <div id="idx"></div>
+    </div>
+    <div class="preview" id="preview" aria-hidden="true"><div class="ph"><span class="mono ph-dim" id="preview-lbl"></span></div></div>
+  </section>
+
+  <!-- ================= PROJETS : un projet à la fois dans une scène épinglée (sections construites par le script) ================= -->
+  <section class="view page" id="view-projet" data-view="projet" hidden>
+    <h1 class="sr-only">Projets</h1>
+    <div id="pj-scroller"><div id="pj-stage"></div></div>
+  </section>
+
+  <!-- ================= À PROPOS ================= -->
+  <section class="view page" id="view-apropos" data-view="apropos" hidden>
+    <div class="wrap grid p-head">
+      <h1 class="c1-6 p-title"><span class="mask"><span class="mi">À PROPOS</span></span></h1>
+    </div>
+    <div class="wrap grid ap-grid">
+      <div class="ap-photo ph" data-reveal data-img="ap"><span class="mono ph-dim">Photo — format paysage</span></div>
+      <div class="ap-text bio">
+        <p data-edit="ap.0" data-just>Attiré depuis toujours par l’édition, l’amour des lettres et la force de l'image, mon cheminement vers le design graphique s'est imposé comme une évidence.</p>
+        <p data-edit="ap.1" data-just>L’écriture, intimement liée à la musique, ainsi que les jeux de stratégie qui ont façonné ma jeunesse, sont autant de mondes qui ont forgé mon regard.</p>
+      </div>
+    </div>
+
+    <section class="sec" id="parcours" aria-labelledby="t-parcours">
+      <div class="sec-head wrap grid no-rule">
+        <h2 class="c1-4 label" id="t-parcours">Parcours</h2>
+        <p class="right mono muted"><span>Formation, expériences, compétences</span></p>
+      </div>
+      <div class="wrap">
+        <div class="acc" id="acc" data-reveal></div>
+        <div class="cv-actions"><a class="btn-cv is-off" id="cv-pdf" data-link="cv" href="#" data-todo="1" aria-disabled="true"><span>C.V — PDF</span><span class="todo bc-todo">Bientôt</span><i class="ic ic-ar d" aria-hidden="true"></i></a></div>
+      </div>
+    </section>
+
+    <section class="vz" id="vz" aria-labelledby="t-vis" data-hide-empty>
+      <div class="sec-head wrap grid vz-head" id="vz-head">
+        <h2 class="c1-4 label" id="t-vis">Vision</h2>
+      </div>
+      <blockquote class="vz-q wrap" id="vision"><p id="vz-p" data-edit="att.v" data-quote data-type data-fit data-just></p><div class="vz-sig" id="vz-sig" role="img" aria-label="Signature de Tim Bosson"><svg viewBox="0 0 1107.09 931.9" aria-hidden="true" focusable="false"><path d="M1007.07,530.73c-3.41-2.82-12.77,5.43-16.94,8.45-24.27,21.27-51.92,41.91-82.26,56.72-28.82,14.47-79.19,33.88-102.73,9.62-22.66-31.2,10.49-81.12-12.77-111.47-24.53-13.43-45.05,24.49-55.72,37.64-19.11,27.57-37.79,55.25-55.53,83.26-15.55,24.95-18.24,17.85-13.69-3.9,3.65-20.35,7.29-40.96,8.79-61.38,3.71-22.33-11.87-51.05-42.49-23.28-28.87,30.55-44.09,66.75-67.04,99.5-20.41,28.61-5.45-14.68-3.06-24.32,2.26-13.46,37.27-112.19-11.75-83.51-14.72,12.62-21.68,30.62-30.69,45.53-22.59,39.12-42.26,79.18-66.55,117.99-29.38,48.84-48.59,65.12-33.34-1.13,5.4-26.8,13.83-52.66,24.7-78.87,2.34-10.5,26.8-51.13,5.8-52.42-16.35,5.75-23.07,25.62-29.9,37.58-19.41,38.83-42.2,76.88-65.3,114.78-18.5,30.58-83.2,136.34-80.39,41.88,4.79-108.19,37.59-216.41,87.71-320.88,11.53-24.05,22.48-48.24,32.08-72.62,6.92-24.01,25.95-41.94,59.83-46.03,107.84-21.52,216.12-40.79,323.87-62.62,34.94-8.49,73.36-10.55,106.9-21.98,35.97-21.96-88.5,5.23-96.56,5.55-90.34,14.17-179.7,31.72-269.69,47.94-101.6,19.88-107.88,26.9-68.83-52.11,14.06-33.65,30.4-67.36,42.48-101.34,5.91-37.02-23.98-12.86-31.7,6.74-15.98,30.26-30.87,60.26-45.74,90.77-15.98,25.63-19.84,57.16-44.79,79.14-9.66,6.95-23.41,10.4-36.17,12.92-36.07,7.13-71.97,15.38-108.08,22.57-38.88,9.05-79.92,14.7-117.98,25.8-21.85,8.48-1.21,12.57,12.57,10.89,14.3-1.04,29.02-4.27,43.17-7.08,40.69-8.53,81.68-15.59,122.37-24.36,23.85-3.18,85.42-26.45,71.42,9.57-39.4,89.4-60.03,182.13-107.68,269.93-26.58,53.09-52.14,106.9-85.01,158.51-7.11,15.67-38.76,43.16-33.74,56.62,33.42,11.63,111.12-159.2,127.03-180.6,6.84-3.54-2.44,24.81-2.34,28.8-5.32,32.59-7.04,66.47-3.06,98.55,1.99,20.54,22.29,39.62,50.49,21.33,34.01-24.68,53.2-58.77,73.99-89.52,12.18-19.84,15.91-25.02,11.02,1.58-7.14,26.99,9.71,60.48,47.29,28.35,35.91-33.75,54.15-76.68,76.03-115.54,10.09-16.64,17.43-37.68,30.99-52.62,3.65-.19.99,7.08.73,10.27-7.21,32.04-19.47,63.52-24.3,95.88-1.17,47.97,38.75,7.72,49.38-14.83,20.55-32.68,40.31-65.62,61.34-98.21,32.83-52.32,15.28,27.19,12.35,41.54-3,19.17-13.02,41.55-3.85,59.65,23.9,22.65,50.59-26.43,60.77-40.34,18.34-27.33,36.68-55.07,55-82.45,30.09-47.14,14.5,23.98,17.09,37.78-1.04,85.39,108.15,57.08,170.02,14.35,25.49-17.44,58.92-39.17,64.48-64.52L1007.07,530.73Z"/></svg></div></blockquote>
+    </section>
+
+    <!-- Domaines d'expertise : même section et même nom que sur l'accueil -->
+    <section class="dm" id="domaines-ap" data-dm></section>
+
+    <section class="sec" aria-labelledby="t-hc">
+      <div class="sec-head wrap grid no-rule">
+        <h2 class="c1-4 label" id="t-hc">Loisirs</h2>
+      </div>
+      <div class="lz-stack" id="lz-stack">
+        <article class="lz-card" style="--i:0" aria-labelledby="lz-t1">
+          <button class="lz-head wrap grid" type="button"><span class="d mono">01</span><span class="t" id="lz-t1" data-edit="lz.0.title">Écriture</span><span class="x mono" data-edit="lz.0.sub">Textes, carnets, paroles</span><span class="pm mono" aria-hidden="true"></span></button>
+          <div class="lz-body wrap grid">
+            <div class="lz-txt"><p><span class="todo" data-todo-for="lz.0.p1">En cours</span> <span data-edit="lz.0.p1" data-just></span></p><p data-edit="lz.0.p2" data-just></p></div>
+            <div class="lz-img ph" data-img="lz.0"><span class="mono ph-dim">Photo — 4:3</span></div>
+          </div>
+        </article>
+        <article class="lz-card" style="--i:1" aria-labelledby="lz-t2">
+          <button class="lz-head wrap grid" type="button"><span class="d mono">02</span><span class="t" id="lz-t2" data-edit="lz.1.title">Musique</span><span class="x mono" data-edit="lz.1.sub">Écoute, influences</span><span class="pm mono" aria-hidden="true"></span></button>
+          <div class="lz-body wrap grid">
+            <div class="lz-txt"><p><span class="todo" data-todo-for="lz.1.p1">En cours</span> <span data-edit="lz.1.p1" data-just></span></p><p data-edit="lz.1.p2" data-just></p></div>
+            <div class="lz-img ph" data-img="lz.1"><span class="mono ph-dim">Photo — 4:3</span></div>
+          </div>
+        </article>
+        <article class="lz-card" style="--i:2" aria-labelledby="lz-t3">
+          <button class="lz-head wrap grid" type="button"><span class="d mono">03</span><span class="t" id="lz-t3" data-edit="lz.2.title">Jeux de stratégie</span><span class="x mono" data-edit="lz.2.sub">Anticiper, construire</span><span class="pm mono" aria-hidden="true"></span></button>
+          <div class="lz-body wrap grid">
+            <div class="lz-txt"><p><span class="todo" data-todo-for="lz.2.p1">En cours</span> <span data-edit="lz.2.p1" data-just></span></p><p data-edit="lz.2.p2" data-just></p></div>
+            <div class="lz-img ph" data-img="lz.2"><span class="mono ph-dim">Photo — 4:3</span></div>
+          </div>
+        </article>
+        <article class="lz-card" style="--i:3" aria-labelledby="lz-t4">
+          <button class="lz-head wrap grid" type="button"><span class="d mono">04</span><span class="t" id="lz-t4" data-edit="lz.3.title">Culture populaire</span><span class="x mono" data-edit="lz.3.sub">Films, séries, affiches</span><span class="pm mono" aria-hidden="true"></span></button>
+          <div class="lz-body wrap grid">
+            <div class="lz-txt"><p><span class="todo" data-todo-for="lz.3.p1">En cours</span> <span data-edit="lz.3.p1" data-just></span></p><p data-edit="lz.3.p2" data-just></p></div>
+            <div class="lz-img ph" data-img="lz.3"><span class="mono ph-dim">Photo — 4:3</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="view page" id="view-contact" data-view="contact" hidden>
+    <div class="wrap grid p-head">
+      <h1 class="c1-6 p-title"><span class="mask"><span class="mi">CONTACT</span></span></h1>
+      <p class="c7-10 p-intro fade" data-edit="contact.intro">Un projet, une collaboration ou une simple question : écrivez-moi.</p>
+    </div>
+    <div class="wrap grid">
+      <aside class="c1-4 ct-aside" data-reveal>
+        <div class="blk"><h2 class="label muted">Email</h2><p id="ct-email-v"><span class="todo">En cours</span></p></div>
+        <div class="blk"><h2 class="label muted">Réseaux</h2><ul><li><a href="#" data-link="instagram" data-todo="1">Instagram</a></li><li><a href="#" data-link="behance" data-todo="1">Behance</a></li><li><a href="#" data-link="linkedin" data-todo="1">LinkedIn</a></li></ul></div>
+      </aside>
+      <form class="c5-10 ct-form" id="ct-form" novalidate data-reveal>
+        <fieldset class="ct-obj">
+          <legend class="label">Objet</legend>
+          <div class="opts">
+            <input type="radio" name="objet" id="ct-o1" value="Projet" checked><label for="ct-o1">Projet<sup class="n">01</sup></label>
+            <input type="radio" name="objet" id="ct-o2" value="Collaboration"><label for="ct-o2">Collaboration<sup class="n">02</sup></label>
+            <input type="radio" name="objet" id="ct-o3" value="Question"><label for="ct-o3">Question<sup class="n">03</sup></label>
+            <input type="radio" name="objet" id="ct-o4" value="Autre"><label for="ct-o4">Autre<sup class="n">04</sup></label>
+          </div>
+        </fieldset>
+        <div class="field"><label class="label" for="ct-name">Nom</label><input id="ct-name" name="name" type="text" autocomplete="name" placeholder="Votre nom" required><span class="err" id="ct-name-err" aria-live="polite"></span></div>
+        <div class="field"><label class="label" for="ct-email">Email</label><input id="ct-email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" required><span class="err" id="ct-email-err" aria-live="polite"></span></div>
+        <div class="field"><label class="label" for="ct-msg">Message</label><textarea id="ct-msg" name="message" rows="6" placeholder="Votre message" required></textarea><span class="err" id="ct-msg-err" aria-live="polite"></span></div>
+        <div class="ct-hp" aria-hidden="true"><label>Ne pas remplir ce champ<input type="text" name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+        <div class="ct-actions"><button class="lnk" type="submit">Envoyer le message<i class="ic ic-ar" aria-hidden="true"></i></button><p class="ct-status mono muted" id="ct-status" role="status"></p></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= MENTIONS LÉGALES ================= -->
+  <section class="view page" id="view-mentions" data-view="mentions" hidden>
+    <div class="wrap grid p-head">
+      <h1 class="c1-6 p-title"><span class="mask"><span class="mi">MENTIONS LÉGALES</span></span></h1>
+      <p class="c7-10 p-intro fade">Qui édite ce site, où il est hébergé, et ce que vous pouvez en faire.</p>
+    </div>
+    <div class="wrap lg">
+      <section class="lg-sec grid" aria-labelledby="lg-t1" data-reveal>
+        <h2 class="c1-4 label" id="lg-t1">Éditeur</h2>
+        <div class="c5-10 lg-txt">
+          <p data-edit="legal.ed.0" data-just></p>
+          <p data-edit="legal.ed.1" data-just></p>
+          <p>Contact : <a href="#" id="lg-mail"></a></p>
+        </div>
+      </section>
+      <section class="lg-sec grid" aria-labelledby="lg-t2" data-reveal>
+        <h2 class="c1-4 label" id="lg-t2">Hébergement</h2>
+        <div class="c5-10 lg-txt">
+          <p data-edit="legal.host" data-just></p>
+        </div>
+      </section>
+      <section class="lg-sec grid" aria-labelledby="lg-t3" data-reveal>
+        <h2 class="c1-4 label" id="lg-t3">Propriété intellectuelle</h2>
+        <div class="c5-10 lg-txt">
+          <p data-edit="legal.ip.0" data-just></p>
+          <p data-edit="legal.ip.1" data-just></p>
+        </div>
+      </section>
+      <section class="lg-sec grid" aria-labelledby="lg-t4" data-reveal>
+        <h2 class="c1-4 label" id="lg-t4">Données personnelles</h2>
+        <div class="c5-10 lg-txt">
+          <p data-edit="legal.data.0" data-just></p>
+          <p data-edit="legal.data.1" data-just></p>
+          <p data-edit="legal.data.2" data-just></p>
+        </div>
+      </section>
+      <p class="lg-date mono muted" data-edit="legal.date">Dernière mise à jour : novembre 2026</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <div class="footer-wrap" id="footer-wrap">
+    <footer class="footer wrap" id="footer">
+      <div class="grid">
+        <div class="c1-6">
+          <span class="f-lab">Contact</span>
+          <p style="margin-top:calc(22 * var(--u))"><a class="f-big" href="#contact" data-edit="footer.cta" data-icons>Écrivez-moi →</a></p>
+        </div>
+        <div class="c7-8 f-col"><h3 class="f-lab">Pages</h3>
+          <ul><li><a href="#accueil">Accueil</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#a-propos">À propos</a></li><li><a href="#contact">Contact</a></li><li><a href="#cv">C.V</a></li></ul>
+        </div>
+        <div class="c9-10 f-col"><h3 class="f-lab">Réseaux</h3>
+          <ul><li><a href="#" data-link="instagram" data-todo="1">Instagram</a></li><li><a href="#" data-link="behance" data-todo="1">Behance</a></li><li><a href="#" data-link="linkedin" data-todo="1">LinkedIn</a></li></ul>
+        </div>
+      </div>
+      <div class="grid f-bottom">
+        <p class="f-c">© <span id="year">2026</span> Tim Bosson<a class="f-legal" href="#mentions-legales">Mentions légales</a></p>
+        <p class="f-t muted" data-edit="hero.sub">étudiant en troisième année de direction artistique et design graphique</p>
+        <button class="lnk f-up" type="button" id="to-top">Haut<i class="ic ic-ar u" aria-hidden="true"></i></button>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<button class="ed-toggle" id="ed-toggle" type="button" aria-controls="ed" aria-expanded="false" hidden>Modifier le contenu</button>
+<aside class="ed" id="ed" lang="fr" aria-label="Modifier le contenu" hidden>
+  <div class="ed-head"><p class="ed-title">Modifier le contenu</p><button type="button" class="ed-x" id="ed-close" aria-label="Fermer le panneau"><i class="ic ic-x" aria-hidden="true"></i></button></div>
+  <p class="ed-note" id="ed-note" hidden></p>
+  <div class="ed-body" id="ed-body" data-lenis-prevent></div>
+  <div class="ed-foot"><span class="ed-status" id="ed-status" role="status">Chargement…</span><span class="ed-actions"><button type="button" class="ed-link" id="ed-cancel" disabled>Annuler</button><button type="button" class="ed-save" id="ed-save" disabled>Enregistrer</button></span></div>
+</aside>
+
+<div class="scroll-fade" id="scroll-fade" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><i></i></div>
+<div class="cursor-label" id="cursor-label" aria-hidden="true"><span></span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  const root = document.documentElement;
+  root.classList.add('js');
+  if (!root.lang) root.lang = 'fr';
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const pad = n => String(n).padStart(2, '0');
+  const U = () => root.clientWidth / 1440;
+
+  /* ---------- Typographie française : aucune césure, aucun signe seul en bout de ligne ---------- */
+  const NB = '\u00A0';
+  const NB_MAX = 16;   // longueur maximale d'un bloc lié par espaces insécables
+  const isShort = w => /^[«(\[“"'‘]*[\p{L}\d]{1,2}$/u.test(w.split(NB).pop());   // mots de 1 à 2 lettres : à, de, le, la, un, et, ne…
+  function typo(input) {
+    let t = String(input == null ? '' : input).replace(/[ \t\r\n\u00A0\u202F]+/g, ' ').trim();
+    t = t.replace(/«\s*/g, '«' + NB).replace(/\s*»/g, NB + '»');            // guillemets français
+    t = t.replace(/ +([:;!?%])/g, NB + '$1');                                // ponctuation double
+    t = t.replace(/ +([–—]) +/g, NB + '$1' + NB);                            // tirets d'incise
+    t = t.replace(/(^|[^\d])(\d{1,3}) (?=\d{3}(?!\d))/g, '$1$2' + NB);        // milliers
+    t = t.replace(/(\d) (€|kg|g|cm|mm|km|m|h|min|px|Mo|Go)(?![\p{L}\d])/gu, '$1' + NB + '$2');
+    const parts = t.split(' ');
+    let out = parts[0] || '', run = out.length;
+    for (let i = 1; i < parts.length; i++) {
+      const tie = isShort(parts[i - 1]) && run + 1 + parts[i].length <= NB_MAX;   // petit mot : il suit le mot suivant à la ligne
+      out += (tie ? NB : ' ') + parts[i];
+      run = tie ? run + 1 + parts[i].length : parts[i].length;
+    }
+    return out;
+  }
+  /* ---------- Justification : les lignes sont choisies pour tout le paragraphe, jamais de mot coupé ----------
+     Chaque ligne est ajustée à la colonne par de petits écarts : l'espace entre les mots (+30 % au plus dans le cas courant, −20 %)
+     et un peu d'interlettrage (±1,5 %). Une ligne qui en demanderait davantage est tenue jusqu'à +60 % d'espace et +4 % d'interlettrage ;
+     au-delà, elle reste alignée à gauche plutôt que d'ouvrir de grands blancs entre les mots.
+     Dans une colonne trop étroite (moins de 15 corps de large), le texte n'est pas justifié. */
+  const mctx = document.createElement('canvas').getContext('2d');
+  let fontRev = 0;
+  const FIT = { ws: 0.30, ls: 0.015, ws2: 0.60, ls2: 0.040, sh: 0.20, shl: 0.012, sh2: 0.30, shl2: 0.025 };
+  // S : espace à répartir sur la ligne (px), positif = étirer, négatif = resserrer. Renvoie { ws, ls, bad } ou null si la ligne ne peut pas être justifiée.
+  function fitLine(S, gaps, nch, sp, em) {
+    if (Math.abs(S) < 0.05) return { ws: 0, ls: 0, bad: 0 };
+    if (!gaps) return null;
+    const nl = Math.max(1, nch + gaps - 1);
+    if (S > 0) {
+      const c1 = gaps * FIT.ws * sp + nl * FIT.ls * em, c2 = gaps * FIT.ws2 * sp + nl * FIT.ls2 * em;
+      if (S <= c1) { const f = S / c1; return { ws: f * FIT.ws * sp, ls: f * FIT.ls * em, bad: 60 * f * f }; }
+      if (S <= c2) { const g = (S - c1) / (c2 - c1); return { ws: (FIT.ws + g * (FIT.ws2 - FIT.ws)) * sp, ls: (FIT.ls + g * (FIT.ls2 - FIT.ls)) * em, bad: 60 + 240 * g * g }; }
+      return null;
+    }
+    const T = -S, c1 = gaps * FIT.sh * sp + nl * FIT.shl * em, c2 = gaps * FIT.sh2 * sp + nl * FIT.shl2 * em;
+    if (T <= c1) { const f = T / c1; return { ws: -f * FIT.sh * sp, ls: -f * FIT.shl * em, bad: 8 + 60 * f * f }; }
+    if (T <= c2) { const g = (T - c1) / (c2 - c1); return { ws: -(FIT.sh + g * (FIT.sh2 - FIT.sh)) * sp, ls: -(FIT.shl + g * (FIT.shl2 - FIT.shl)) * em, bad: 68 + 240 * g * g }; }
+    return null;
+  }
+  function breakLines(w, len, W, sp, em) {
+    const n = w.length, best = new Array(n + 1).fill(Infinity), from = new Array(n + 1).fill(0);
+    best[0] = 0;
+    for (let j = 1; j <= n; j++) {
+      let L = 0, ch = 0;
+      for (let i = j - 1; i >= 0; i--) {
+        L += w[i] + (i < j - 1 ? sp : 0); ch += len[i];
+        const gaps = j - i - 1, last = j === n;
+        let bad;
+        if (gaps === 0 && L > W + 0.01) bad = 9000;                                   // un bloc plus long que la colonne
+        else if (last) {
+          if (L <= W) bad = gaps === 0 && L < 0.2 * W && n > 1 ? 400 : 0;             // dernière ligne : jamais étirée, mais pas un mot orphelin
+          else { const f = fitLine(W - L, gaps, ch, sp, em); if (!f) break; bad = f.bad + 20; }
+        } else {
+          const f = fitLine(W - L, gaps, ch, sp, em);
+          if (f) bad = f.bad;
+          else if (L > W) break;                                                      // trop pleine, même resserrée : on s'arrête
+          else bad = 600 + 4000 * (W - L) / W;                                        // trop lâche : ligne alignée à gauche, d'autant moins bonne qu'elle est courte
+        }
+        const c = best[i] + (10 + bad) * (10 + bad);
+        if (c < best[j]) { best[j] = c; from[j] = i; }
+      }
+    }
+    const lines = [];
+    for (let j = n; j > 0; j = from[j]) lines.unshift([from[j], j]);
+    return lines;
+  }
+  function flat(el) {
+    const nodes = [];
+    el._u.forEach((x, i) => { if (i) nodes.push(document.createTextNode(' ')); nodes.push(x.el || document.createTextNode(x.text)); });
+    el.replaceChildren(...nodes);
+    el._ts = null;
+  }
+  // Grand texte (la citation de la Vision) : on part de la taille voulue et on ne la réduit, de 1 % à la fois (16 % au plus), que si une ligne ne pouvait pas être justifiée
+  // proprement avec la police de l'ordinateur : le texte reste le plus grand possible, et toutes les lignes sont pleines.
+  function autoSize(el, W) {
+    el.style.fontSize = '';
+    const cs = getComputedStyle(el), base = parseFloat(cs.fontSize), u = el._u, up = cs.textTransform === 'uppercase';
+    const len = u.map(x => [...x.text].length);
+    let best = base, bestScore = Infinity;
+    for (let k = 0; k <= 16; k++) {
+      const fs = base * (1 - k * 0.01);
+      mctx.font = `${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
+      const sp = mctx.measureText(' ').width, Wt = W - 1;
+      const widths = u.map(x => mctx.measureText(up ? x.text.toUpperCase() : x.text).width);
+      const lines = breakLines(widths, len, Wt, sp, fs);
+      let worst = 0;
+      lines.forEach(([a, b], li) => {
+        if (li === lines.length - 1) return;
+        let L = (b - a - 1) * sp, ch = 0;
+        for (let q = a; q < b; q++) { L += widths[q]; ch += len[q]; }
+        const f = fitLine(Wt - L, b - a - 1, ch, sp, fs);
+        worst = Math.max(worst, f ? f.bad : 1000);
+      });
+      if (worst < bestScore - 1e-6) { bestScore = worst; best = fs; }
+      if (worst <= 80) break;   // toutes les lignes sont justifiées avec un écart de mots discret : on garde cette taille, la plus grande possible
+    }
+    el.style.fontSize = best.toFixed(2) + 'px';
+  }
+  // Citation « machine à écrire » : un bloc lié par espaces insécables plus large que la colonne (téléphone) est autorisé à se couper, plutôt que de déborder de l'écran
+  function loosen(el, W, on) {
+    if (!el.hasAttribute('data-type')) return;
+    const cs = getComputedStyle(el), up = cs.textTransform === 'uppercase';
+    mctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    el._u.forEach(x => {
+      if (!x.el || !x.text.includes(NB)) return;
+      const brk = on && mctx.measureText(up ? x.text.toUpperCase() : x.text).width > W - 1;
+      if (brk !== x.el.classList.contains('brk')) { x.el.textContent = brk ? x.text.split(NB).join(' ') : x.text; x.el.classList.toggle('brk', brk); }
+    });
+  }
+  function typeset(el) {
+    const u = el._u;
+    if (!u || !u.length) return;
+    const W = el.clientWidth;
+    if (!W) return;
+    let cs = getComputedStyle(el);
+    if (el.hasAttribute('data-fit')) {
+      const k0 = `${W}|${el._rev || 0}|${fontRev}|${cs.fontFamily}|${cs.fontWeight}|${innerWidth}`;
+      if (el._fk !== k0) {
+        el._fk = k0; el._ts = null;
+        if (innerWidth > 760) autoSize(el, W); else el.style.fontSize = '';
+        cs = getComputedStyle(el);
+      }
+    }
+    const em = parseFloat(cs.fontSize);
+    if (innerWidth <= 760 || W < 15 * em) { loosen(el, W, true); if (el._ts) flat(el); el.style.textAlign = 'left'; return; }   // téléphone, colonne étroite : alignement à gauche
+    loosen(el, W, false);
+    el.style.textAlign = '';
+    const key = `${W}|${el._rev || 0}|${fontRev}|${cs.fontFamily}|${cs.fontSize}|${cs.fontWeight}`;
+    if (el._ts === key) return;
+    mctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    const sp = mctx.measureText(' ').width, Wt = W - 1;
+    const up = cs.textTransform === 'uppercase';   // citation en majuscules : on mesure les capitales
+    const widths = u.map(x => mctx.measureText(up ? x.text.toUpperCase() : x.text).width), len = u.map(x => [...x.text].length);
+    const lines = breakLines(widths, len, Wt, sp, em);
+    const frag = document.createDocumentFragment();
+    lines.forEach(([a, b], li) => {
+      const row = document.createElement('span'), gaps = b - a - 1;
+      let L = gaps * sp, ch = 0;
+      for (let k = a; k < b; k++) { L += widths[k]; ch += len[k]; }
+      const last = li === lines.length - 1;
+      const fit = (!last || L > Wt) ? fitLine(Wt - L, gaps, ch, sp, em) : null;
+      row.className = 'ln' + (fit ? ' j' : '');
+      if (fit) { row.style.wordSpacing = fit.ws.toFixed(2) + 'px'; row.style.letterSpacing = fit.ls.toFixed(3) + 'px'; }
+      for (let k = a; k < b; k++) {
+        if (k > a) row.appendChild(document.createTextNode(' '));
+        let node = u[k].el;
+        if (!node) {
+          if (u[k].text.includes(NB)) { node = document.createElement('span'); node.className = 'nb'; node.textContent = u[k].text; }   // bloc lié : ne s'étire pas
+          else node = document.createTextNode(u[k].text);
+        }
+        row.appendChild(node);
+      }
+      frag.appendChild(row);
+    });
+    el.replaceChildren(frag);
+    el._ts = key;
+  }
+  const typesetAll = scope => $$('[data-just]', scope || document).forEach(typeset);
+  let tsT;
+  addEventListener('resize', () => { clearTimeout(tsT); tsT = setTimeout(() => { typesetAll(); lenis?.resize(); }, 120); });
+  document.fonts?.addEventListener?.('loadingdone', () => { fontRev++; typesetAll(); lenis?.resize(); rollKern(); relayout(); });
+
+  /* ---------- Liens de l'accueil : les lettres roulent au survol ----------
+     Chaque lettre est dupliquée dans une petite fenêtre ; l'approche de la souris fait glisser la pile, lettre après lettre.
+     L'approche (crénage) entre deux lettres est reprise de la police : le mot garde sa forme. */
+  function buildRoll(a) {
+    const label = (a.dataset.roll || a.textContent).trim().toUpperCase();
+    a.setAttribute('aria-label', a.dataset.roll || a.textContent.trim());
+    const wrap = document.createElement('span');
+    wrap.className = 'roll';
+    wrap.setAttribute('aria-hidden', 'true');
+    [...label].forEach((ch, i) => {
+      const c = document.createElement('span'), t1 = document.createElement('span'), t2 = document.createElement('span');
+      c.className = 'rc'; c.style.setProperty('--i', i);
+      t1.textContent = t2.textContent = ch === ' ' ? ' ' : ch;
+      c.append(t1, t2);
+      wrap.appendChild(c);
+    });
+    a.replaceChildren(wrap);
+  }
+  function rollKern() {
+    $$('.roll').forEach(r => {
+      const cs = getComputedStyle(r), fs = parseFloat(cs.fontSize), cells = $$('.rc', r);
+      mctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      cells.forEach((c, i) => {
+        if (!i) return;
+        const p = cells[i - 1].firstChild.textContent, q = c.firstChild.textContent;
+        const k = mctx.measureText(p + q).width - mctx.measureText(p).width - mctx.measureText(q).width;
+        c.style.marginLeft = (k / fs).toFixed(4) + 'em';
+      });
+    });
+  }
+  $$('[data-roll]').forEach(buildRoll);
+
+  rollKern();
+
+  const ARROW_MOD = { '→': '', '←': ' l', '↑': ' u', '↓': ' d', '↗': ' ne' };
+  function setRich(el, v) {
+    let t = v;
+    if (el.hasAttribute('data-quote')) t = t.replace(/^[«"“\s\u00A0]+|[»"”\s\u00A0]+$/g, '');
+    t = typo(t);
+    // guillemet fermant anglais, collé au dernier mot (le “ d'ouverture est dessiné par la feuille de style) ; les deux derniers mots sont liés : jamais un mot seul sur la dernière ligne
+    if (el.hasAttribute('data-quote') && t.trim()) t = t.replace(/ ([^ ]+)$/, NB + '$1') + '”';
+    if (el.hasAttribute('data-icons') && /[→←↑↓↗]/.test(t)) {
+      el.replaceChildren(...t.split(/([→←↑↓↗])/).filter(Boolean).map(part => {
+        if (part in ARROW_MOD) { const i = document.createElement('i'); i.className = 'ic ic-ar' + ARROW_MOD[part]; i.setAttribute('aria-hidden', 'true'); return i; }
+        return document.createTextNode(part);
+      }));
+    } else el.textContent = t;
+    if (el.hasAttribute('data-just')) {
+      el._rev = (el._rev || 0) + 1;
+      // citation « machine à écrire » : chaque mot est un élément, révélé un par un (la mise en page est calculée avec tous les mots en place)
+      const word = el.hasAttribute('data-type') ? (text, i) => { const w = document.createElement('span'); w.className = 'vw'; w.style.setProperty('--i', i); w.textContent = text; return { text, el: w }; } : text => ({ text });
+      el._u = t.split(' ').filter(Boolean).map(word);
+      el._ts = null;
+      if (el.hasAttribute('data-type')) flat(el);
+    }
+    const box = el.closest('[data-hide-empty]') || (el.hasAttribute('data-quote') ? el.closest('blockquote') : null);
+    if (box) box.hidden = !t.trim();
+  }
+
+  /* =====================================================================
+     CONTENU — valeurs par défaut. Le panneau « Modifier le contenu »
+     enregistre les changements dans content.json, publié à côté de la page.
+     ===================================================================== */
+  const IDS = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'];
+  const DISC = ['Édition', 'Identité', 'Publicité', 'Direction artistique', 'Stratégie', 'Communication'];
+  const TITLES = { '07': 'Toca Loco', '08': 'Islafood', '09': 'Fanzine', '10': 'NOMADE' };
+  const C0 = {
+    'hero.sub': 'Étudiant en troisième année de direction artistique et design graphique.',
+    'bio.0': 'Attiré depuis toujours par l’édition, l’amour des lettres et la force de l\'image, j\'ai vu mon cheminement vers le design graphique s\'imposer comme une évidence. Après un temps d\'exploration, j\'ai trouvé mon ancrage à l’École Brassart, où je prépare aujourd\'hui un mastère en direction artistique.',
+    'bio.1': 'Mon univers créatif ne s\'arrête pas aux frontières du visuel. L’écriture, intimement liée à la musique, ainsi que les jeux de stratégie qui ont façonné ma jeunesse, sont autant de mondes qui ont forgé mon regard.',
+    'bio.2': 'Ces terrains d’expression pluriels nourrissent ma sensibilité à la communication et mon attachement à la culture populaire.',
+    'portfolio.intro': 'Une sélection de projets. Chaque ligne ouvre la fiche du projet.',
+    'ap.0': 'Attiré depuis toujours par l’édition, l’amour des lettres et la force de l\'image, j\'ai vu mon cheminement vers le design graphique s\'imposer comme une évidence.',
+    'ap.1': 'L’écriture, intimement liée à la musique, ainsi que les jeux de stratégie qui ont façonné ma jeunesse, sont autant de mondes qui ont forgé mon regard.',
+    'att.v': 'L\'image au service de la narration.',
+    'contact.intro': 'Un projet, une collaboration ou une simple question : écrivez-moi.',
+    'contact.email': '',
+    'contact.endpoint': '',
+    'link.instagram': '', 'link.behance': '', 'link.linkedin': '', 'link.cv': '',
+    'footer.cta': 'Écrivez-moi →',
+    'legal.ed.0': 'Ce site est édité à titre non professionnel par Tim Bosson, étudiant en direction artistique et design graphique à l’École Brassart, à Lyon. Il présente un portfolio : il n’exerce aucune activité commerciale et ne diffuse aucune publicité.',
+    'legal.ed.1': 'Directeur de la publication : Tim Bosson. Conformément à la loi du 21 juin 2004 pour la confiance dans l’économie numérique, l’éditeur, qui agit à titre non professionnel, a communiqué ses données d’identification à l’hébergeur du site.',
+    'legal.host': 'Le site est hébergé par GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Le nom de domaine timbosson.com est enregistré auprès de IONOS SARL, 7 place de la Gare, 57200 Sarreguemines, France.',
+    'legal.ip.0': 'Les textes, images, vidéos, logotypes, identités visuelles et mises en page présentés sur ce site sont des créations de Tim Bosson, réalisées pour la plupart dans le cadre de sa formation à l’École Brassart. Ils sont protégés par le droit d’auteur : toute reproduction, représentation ou réutilisation, totale ou partielle, nécessite son accord écrit préalable.',
+    'legal.ip.1': 'Certains projets reprennent le nom, le logo ou l’univers d’une marque ou d’une organisation existante. Ces éléments appartiennent à leurs titulaires et ne sont montrés ici que pour documenter le travail réalisé.',
+    'legal.data.0': 'Ce site ne dépose aucun cookie, ne mesure pas son audience et ne contient aucune publicité.',
+    'legal.data.1': 'Pour s’afficher, il charge des ressources hébergées par des services tiers : les polices Google Fonts (Google) et la bibliothèque de défilement Lenis (distribuée par jsDelivr). Ces services reçoivent l’adresse IP du visiteur, comme tout serveur auquel un navigateur se connecte, y compris celui de l’hébergeur du site.',
+    'legal.data.2': 'Si vous m’écrivez par le formulaire de contact, votre nom, votre adresse e-mail et votre message sont transmis à ma boîte mail par un service d’envoi de formulaires (Web3Forms). Ces informations servent uniquement à vous répondre ; elles ne sont ni utilisées à d’autres fins, ni vendues. Conformément au règlement général sur la protection des données (RGPD), vous pouvez demander l’accès, la rectification ou la suppression de ces informations en écrivant à l’adresse ci-dessus. Vous pouvez aussi saisir la CNIL (cnil.fr).',
+    'legal.date': 'Dernière mise à jour : novembre 2026',
+  };
+  IDS.forEach((id, i) => Object.assign(C0, {
+    [`p${id}.title`]: TITLES[id] || `Projet ${id}`,
+    [`p${id}.disc`]: DISC[i] || 'En cours',
+    [`p${id}.year`]: '20XX',
+    [`p${id}.context`]: 'École Brassart',
+    [`p${id}.role`]: 'À venir',
+    [`p${id}.desc`]: 'Le contexte, la problématique et la réalisation de ce projet seront présentés ici, en quelques lignes, dès que la fiche sera rédigée.',
+    [`p${id}.t1`]: 'Lorsque la fiche sera complète, je raconterai ici le parti pris du projet : ce qu’il dit, et pourquoi il prend cette forme.',
+    [`p${id}.t2`]: 'Plus tard, je détaillerai ici le process, les outils, les choix typographiques et les déclinaisons du projet.',
+  }));
+  [
+    ['Direction artistique', 'Tenir un parti pris visuel, de l’idée jusqu’à la livraison, et le partager avec ceux qui le fabriquent. Choisir les images, les lettres et le ton qui portent un même message.'],
+    ['Design éditorial', 'Composer le texte et l’image dans la page pour qu’ils racontent quelque chose ensemble : livres, revues, affiches.'],
+    ['Signalétique', 'Guider le regard dans l’espace : enseignes, panneaux, repères. Un message lisible de loin et compris au premier coup d’œil.'],
+    ['Impression', 'Concevoir en connaissant la fabrication : papier, offset, flexographie. Un fichier pensé pour être imprimé, pas seulement affiché.'],
+    ['Publicité', 'Une idée forte, un visuel qui accroche, une phrase qui reste en tête, déclinés d’un support à l’autre.'],
+    ['Communication', 'Faire passer un message clairement, au bon endroit et au bon moment, aux bonnes personnes.'],
+  ].forEach(([n, d], i) => { C0[`kw.${i}.name`] = n; C0[`kw.${i}.desc`] = d; });
+  [
+    ['Formation', 'Mastère en cours', '2024 – 2029 | École Brassart, Lyon | Mastère en direction artistique et design graphique : préparation aux métiers des arts graphiques. Actuellement en troisième année.'],
+    ['Parcours', 'Avant Brassart', '2021 – 2023 | Lycée Saint-Charles, Rillieux-la-Pape | Bac pro Systèmes numériques, option audiovisuel (ARED) : une base technique en audiovisuel, réseau et équipements domestiques.'],
+    ['Expériences', 'Impression, signalétique', '2026 | Bobst, Bron | Impression en flexographie.\n2023 | Cali Imprim, Rillieux-la-Pape | Impression offset.\n2021 – 2023 | Ateliers de la Boucle, Rillieux-la-Pape | Enseigne, publicité et communication.'],
+    ['Compétences', 'Logiciels, langues, intérêts', 'Création | Illustrator, Photoshop, InDesign | Vectoriel, retouche d’image et mise en page.\nInterface | Figma, Notion | Maquettes d’interface et organisation de projet.\nLangues | Anglais | Niveau B2.\nIntérêts | Stratégie, écriture, sport |\nPermis | B |'],
+  ].forEach(([t, s, r], i) => { C0[`cv.${i}.title`] = t; C0[`cv.${i}.sub`] = s; C0[`cv.${i}.rows`] = r; });
+  [
+    ['Écriture', 'Textes, carnets, paroles', 'Cette partie est en cours d\'écriture. Je présenterai ici mes textes, mes carnets et mes paroles, et depuis quand ils m\'accompagnent.', 'Lorsque je serai amené à en parler plus longuement, j\'expliquerai ce que l\'écriture apporte à mon travail de graphiste : le rythme, le choix des mots, la manière de construire une idée.'],
+    ['Musique', 'Écoute, influences', 'Bientôt, je raconterai ici ce que j\'écoute en ce moment, ainsi que les artistes et les genres qui m\'accompagnent depuis longtemps.', 'Je montrerai aussi comment un son, une pochette ou un clip peut influencer une image, et le lien que je fais avec l\'écriture.'],
+    ['Jeux de stratégie', 'Anticiper, construire', 'Je parlerai ici des jeux qui ont marqué ma jeunesse, et de ceux auxquels je joue encore.', 'J\'expliquerai ce qu\'ils m\'ont appris : anticiper, construire un plan, s\'adapter. Des réflexes que je retrouverai lorsque je concevrai une campagne ou une identité.'],
+    ['Culture populaire', 'Films, séries, affiches', 'Cette partie présentera mes références : films, séries, bandes dessinées, affiches et objets du quotidien.', 'Lorsque je serai amené à la détailler, je dirai pourquoi la culture populaire compte pour moi et comment elle nourrit ma manière de parler à un large public.'],
+  ].forEach(([t, s, p1, p2], i) => Object.assign(C0, { [`lz.${i}.title`]: t, [`lz.${i}.sub`]: s, [`lz.${i}.p1`]: p1, [`lz.${i}.p2`]: p2 }));
+
+  const S = { ...C0 };       // textes en cours
+  let IMG = {};              // emplacement d'image → id de l'image envoyée
+  let VID = {};              // emplacements qui contiennent une vidéo (MP4 / WebM)
+  let FONTS = {};            // polices ajoutées depuis le panneau : regular / mono → id du fichier
+  let MEDIA = {};            // site en ligne : id du fichier → chemin dans le dossier du site (assets/…) ; vide sur la maquette
+  const N = IDS.length, NK = 6, NCV = 4;
+  const T = k => S[k] ?? '';
+  const P = (i, f) => T(`p${IDS[i]}.${f}`);
+
+  /* ---------- Unité --u ---------- */
+  const setU = () => root.style.setProperty('--u', U() + 'px');
+  setU();
+  addEventListener('resize', setU);
+  let rlT;
+  addEventListener('resize', () => { clearTimeout(rlT); rlT = setTimeout(relayout, 140); });
+
+  /* ---------- Smooth scroll ---------- */
+  const lenis = (!reduced && window.Lenis) ? new Lenis({ lerp: 0.1, smoothWheel: true }) : null;
+  const scrollTo = (y, immediate = true) => {
+    if (lenis) lenis.scrollTo(y, { immediate, force: true });
+    else window.scrollTo({ top: y, behavior: immediate ? 'auto' : 'smooth' });
+  };
+  const topOf = el => el.getBoundingClientRect().top + scrollY - ($('#topbar').offsetHeight + 24);
+
+  /* ---------- Mots : gris → noir au défilement ---------- */
+  const SOFT = 189;
+  const WORDS = new Map();
+  const SPLIT = '[data-words] p';
+  function splitP(p) {
+    const parts = p.textContent.trim().split(/[ \t\r\n]+/).filter(Boolean);
+    p.textContent = '';
+    const words = parts.map((w, i) => {
+      const s = document.createElement('span');
+      s.className = 'w'; s.textContent = w;
+      p.appendChild(s);
+      if (i < parts.length - 1) p.appendChild(document.createTextNode(' '));
+      return { el: s, v: -1 };
+    });
+    WORDS.set(p, words);
+    p._u = words.map(w => ({ el: w.el, text: w.el.textContent }));
+    return words;
+  }
+  const wordsOf = c => (c.tagName === 'P' ? [c] : $$('p', c)).flatMap(p => WORDS.get(p) || []);
+  function paint(words, p) {
+    const n = words.length, spread = 6;
+    words.forEach((w, i) => {
+      const t = clamp(p * (n + spread) - i, 0, spread) / spread;
+      const v = Math.round(SOFT * (1 - t));
+      if (v !== w.v) { w.v = v; w.el.style.color = `rgb(${v},${v},${v})`; }
+    });
+  }
+  /* ---------- Domaines d'expertise : la même section (menu déroulant, comme le C.V) sur l'accueil et sur À propos ---------- */
+  $$('[data-dm]').forEach((sec, n) => {
+    sec.setAttribute('aria-labelledby', `t-dm${n}`);
+    sec.innerHTML = `<div class="sec-head wrap grid no-rule"><h2 class="c1-4 label" id="t-dm${n}">Domaines d’expertise</h2><p class="right mono muted"><span>Ce que je pratique</span></p></div>`
+      + `<div class="wrap"><div class="acc" data-reveal>${Array.from({ length: NK }, (_, i) => `<div class="acc-item${i ? '' : ' open'}"><h3><button class="acc-btn" type="button" id="dm${n}-b${i}" aria-controls="dm${n}-p${i}" aria-expanded="${i ? 'false' : 'true'}"><span class="d mono">${pad(i + 1)}</span><span class="t" data-edit="kw.${i}.name"></span><i class="pm ic ic-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="dm${n}-p${i}" role="region" aria-labelledby="dm${n}-b${i}"><div><div class="acc-row dm-row"><p class="dm-txt" data-edit="kw.${i}.desc" data-just></p></div></div></div></div>`).join('')}</div></div>`;
+    sec.addEventListener('click', e => {
+      const b = e.target.closest('.acc-btn');
+      if (!b) return;
+      const item = b.closest('.acc-item'), open = !item.classList.contains('open');
+      item.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', String(open));
+      setTimeout(() => { lenis?.resize(); sizeFooter(); }, 650);
+    });
+  });
+  const wordGroups = $$('[data-words]');
+  function updateWords(vh) {
+    wordGroups.forEach(group => {
+      if (!group.offsetParent) return;
+      const r = group.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      const start = vh * 0.82, end = vh * 0.4;
+      paint(wordsOf(group), reduced ? 1 : clamp((start - r.top) / (r.height + start - end), 0, 1));
+    });
+  }
+
+  /* ---------- Rendu du contenu ---------- */
+  function renderTexts(scope = document) {
+    $$('[data-edit]', scope).forEach(el => {
+      if (el.dataset.kind === 'list') return;
+      const v = T(el.dataset.edit);
+      if (el._v === v) return;
+      el._v = v;
+      setRich(el, v);
+      if (el.matches(SPLIT)) splitP(el);
+    });
+    typesetAll(scope);
+  }
+  // Adresse d'un fichier (image, vidéo, police) : sur la maquette, c'est le stockage de la maquette (/_blob/…) ; sur le site en ligne, content.json donne le chemin du fichier (assets/…)
+  const blobURL = id => MEDIA[id] || '/_blob/' + id;
+  const imgURL = k => (IMG[k] ? blobURL(IMG[k]) : '');
+  // Une vidéo hors de l'écran (ou d'un projet qui n'est pas affiché) est mise en pause, et reprend quand elle revient : elles ne tournent pas toutes à la fois.
+  const vidIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting && vidOk(en.target)) { if (!reduced) en.target.play().catch(() => {}); } else en.target.pause();
+  }), { rootMargin: '8% 0px' }) : null;
+  // Vidéo en boucle, muette, sans contrôles : elle remplit le cadre comme une image (même recadrage).
+  function setVideo(host, url) {
+    let v = host.querySelector(':scope > video.ph-vid');
+    if (!url) { if (v) { vidIO?.unobserve(v); v.remove(); } return; }
+    if (!v) {
+      v = document.createElement('video');
+      v.className = 'ph-vid';
+      v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = !reduced && !vidIO;
+      v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+      host.appendChild(v);
+      vidIO?.observe(v);
+    }
+    if (v.getAttribute('src') !== url) { v.src = url; if (!reduced && !vidIO) v.play().catch(() => {}); }
+  }
+  function applyImg(el) {
+    const a = el.dataset.img, b = el.dataset.imgAlt;
+    const key = IMG[a] ? a : (b && IMG[b] ? b : a);
+    const u = imgURL(key), isVid = !!(u && VID[key]);
+    if (el.tagName === 'IMG') {
+      const src = (!isVid && u) || el.dataset.fallback || '';
+      if (el.getAttribute('src') !== src) el.setAttribute('src', src);
+      el.style.visibility = isVid ? 'hidden' : '';
+      setVideo(el.parentElement, isVid ? u : '');
+      return;
+    }
+    el.classList.toggle('has-img', !!u);
+    const on = mediaOn(el);   // projets : seuls ceux proches de l'écran chargent leurs médias (une image déjà chargée reste en place)
+    if (u && !isVid && (on || el.style.getPropertyValue('--img'))) el.style.setProperty('--img', `url("${u}")`); else el.style.removeProperty('--img');
+    setVideo(el, isVid && on ? u : '');
+  }
+  const renderImages = () => $$('[data-img]').forEach(applyImg);
+  const renderTodos = () => $$('[data-todo-for]').forEach(t => { t.hidden = T(t.dataset.todoFor) !== C0[t.dataset.todoFor]; });
+  function linkURL(k) {
+    const u = T(k).trim();
+    if (!u) return '';
+    if (/^https?:\/\//i.test(u)) return u;
+    if (/^\/_blob\/[\w-]{8,64}$/.test(u)) return u;   // fichier envoyé depuis le panneau « Modifier le contenu »
+    if (/\.pdf$/i.test(u) && !/^[\w-]+(\.[\w-]+)+\//.test(u) && !/^[a-z][\w+.-]*:/i.test(u)) return u;   // fichier publié avec le site, ex. assets/CV.pdf (jamais un chemin de l'ordinateur : file:///…)
+    return /^[\w-]+(\.[\w-]+)+/.test(u) ? 'https://' + u : '';
+  }
+  function renderLinks() {
+    $$('a[data-link]').forEach(a => {
+      const u = linkURL('link.' + a.dataset.link);
+      if (u) { a.href = u; a.target = '_blank'; a.rel = 'noopener'; delete a.dataset.todo; }
+      else { a.setAttribute('href', '#'); a.removeAttribute('target'); a.dataset.todo = '1'; }
+      a.classList.toggle('is-off', !u && a.classList.contains('btn-cv'));
+      if (!u) a.setAttribute('aria-disabled', 'true'); else a.removeAttribute('aria-disabled');
+    });
+    const lgm = $('#lg-mail'), lgv = T('contact.email').trim();
+    if (lgm) { lgm.textContent = lgv; lgm.href = lgv ? 'mailto:' + lgv : '#'; lgm.parentElement.hidden = !lgv; }
+    const em = T('contact.email').trim(), box = $('#ct-email-v');
+    if (box._v !== em) {
+      box._v = em;
+      box.replaceChildren();
+      if (em) { const a = document.createElement('a'); a.href = 'mailto:' + em; a.textContent = em; box.appendChild(a); }
+      else { const s = document.createElement('span'); s.className = 'todo'; s.textContent = 'En cours'; box.appendChild(s); }
+    }
+  }
+
+  /* ---------- Carrousel ---------- */
+  const car = $('#carousel');
+  const slides = IDS.map((id, i) => {
+    const a = document.createElement('a');
+    a.className = 'slide';
+    a.href = `#projet-${id}`;
+    a.draggable = false;
+    a.innerHTML = `<div class="ph tone${(i % 6) + 1}" data-img="p${id}.cover" data-img-alt="p${id}.main"><span class="mono ph-dim">Vignette — 1:1</span></div>`;
+    car.appendChild(a);
+    return a;
+  });
+  function renderSlides() {
+    slides.forEach((a, i) => a.setAttribute('aria-label', `${P(i, 'title')}, ${P(i, 'disc')}`));
+    C.active = -1;
+  }
+  const C = { pos: 1, target: 1, drag: null, moved: 0, active: -1 };
+  const step = () => slides[0].offsetWidth + (innerWidth <= 760 ? 12 : 24 * U());
+  const wrapD = d => ((d + N / 2) % N + N) % N - N / 2;
+  function carRender() {
+    C.pos = C.drag ? C.target : lerp(C.pos, C.target, reduced ? 1 : 0.11);
+    if (Math.abs(C.pos - C.target) < 0.0005) C.pos = C.target;
+    const s = step();
+    slides.forEach((el, i) => {
+      const d = wrapD(i - C.pos);
+      el.dataset.d = d;
+      el.style.transform = `translate3d(${d * s}px,0,0)`;
+      el.tabIndex = Math.abs(d) < 0.5 ? 0 : -1;
+    });
+    const act = ((Math.round(C.target) % N) + N) % N;
+    if (act !== C.active) {
+      C.active = act;
+      $('#gal-count').textContent = `${IDS[act]} / ${pad(N)}`;
+      $('#gal-open').href = `#projet-${IDS[act]}`;
+      const cap = $('#gal-cap');
+      cap.style.transform = 'translateY(110%)';
+      setTimeout(() => { cap.textContent = `${P(act, 'title')}\u00A0— ${P(act, 'disc')}`; cap.style.transform = ''; }, reduced ? 0 : 220);
+    }
+  }
+  $('#gal-prev').addEventListener('click', () => { C.target = Math.round(C.target) - 1; });
+  $('#gal-next').addEventListener('click', () => { C.target = Math.round(C.target) + 1; });
+  car.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    C.drag = { x: e.clientX, t: C.target, last: e.clientX, v: 0, time: performance.now() };
+    C.moved = 0;
+  });
+  addEventListener('pointermove', e => {
+    if (!C.drag) return;
+    const dx = e.clientX - C.drag.x;
+    C.moved = Math.max(C.moved, Math.abs(dx));
+    const now = performance.now();
+    C.drag.v = (e.clientX - C.drag.last) / Math.max(1, now - C.drag.time);
+    C.drag.last = e.clientX; C.drag.time = now;
+    C.target = C.drag.t - dx / step();
+  });
+  addEventListener('pointerup', () => {
+    if (!C.drag) return;
+    const fling = clamp(-C.drag.v * 6, -1.4, 1.4);
+    C.target = Math.round(C.target + (C.moved > 4 ? fling * 0.5 : 0));
+    C.drag = null;
+  });
+  car.addEventListener('click', e => {
+    const s = e.target.closest('.slide');
+    if (!s) return;
+    if (C.moved > 6) { e.preventDefault(); return; }
+    const d = Math.round(parseFloat(s.dataset.d));
+    if (d !== 0) { e.preventDefault(); C.target = Math.round(C.target) + d; }
+  });
+  car.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') { C.target = Math.round(C.target) - 1; e.preventDefault(); }
+    if (e.key === 'ArrowRight') { C.target = Math.round(C.target) + 1; e.preventDefault(); }
+  });
+  let wheelT;
+  car.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    C.target += e.deltaX / step();
+    clearTimeout(wheelT);
+    wheelT = setTimeout(() => { C.target = Math.round(C.target); }, 140);
+  }, { passive: false });
+
+  /* ---------- Portfolio : index + aperçu ---------- */
+  const idx = $('#idx'), preview = $('#preview');
+  IDS.forEach((id, i) => {
+    const a = document.createElement('a');
+    a.className = 'idx-row';
+    a.href = `#projet-${id}`;
+    a.dataset.reveal = '';
+    a.dataset.cursor = 'media';
+    a.dataset.cursorLabel = 'Ouvrir';
+    a.innerHTML = `<span class="mono">${id}</span><span class="t c-t" data-edit="p${id}.title"></span><span class="mono c-d hide-m" data-edit="p${id}.disc"></span><span class="mono c-y hide-m" data-edit="p${id}.year"></span><span class="arr" aria-hidden="true"><i class="ic ic-ar"></i></span>`;
+    a.addEventListener('mouseenter', () => {
+      const ph = preview.firstElementChild;
+      ph.className = `ph tone${(i % 6) + 1}`;
+      ph.dataset.img = `p${id}.cover`;
+      ph.dataset.imgAlt = `p${id}.main`;
+      applyImg(ph);
+      $('#preview-lbl').textContent = `${P(i, 'title')} — ${P(i, 'disc')}`;
+      preview.classList.add('on');
+    });
+    a.addEventListener('mouseleave', () => preview.classList.remove('on'));
+    idx.appendChild(a);
+  });
+
+  /* ---------- Projets : un projet à la fois, dans une scène épinglée ----------
+     Ordinateur : la scène (#pj-stage) reste collée sous le header, et la hauteur de #pj-scroller fixe la longueur du défilement. Pour chaque projet :
+       1. « contenu » : le défilement fait monter les textes et les images dans la colonne de droite (la colonne de gauche ne bouge pas) ;
+       2. « passage » : quand tout est passé, la colonne de gauche (résumé + liste des projets) défile à son tour, la colonne de droite s'efface et le projet suivant
+          apparaît en fondu à sa place, en glissant légèrement.
+     Tout est piloté par la position de la page (aucune animation à part) : on peut remonter, s'arrêter, repartir. Si l'on s'arrête en plein passage, la page termine
+     le mouvement toute seule (vers le projet suivant ou vers la fin du précédent, selon le plus proche). Le footer n'apparaît qu'après le dernier projet.
+     Un clic sur la liste des projets (ou Précédent / Suivant) fait un fondu vers le début du projet choisi.
+     Téléphone : les projets se suivent, en une seule colonne, dans le défilement normal.
+     L'adresse (#projet-NN) et le titre de l'onglet suivent le projet affiché. */
+  const NO_DETAIL = new Set(['10']);    // NOMADE : pas de cadres « détail », seulement le visuel principal et la mise en situation (deux formats paysage)
+  const EMPTY_SCENE = new Set(['09']);  // Fanzine : pas de « mise en situation », le cadre n'est pas affiché tant qu'il n'a pas d'image
+  const SOLO_DETAIL = new Set(['08']);  // Islafood : un seul cadre « détail » en 3:2, à la place des deux cadres 4:5
+  const pjView = $('#view-projet'), pjScroller = $('#pj-scroller'), pjStage = $('#pj-stage');
+  const pjSecs = IDS.map((id, i) => {
+    const k = f => `p${id}.${f}`;
+    const tone = { main: (i % 6) + 1, scene: (i % 6) + 1, d1: ((i + 2) % 6) + 1, d2: ((i + 4) % 6) + 1 };
+    const sec = document.createElement('article');
+    sec.className = 'pj';
+    sec.id = `pj-${id}`;
+    sec.setAttribute('aria-labelledby', `pj-t-${id}`);
+    const list = IDS.map(q => `<a href="#projet-${q}"${q === id ? ' aria-current="page"' : ''}><span class="tx"><span class="nm" data-edit="p${q}.title"></span><span class="ds" data-edit="p${q}.disc"></span></span></a>`).join('');
+    const prev = i > 0 ? `<a class="lnk" href="#projet-${IDS[i - 1]}"><i class="ic ic-ar l" aria-hidden="true"></i>Précédent</a>` : '';
+    const next = i < N - 1 ? `<a class="lnk" href="#projet-${IDS[i + 1]}">Suivant<i class="ic ic-ar" aria-hidden="true"></i></a>` : '';
+    sec.innerHTML = `<div class="wrap grid proj">
+      <aside class="proj-aside">
+        <span class="label fade">Projet ${id} / ${pad(N)}</span>
+        <h2 class="proj-title" id="pj-t-${id}"><span class="mask"><span class="mi" data-edit="${k('title')}"></span></span></h2>
+        <dl class="meta mono fade f1">${[['Discipline', 'disc'], ['Année', 'year'], ['Contexte', 'context'], ['Rôle', 'role']].map(([l, f]) => `<dt>${l}</dt><dd data-edit="${k(f)}"></dd>`).join('')}</dl>
+        <p class="proj-desc fade"><span class="todo" data-todo-for="${k('desc')}">En cours</span> <span data-edit="${k('desc')}" data-just></span></p>
+        <nav class="dots fade f2" aria-label="Liste des projets">${list}</nav>
+        <div class="proj-nav fade f3">${prev}${next}</div>
+      </aside>
+      <div class="proj-main"><div class="proj-flow">
+        <div class="ph tone${tone.main}" data-img="${k('main')}" style="aspect-ratio:16/10" data-reveal><span class="mono ph-dim">Visuel principal — 1600 × 1000</span></div>
+        <p class="proj-text" data-reveal><span class="todo" data-todo-for="${k('t1')}">En cours</span> <span data-edit="${k('t1')}" data-just></span></p>
+        ${NO_DETAIL.has(id) ? ''
+          : SOLO_DETAIL.has(id)
+          ? `<div class="ph tone${tone.d1}" data-img="${k('d1')}" style="aspect-ratio:3/2" data-reveal><span class="mono ph-dim">Détail — 3:2</span></div>`
+          : `<div class="pair" data-reveal><div class="ph tone${tone.d1}" data-img="${k('d1')}" style="aspect-ratio:4/5"><span class="mono ph-dim">Détail — 4:5</span></div><div class="ph tone${tone.d2}" data-img="${k('d2')}" style="aspect-ratio:4/5"><span class="mono ph-dim">Détail — 4:5</span></div></div>`}
+        <div class="ph tone${tone.scene}" data-img="${k('scene')}" style="aspect-ratio:3/2" data-reveal><span class="mono ph-dim">Mise en situation — 3:2</span></div>
+        <p class="proj-text" data-reveal><span class="todo" data-todo-for="${k('t2')}">En cours</span> <span data-edit="${k('t2')}" data-just></span></p>
+      </div></div>
+    </div>`;
+    pjStage.appendChild(sec);
+    return { id, el: sec, aside: $('.proj-aside', sec), flow: $('.proj-flow', sec), pair: $('.pair', sec), scene: $('[data-img$=".scene"]', sec), live: false, near: false };
+  });
+  const syncPairs = () => pjSecs.forEach(s => {
+    s.scene.hidden = EMPTY_SCENE.has(s.id) && !IMG[`p${s.id}.scene`];
+  });
+
+  // Mode d'affichage : scène épinglée (ordinateur) ou projets à la suite (téléphone)
+  let staged = null;
+  const wantStage = () => innerWidth > 760;
+  const vidOk = v => { const s = v.closest('.pj'); return !staged || !s || s.classList.contains('live'); };   // en scène, seul le projet visible fait tourner ses vidéos
+
+  // Médias (projets à la suite) : seuls les projets proches de l'écran chargent leurs images et leurs vidéos
+  const nearIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => {
+    if (staged) return;
+    en.target.classList.toggle('near', en.isIntersecting);
+    $$('[data-img]', en.target).forEach(applyImg);
+  }), { rootMargin: '150% 0px 150% 0px' }) : null;
+  const mediaOn = el => { const s = el.closest('.pj'); return !s || (!staged && !nearIO) || s.classList.contains('near'); };
+
+  // Entrée de chaque projet (téléphone) : l'accroche se révèle quand le projet arrive à l'écran
+  const pjIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting) { en.target.closest('.pj').classList.add('is-in'); pjIO.unobserve(en.target); }
+  }), { rootMargin: '0px 0px -12% 0px' }) : null;
+  function armProjects() {
+    pjSecs.forEach(s => { s.el.classList.remove('is-in'); if (staged) return; if (pjIO) pjIO.observe(s.aside); else s.el.classList.add('is-in'); });
+  }
+
+  // État du projet affiché : adresse (#projet-NN) et titre de l'onglet
+  function setCurrentProject(id) {
+    if (!current || current.id === id) return;
+    current.id = id;
+    current.title = T(`p${id}.title`) || `Projet ${id}`;
+    document.title = `${current.title} — Tim Bosson`;
+    try { history.replaceState(history.state, '', `#projet-${id}`); } catch {}
+  }
+  let spyHold = false;   // vrai le temps d'arriver sur le projet demandé (la page est alors encore tout en haut)
+
+  /* ----- Scène épinglée (ordinateur) -----
+     Pour chaque projet i : O[i] = début de son défilement, C[i] = longueur de la phase « contenu » (ce qui dépasse de la scène, à droite comme à gauche), T = longueur d'un passage. */
+  const st = { H: 0, T: 0, y0: 0, S: 0, O: [], C: [], A: [], FM: [], s: -1, act: -1, y: -1, dir: 1, moveAt: 0, lock: false };
+  let pressed = false;   // doigt ou souris enfoncé : on ne termine pas le mouvement tout seul
+  addEventListener('pointerdown', () => { pressed = true; }, { passive: true });
+  ['pointerup', 'pointercancel', 'blur'].forEach(ev => addEventListener(ev, () => { pressed = false; }, { passive: true }));
+  const ease = x => 1 - Math.pow(1 - x, 3);
+  const soft = x => { x = clamp(x, 0, 1); return x * x * (3 - 2 * x); };
+
+  function setStageMode() {
+    const on = wantStage();
+    if (on === staged) return;
+    staged = on;
+    pjView.classList.toggle('is-stage', on);
+    st.s = -1; st.act = -1; st.O = [];
+    if (on) {
+      nearIO?.disconnect();
+      pjSecs.forEach(s => { s.near = false; s.live = false; s.el.classList.remove('near', 'live', 'is-in'); });
+    } else {
+      pjScroller.style.height = '';
+      pjStage.classList.remove('is-swap');
+      pjSecs.forEach(s => {
+        s.live = false; s.near = false;
+        s.el.classList.remove('live', 'near');
+        [s.aside, s.flow].forEach(e => { e.style.removeProperty('transform'); e.style.removeProperty('opacity'); });
+        nearIO?.observe(s.el);
+      });
+      armProjects();
+      $$('video.ph-vid', pjView).forEach(v => { if (!reduced) v.play().catch(() => {}); });
+    }
+  }
+
+  // Mesure : longueur de chaque phase, hauteur du défilement. À refaire quand la fenêtre, la police ou le texte changent.
+  function measureProjects() {
+    if (!staged || !pjScroller.offsetParent) return;
+    const keepI = st.act, keepRel = st.s >= 0 && st.act >= 0 && st.O[st.act] != null ? st.s - st.O[st.act] : -1;
+    const H = pjStage.clientHeight;
+    if (!H) return;
+    const bottom = 30 * U();
+    st.H = H; st.T = Math.round(clamp(H * 0.6, 360, 640));
+    let o = 0;
+    pjSecs.forEach((s, i) => {
+      s.aside.classList.remove('compact');
+      // colonne de gauche trop haute pour la fenêtre : la liste des projets se masque d'abord ; s'il en reste encore trop, la colonne défile avec le contenu
+      if (s.aside.offsetHeight + bottom > H) s.aside.classList.add('compact');
+      const A = Math.max(0, s.aside.offsetHeight + bottom - H);
+      const FM = Math.max(0, s.flow.offsetHeight - H);
+      const C = Math.max(FM, A);
+      st.O[i] = o; st.A[i] = A; st.FM[i] = FM; st.C[i] = C;
+      o += C + (i < N - 1 ? st.T : 0);
+    });
+    st.S = o;
+    pjScroller.style.height = (H + o) + 'px';
+    st.y0 = pjScroller.getBoundingClientRect().top + scrollY - parseFloat(getComputedStyle(pjStage).top);
+    lenis?.resize();
+    st.s = -1;
+    if (keepI >= 0 && keepRel >= 0 && current?.view === 'projet') {   // la fenêtre a changé : on reste au même endroit du même projet
+      const y = Math.round(st.y0 + st.O[keepI] + Math.min(keepRel, st.C[keepI] + (keepI < N - 1 ? st.T : 0)));
+      if (Math.abs(y - scrollY) > 1) scrollTo(y);
+    }
+    stageApply(true);
+  }
+  let mQ = 0;
+  const queueMeasure = () => { if (!staged || mQ) return; mQ = requestAnimationFrame(() => { mQ = 0; measureProjects(); }); };
+  if ('ResizeObserver' in window) { const ro = new ResizeObserver(queueMeasure); pjSecs.forEach(s => ro.observe(s.flow)); }
+
+  // Position de la page → état de chaque projet (colonne de gauche : ay / ao ; colonne de droite : fy / fo)
+  function stageApply(force) {
+    if (!staged || !st.O.length) return;
+    const s = clamp(scrollY - st.y0, 0, st.S);
+    if (!force && s === st.s) return;
+    st.s = s;
+    const { O, C, A, FM, T } = st, D = 110 * U(), D2 = 64 * U();
+    let act = 0;
+    for (let i = 0; i < N - 1; i++) if (s >= O[i] + C[i] + T / 2) act = i + 1;   // on change de projet au milieu du passage
+    pjSecs.forEach((p, i) => {
+      let ay = 0, ao = 0, fy = 0, fo = 0;
+      const rel = s - O[i];
+      if (rel >= 0 && rel <= C[i]) {   // contenu : la colonne de droite défile
+        ao = fo = 1; ay = -Math.min(rel, A[i]); fy = -Math.min(rel, FM[i]);
+      } else if (rel > C[i] && i < N - 1 && rel < C[i] + T) {   // passage, sortie : la colonne de gauche monte et s'efface
+        const t = (rel - C[i]) / T;
+        ao = fo = 1 - soft(t / 0.5);
+        ay = -A[i] - D * ease(t); fy = -FM[i] - D2 * ease(t);
+      } else if (rel < 0 && rel > -T && i > 0) {   // passage, entrée : le projet apparaît en fondu en montant à sa place
+        const t = (rel + T) / T;
+        ao = fo = soft((t - 0.5) / 0.5);
+        ay = D * (1 - ease(t)); fy = D2 * (1 - ease(t));
+      }
+      const live = ao > 0.002;
+      const sig = `${Math.round(ay)}|${ao.toFixed(3)}|${Math.round(fy)}|${fo.toFixed(3)}`;
+      if (p.sig !== sig) {
+        p.sig = sig;
+        p.aside.style.transform = `translate3d(0,${Math.round(ay)}px,0)`; p.aside.style.opacity = ao.toFixed(3);
+        p.flow.style.transform = `translate3d(0,${Math.round(fy)}px,0)`; p.flow.style.opacity = fo.toFixed(3);
+      }
+      if (p.live !== live) {
+        p.live = live; p.el.classList.toggle('live', live);
+        $$('video.ph-vid', p.el).forEach(v => { if (live && !reduced) v.play().catch(() => {}); else v.pause(); });
+      }
+      const near = Math.abs(i - act) <= 1;   // images et vidéos : le projet affiché et ses deux voisins
+      if (p.near !== near) { p.near = near; p.el.classList.toggle('near', near); $$('[data-img]', p.el).forEach(applyImg); }
+    });
+    if (act !== st.act) { st.act = act; if (!spyHold) setCurrentProject(IDS[act]); }
+  }
+
+  // Arrêt en plein passage : la page termine le mouvement dans le sens où l'on allait (vers le projet suivant en descendant, vers la fin du précédent en remontant).
+  // Un simple cran de molette suffit donc à passer au projet suivant ; un tout petit geste en sens inverse ramène au projet d'où l'on vient.
+  function stageSettle(t) {
+    const y = scrollY;
+    if (y !== st.y) { if (st.y >= 0) st.dir = y > st.y ? 1 : -1; st.y = y; st.moveAt = t; return; }
+    if (st.lock || pressed || t - st.moveAt < 200 || !st.O.length) return;
+    const s = y - st.y0;
+    for (let i = 0; i < N - 1; i++) {
+      const a = st.O[i] + st.C[i], b = a + st.T, k = (s - a) / st.T;
+      if (s > a + 1.5 && s < b - 1.5) {
+        st.moveAt = t;
+        const fwd = st.dir > 0 ? k >= 0.12 : k > 0.88;
+        glide(Math.round(st.y0 + (fwd ? b : a)), 0.7);
+        return;
+      }
+    }
+  }
+
+  // Position de défilement du début d'un projet
+  function pjY(id) {
+    const i = IDS.indexOf(id);
+    if (staged) return Math.max(0, Math.round(st.y0 + (st.O[i] || 0)));
+    if (i === 0) return 0;
+    return Math.max(0, Math.round(pjSecs[i].el.getBoundingClientRect().top + scrollY - $('#topbar').offsetHeight));
+  }
+  // Glissement vers une position : plus la distance est grande, plus il dure (jamais brusque)
+  function glide(y, dur) {
+    const d = Math.abs(y - scrollY);
+    if (lenis) lenis.scrollTo(y, { force: true, duration: dur || clamp(0.9 + d / 9000, 0.9, 2.2) });
+    else window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+  }
+  // Lien vers un projet : sur ordinateur, fondu vers son début (on ne fait pas défiler tous les projets entre les deux) ; sur téléphone, glissement
+  let swapT = 0;
+  function jumpTo(id) {
+    const y = pjY(id);
+    if (!staged) { glide(y); return; }
+    if (Math.abs(y - scrollY) < 2) return;
+    clearTimeout(swapT);
+    const land = () => { scrollTo(y); st.y = scrollY; st.s = -1; stageApply(true); pjStage.classList.remove('is-swap'); st.lock = false; };
+    if (reduced) { land(); return; }
+    st.lock = true;
+    pjStage.classList.add('is-swap');
+    swapT = setTimeout(land, 300);
+  }
+  // Téléphone : le projet affiché est le dernier dont le haut a passé la ligne de lecture (35 % de la fenêtre)
+  function spyProject() {
+    if (spyHold) return;
+    const bar = $('#topbar').offsetHeight, ref = bar + (innerHeight - bar) * 0.35;
+    let act = pjSecs[0];
+    for (const s of pjSecs) { if (s.el.getBoundingClientRect().top <= ref) act = s; else break; }
+    setCurrentProject(act.id);
+  }
+  setStageMode();
+
+  /* ---------- Vision : la phrase s'écrit mot par mot quand elle arrive à l'écran ----------
+     Le script ne fait que donner le départ (classe is-in) : le rythme (un mot toutes les 50 ms) et le mouvement sont dans la feuille de style. */
+  const vz = $('#vz'), vzP = $('#vz-p');
+  const vzIO = 'IntersectionObserver' in window && !reduced ? new IntersectionObserver(es => {
+    es.forEach(en => {
+      if (!en.isIntersecting) return;
+      vzIO.unobserve(vzP);
+      vz.classList.add('is-in');
+    });
+  }, { threshold: 0.4, rootMargin: '0px 0px -8% 0px' }) : null;
+  function armVision() {   // à chaque ouverture de la page À propos, la phrase se réécrit quand elle arrive à l'écran
+    if (!vzIO) return;
+    vz.classList.remove('is-in');
+    vzIO.observe(vzP);
+  }
+  if (vzIO) armVision(); else vz.classList.add('is-in');
+  /* Signature : à droite de la dernière ligne de la citation, le haut aligné sur cette ligne (elle descend dans la marge basse, jamais sur le texte).
+     Si la dernière ligne ne laisse pas assez de place, elle passe sous la citation, à droite. --n (nombre de mots) règle son apparition : après le dernier mot. */
+  const vzSig = $('#vz-sig');
+  function placeSig() {
+    if (!vzSig || vzP.closest('[hidden]')) return;
+    const words = $$('.vw', vzP);
+    if (!words.length) return;
+    vz.style.setProperty('--n', words.length);
+    const q = vzSig.parentElement, last = words[words.length - 1];
+    const qr = q.getBoundingClientRect(), pr = vzP.getBoundingClientRect(), wr = last.getBoundingClientRect();
+    const ty = new DOMMatrix(getComputedStyle(last).transform).m42 || 0;   // décalage d'apparition du mot (0 une fois écrit)
+    const lineTop = wr.top - ty - qr.top, lineH = wr.height, sw = vzSig.offsetWidth, sh = vzSig.offsetHeight;
+    const sigLeft = qr.right - parseFloat(getComputedStyle(vzSig).right) - sw;   // bord gauche de la signature (elle est décalée vers l'intérieur de la page)
+    const free = sigLeft - wr.right - parseFloat(getComputedStyle(last).fontSize) * 0.8;
+    const top = free >= 0 ? lineTop : lineTop + lineH + parseFloat(getComputedStyle(last).fontSize) * 0.35;
+    vzSig.style.top = top.toFixed(1) + 'px';
+    q.style.setProperty('--sig-pad', Math.max(0, top + sh - (lineTop + lineH)).toFixed(1) + 'px');
+  }
+  /* ---------- Titrages sur une seule ligne ----------
+     Aucun titre ne passe à la ligne. Si le plus long ne tient pas dans sa colonne, la taille est réduite juste ce qu'il faut (jamais sous 60 % sur ordinateur, 50 % sur téléphone),
+     et c'est la même taille pour tous les titres de la série, afin que la hiérarchie reste identique d'un projet à l'autre. */
+  const floorFor = () => (innerWidth <= 760 ? 0.5 : 0.6);   // téléphone : colonnes étroites, la réduction peut aller plus loin
+  // largeur d'une ligne de texte à 100 px, dans la police, la casse et l'interlettrage de l'élément
+  function width100(el, text) {
+    const cs = getComputedStyle(el), fs = parseFloat(cs.fontSize) || 16;
+    mctx.font = `${cs.fontWeight} 100px ${cs.fontFamily}`;
+    const t = cs.textTransform === 'uppercase' ? text.toUpperCase() : text;
+    const ls = cs.letterSpacing === 'normal' ? 0 : parseFloat(cs.letterSpacing) / fs;
+    return mctx.measureText(t).width + [...t].length * ls * 100;
+  }
+  // Légende de la galerie : « Projet — Domaine »
+  function fitCaption() {
+    const p = $('.gal-cap'), mi = $('#gal-cap');
+    if (!p || !p.offsetParent || !p.clientWidth) return;
+    p.style.removeProperty('--cap-fs'); p.classList.remove('wrap-ok');
+    const base = parseFloat(getComputedStyle(p).fontSize);
+    const need = Math.max(...IDS.map((_, i) => width100(mi, `${P(i, 'title')} — ${P(i, 'disc')}`)));
+    const fs = (p.clientWidth - 1) * 100 / need;
+    if (fs >= base) return;
+    if (fs < base * floorFor()) p.classList.add('wrap-ok');   // colonne minuscule : la légende peut alors passer à la ligne plutôt que devenir illisible
+    else p.style.setProperty('--cap-fs', fs.toFixed(2) + 'px');
+  }
+  // Titre des projets (colonne de gauche)
+  function fitProjectTitles() {
+    const v = $('#view-projet'), h = $('.proj-title', v);
+    if (!h || !h.offsetParent || !h.clientWidth) return;
+    v.style.removeProperty('--pj-fs'); v.classList.remove('wrap-ok');
+    const base = parseFloat(getComputedStyle(h).fontSize), mi = $('.mi', h);
+    const need = Math.max(...IDS.map((_, i) => width100(mi, P(i, 'title'))));
+    const fs = (h.clientWidth - 1) * 100 / need;
+    if (fs >= base) return;
+    if (fs < base * floorFor()) {   // vraiment trop long : retour à la ligne permis, mais le mot le plus long doit tenir dans la colonne
+      v.classList.add('wrap-ok');
+      const word = Math.max(...IDS.flatMap((_, i) => P(i, 'title').split(/\s+/).map(w => width100(mi, w))));
+      v.style.setProperty('--pj-fs', Math.min(base, (h.clientWidth - 1) * 100 / word).toFixed(2) + 'px');
+    } else v.style.setProperty('--pj-fs', fs.toFixed(2) + 'px');
+  }
+  // Noms des listes (portfolio, parcours, domaines, loisirs) : réduits seulement s'ils débordent de leur colonne
+  function fitOverflow(sel) {
+    $$(sel).forEach(el => {
+      el.style.fontSize = '';
+      if (!el.offsetParent || !el.clientWidth || el.scrollWidth <= el.clientWidth + 1) return;
+      const fs = parseFloat(getComputedStyle(el).fontSize);
+      el.style.fontSize = Math.max(fs * floorFor(), fs * (el.clientWidth - 1) / el.scrollWidth).toFixed(2) + 'px';
+    });
+  }
+  // mise en page à recalculer quand la fenêtre, la police ou le texte changent
+  function relayout() {
+    placeSig();
+    fitCaption();
+    fitProjectTitles();
+    fitOverflow('.idx-row .t, .acc-btn .t, .lz-head .t');
+    // projets : mode d'affichage (scène épinglée ou projets à la suite), puis mesure de chaque phase du défilement
+    setStageMode();
+    if (!staged) pjSecs.forEach(s => s.aside.classList.remove('compact'));
+    else if (current?.view === 'projet') measureProjects();
+  }
+
+  /* ---------- Parcours : menu déroulant (clic), généré depuis le contenu ---------- */
+  const accEl = $('#acc');
+  const cvOpen = new Set([0]);
+  function renderCV() {
+    const sig = JSON.stringify(Array.from({ length: NCV }, (_, i) => [T(`cv.${i}.title`), T(`cv.${i}.sub`), T(`cv.${i}.rows`)]));
+    if (accEl._v === sig) return;
+    accEl._v = sig;
+    accEl.replaceChildren(...Array.from({ length: NCV }, (_, i) => {
+      const item = document.createElement('div');
+      item.className = 'acc-item' + (cvOpen.has(i) ? ' open' : '');
+      const h3 = document.createElement('h3');
+      const b = document.createElement('button');
+      b.className = 'acc-btn'; b.type = 'button'; b.id = `acc-b${i}`; b.dataset.i = i;
+      b.setAttribute('aria-controls', `acc-${i}`);
+      b.setAttribute('aria-expanded', String(cvOpen.has(i)));
+      b.innerHTML = `<span class="d mono">${pad(i + 1)}</span><span class="t" data-edit="cv.${i}.title"></span><span class="x mono" data-edit="cv.${i}.sub"></span><i class="pm ic ic-plus" aria-hidden="true"></i>`;
+      h3.appendChild(b);
+      const panel = document.createElement('div');
+      panel.className = 'acc-panel'; panel.id = `acc-${i}`;
+      panel.setAttribute('role', 'region'); panel.setAttribute('aria-labelledby', b.id);
+      const inner = document.createElement('div');
+      T(`cv.${i}.rows`).split('\n').map(l => l.trim()).filter(Boolean).forEach(line => {
+        const [d = '', t = '', x = ''] = line.split('|').map(s => s.trim());
+        const row = document.createElement('div');
+        row.className = 'acc-row';
+        row.dataset.edit = `cv.${i}.rows`; row.dataset.kind = 'list';
+        [['d mono', d], ['t', t], ['x', x]].forEach(([cls, txt]) => {
+          const s = document.createElement('span');
+          s.className = cls;
+          if (txt === 'À compléter' || txt === 'En cours') { const tg = document.createElement('span'); tg.className = 'todo'; tg.textContent = 'En cours'; s.appendChild(tg); }
+          else s.textContent = cls === 'd mono' ? txt : typo(txt);
+          row.appendChild(s);
+        });
+        inner.appendChild(row);
+      });
+      panel.appendChild(inner);
+      item.append(h3, panel);
+      return item;
+    }));
+  }
+  accEl.addEventListener('click', e => {
+    const b = e.target.closest('.acc-btn');
+    if (!b) return;
+    const i = +b.dataset.i, item = b.closest('.acc-item');
+    const open = !item.classList.contains('open');
+    item.classList.toggle('open', open);
+    b.setAttribute('aria-expanded', String(open));
+    if (open) cvOpen.add(i); else cvOpen.delete(i);
+    setTimeout(() => { lenis?.resize(); sizeFooter(); }, 650);
+  });
+
+  /* ---------- Loisirs : cartes empilées ---------- */
+  const lzStack = $('#lz-stack'), lzCards = $$('.lz-card', lzStack);
+  function lzTargets() {
+    const top0 = lzStack.getBoundingClientRect().top + scrollY;
+    const lzh = $('.lz-head', lzCards[0]).offsetHeight, bar = $('#topbar').offsetHeight;
+    let acc = 0;
+    return lzCards.map((c, i) => { const y = top0 + acc - (bar + i * lzh); acc += c.offsetHeight; return y; });
+  }
+  lzCards.forEach((c, i) => $('.lz-head', c).addEventListener('click', () => scrollTo(lzTargets()[i] + 1, false)));
+  function updateLz() {
+    if (!lzStack.offsetParent) return;
+    let cur = 0;
+    lzTargets().forEach((y, i) => { if (scrollY >= y - 2) cur = i; });
+    lzCards.forEach((c, i) => { c.classList.toggle('is-past', i < cur); c.classList.toggle('is-current', i === cur); });
+  }
+
+  /* ---------- Rendu global ---------- */
+  function renderAll() {
+    $('#p-count').textContent = `(${pad(N)})`;
+    renderCV();
+    syncPairs();
+    renderTexts();
+    renderSlides();
+    renderImages();
+    renderTodos();
+    renderLinks();
+    lenis?.resize();
+    sizeFooter();
+    relayout();
+  }
+
+  /* ---------- Révélations au scroll ---------- */
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -12% 0px' }) : null;
+  function observeReveals(scope = document) {
+    $$('[data-reveal]', scope).forEach(el => io ? io.observe(el) : el.classList.add('is-in'));
+  }
+
+  /* ---------- Routeur : #accueil, #portfolio, #projet-01…10, #a-propos, #cv, #contact, #mentions-legales ---------- */
+  const views = Object.fromEntries($$('.view').map(v => [v.dataset.view, v]));
+  function resolve(hash) {
+    const h = (hash || '').replace('#', '');
+    if (/^projet-\d{2}$/.test(h) && IDS.includes(h.slice(-2))) return { view: 'projet', id: h.slice(-2), title: T(`p${h.slice(-2)}.title`) || 'Projet ' + h.slice(-2) };
+    if (h === 'cv') return { view: 'apropos', anchor: 'parcours', title: 'C.V' };
+    if (h === 'portfolio') return { view: 'portfolio', title: 'Portfolio' };
+    if (h === 'a-propos') return { view: 'apropos', title: 'À propos' };
+    if (h === 'contact') return { view: 'contact', title: 'Contact' };
+    if (h === 'mentions-legales') return { view: 'mentions', title: 'Mentions légales' };
+    return { view: 'accueil' };
+  }
+  let current = null;
+  function show(r) {
+    const pid = r.view === 'projet' ? r.id : null;   // projet demandé (l'état « projet affiché » est réécrit pendant la mise en page : on le garde de côté)
+    if (pid) spyHold = true;
+    Object.entries(views).forEach(([k, v]) => { v.hidden = k !== r.view; v.classList.remove('play'); });
+    current = r;
+    if (r.view === 'apropos') armVision();
+    if (r.view === 'projet') {
+      renderTexts($('#view-projet')); renderImages(); renderTodos();
+      $$('.proj-main [data-reveal]', $('#view-projet')).forEach(el => { el.classList.remove('is-in'); io?.observe(el); });
+      armProjects();
+      st.s = -1; st.act = -1; st.lock = false; clearTimeout(swapT); pjStage.classList.remove('is-swap');
+    }
+    typesetAll(views[r.view]);
+    lenis?.resize();
+    relayout();
+    scrollTo(0);
+    if (r.anchor) requestAnimationFrame(() => scrollTo(topOf($('#' + r.anchor))));
+    if (pid) {   // lien direct vers un projet : on arrive sur son début
+      if (staged) { scrollTo(pjY(pid)); st.y = scrollY; stageApply(true); spyHold = false; }
+      else if (pid !== IDS[0]) requestAnimationFrame(() => { scrollTo(pjY(pid)); spyHold = false; });
+      else spyHold = false;
+    }
+    sizeFooter();
+    const v = views[r.view];
+    void v.offsetWidth;
+    requestAnimationFrame(() => v.classList.add('play'));
+    document.title = r.title ? `${r.title} — Tim Bosson` : 'Tim Bosson Portfolio';
+  }
+  const app = $('#app');
+  let busy = false;
+  function go(r) {
+    if (reduced || busy) { show(r); return; }
+    busy = true;
+    app.classList.add('is-leaving');
+    setTimeout(() => { show(r); app.classList.remove('is-leaving'); busy = false; }, 470);
+  }
+  addEventListener('hashchange', () => {
+    const r = resolve(location.hash);
+    // déjà dans les projets : pas de changement de page, fondu (ordinateur) ou glissement (téléphone) vers le projet demandé
+    if (current?.view === 'projet' && r.view === 'projet') { jumpTo(r.id); return; }
+    go(r);
+  });
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const h = a.getAttribute('href');
+    if (a.dataset.todo || h === '#') { e.preventDefault(); return; }
+    if (h === location.hash || (h === '#accueil' && !location.hash)) {
+      e.preventDefault();
+      const r = resolve(h);
+      if (r.view === 'projet') jumpTo(r.id); else scrollTo(r.anchor ? topOf($('#' + r.anchor)) : 0, false);
+    }
+  });
+  $('#to-top').addEventListener('click', () => scrollTo(0, false));
+  $('#h-hint').addEventListener('click', () => scrollTo(topOf($('#resume')), false));
+
+  /* ---------- Grille (touche G) ---------- */
+  addEventListener('keydown', e => {
+    if (e.target.closest && e.target.closest('input, textarea, [contenteditable]')) return;
+    if ((e.key === 'g' || e.key === 'G') && !e.metaKey && !e.ctrlKey && !e.altKey) root.classList.toggle('show-grid');
+  });
+
+  /* ---------- Footer à rideau ---------- */
+  const fw = $('#footer-wrap'), ft = $('#footer');
+  function sizeFooter() { fw.style.height = innerWidth <= 760 ? ft.offsetHeight + 'px' : ''; }
+  new ResizeObserver(sizeFooter).observe(ft);
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------- Curseur : un point, avec beaucoup de retard ---------- */
+  const cur = $('#cursor'), lab = $('#cursor-label'), labTxt = lab.firstElementChild;
+  const M = { x: 0, y: 0, cx: 0, cy: 0, nx: 0, ny: 0, seen: false };
+  const CURSOR_LAG = 0.065; // plus petit = plus de retard
+  if (finePointer) {
+    root.classList.add('has-cursor');
+    cur.classList.add('is-hidden');
+    addEventListener('pointermove', e => {
+      M.x = e.clientX; M.y = e.clientY;
+      M.nx = e.clientX / innerWidth * 2 - 1; M.ny = e.clientY / innerHeight * 2 - 1;
+      if (!M.seen) { M.seen = true; M.cx = M.x; M.cy = M.y; cur.classList.remove('is-hidden'); }
+    });
+    root.addEventListener('mouseleave', () => { cur.classList.add('is-hidden'); lab.classList.remove('on'); });
+    root.addEventListener('mouseenter', () => { if (M.seen) cur.classList.remove('is-hidden'); });
+    document.addEventListener('pointerover', e => {
+      const media = !root.classList.contains('editing') && e.target.closest('[data-cursor="media"], .slide, .carousel');
+      if (media) {
+        let label = media.dataset.cursorLabel || 'Voir';
+        const s = e.target.closest('.slide');
+        if (s) { const d = Math.round(parseFloat(s.dataset.d)); label = d < 0 ? '<i class="ic ic-ar l"></i>Préc.' : d > 0 ? 'Suiv.<i class="ic ic-ar"></i>' : 'Voir'; }
+        else if (media.classList.contains('carousel')) label = 'Glisser';
+        labTxt.innerHTML = label;
+        lab.classList.add('on');
+        cur.classList.add('is-media');
+        return;
+      }
+      lab.classList.remove('on');
+      cur.classList.remove('is-media');
+    });
+  }
+
+  /* ---------- Header : caché en haut de l'accueil ---------- */
+  const topbar = $('#topbar');
+  function updateTopbar() {
+    const hide = current?.view === 'accueil' && scrollY < U() * 180;
+    topbar.classList.toggle('is-hidden', hide);
+  }
+
+  /* ---------- Boucle ---------- */
+  const doodle = $('#doodle'), fade = $('#scroll-fade');
+  const D = { x: 0, y: 0, r: 0 };
+  const parallaxEls = $$('[data-parallax]');
+  let last = performance.now();
+  function frame(t) {
+    lenis?.raf(t);
+    const dt = Math.min(64, Math.max(0, t - last)) / 16.667; last = t;
+    const vh = innerHeight;
+    if (finePointer && M.seen) {
+      const k = reduced ? 1 : 1 - Math.pow(1 - CURSOR_LAG, dt);
+      M.cx = lerp(M.cx, M.x, k); M.cy = lerp(M.cy, M.y, k);
+      cur.style.transform = lab.style.transform = `translate3d(${M.cx}px,${M.cy}px,0)`;
+      if (preview.classList.contains('on')) preview.style.transform = `translate3d(${M.cx + 24}px,${M.cy - preview.offsetHeight / 2}px,0)`;
+    }
+    if (current?.view === 'accueil') {
+      if (!reduced) {   // le personnage flotte quand la souris bouge (inclinaison de base : -1°, comme sur la maquette)
+        D.x = lerp(D.x, M.nx * 12, 0.05); D.y = lerp(D.y, M.ny * 8, 0.05); D.r = lerp(D.r, M.nx * 0.7, 0.05);
+        doodle.style.transform = `translate3d(${(D.x * U()).toFixed(2)}px,${(D.y * U()).toFixed(2)}px,0) rotate(${(D.r - 1).toFixed(3)}deg)`;
+      }
+      carRender();
+    }
+    if (current?.view === 'apropos') updateLz();
+    if (current?.view === 'projet') { if (staged) { stageApply(); stageSettle(t); } else spyProject(); }
+    parallaxEls.forEach(el => {
+      if (!el.offsetParent || reduced) return;
+      const r = el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      const p = (vh - r.top) / (vh + r.height);
+      el.firstElementChild.style.setProperty('--py', `${(-p * 10).toFixed(2)}%`);
+    });
+    updateWords(vh);
+    updateTopbar();
+    const hideFade = scrollY + vh >= root.scrollHeight - fw.offsetHeight - 8 || (current?.view === 'accueil' && scrollY < vh * 0.45);
+    fade.classList.toggle('off', hideFade);
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- Contact ---------- */
+  const form = $('#ct-form');
+  const CHECKS = [
+    ['ct-name', v => v.trim().length > 1, 'Indiquez votre nom.'],
+    ['ct-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()), 'Indiquez une adresse email valide, par exemple vous@exemple.fr.'],
+    ['ct-msg', v => v.trim().length > 9, 'Écrivez votre message (10 caractères minimum).'],
+  ];
+  /* Envoi réel : le formulaire est relié à un service d'envoi (Web3Forms : clé d'accès ; Formspree ou équivalent : adresse du formulaire).
+     Le service transmet le message à la boîte mail de Tim, l'adresse du visiteur devient l'adresse de réponse.
+     Sans service renseigné, le formulaire ouvre l'application mail du visiteur avec le message prêt à partir. */
+  const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  function formTarget() {
+    const v = T('contact.endpoint').trim();
+    if (UUID.test(v)) return { url: 'https://api.web3forms.com/submit', key: v };
+    if (/^https:\/\/[\w.-]+\.[a-z]{2,}\/\S+$/i.test(v)) return { url: v };
+    return null;
+  }
+  function say(status, text, mail) {
+    status.replaceChildren(document.createTextNode(text));
+    if (mail) { const a = document.createElement('a'); a.href = 'mailto:' + mail; a.textContent = mail; status.append(' ', a, '.'); }
+  }
+  let sending = false;
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (sending) return;
+    let firstBad = null;
+    CHECKS.forEach(([id, ok, msg]) => {
+      const el = $('#' + id), good = ok(el.value);
+      el.closest('.field').classList.toggle('invalid', !good);
+      el.setAttribute('aria-invalid', String(!good));
+      $('#' + id + '-err').textContent = good ? '' : '↳ ' + msg;
+      if (!good && !firstBad) firstBad = el;
+    });
+    const status = $('#ct-status'), btn = $('button[type=submit]', form);
+    if (firstBad) { status.textContent = ''; firstBad.focus(); return; }
+    const name = $('#ct-name').value.trim(), email = $('#ct-email').value.trim(), msg = $('#ct-msg').value.trim();
+    const objet = (form.elements.objet && form.elements.objet.value) || 'Projet';
+    const to = T('contact.email').trim(), tgt = formTarget();
+    if (form.elements.botcheck && form.elements.botcheck.value) { say(status, 'Merci, votre message a bien été envoyé. Je vous répondrai dès que possible.'); return; }   // champ piège rempli : c'est un robot
+    const mailHref = to ? `mailto:${to}?subject=${encodeURIComponent(`Portfolio — ${objet}`)}&body=${encodeURIComponent(`${msg}\n\n${name}\n${email}`)}` : '';
+    if (!tgt) {   // pas de service : l'application mail du visiteur s'ouvre avec le message prêt à partir
+      if (!to) { say(status, 'Le formulaire n’est pas encore en service. Merci de réessayer plus tard.'); return; }
+      say(status, 'Votre application mail s’ouvre avec le message prêt à partir. Si rien ne s’ouvre, écrivez-moi à', to);
+      try { location.href = mailHref; } catch {}
+      return;
+    }
+    sending = true; btn.disabled = true;
+    say(status, 'Envoi en cours…');
+    const subject = `Portfolio — ${objet} — ${name}`;
+    const body = { name, email, message: `Objet : ${objet}\n\n${msg}`, objet, subject, from_name: 'timbosson.com' };
+    if (tgt.key) body.access_key = tgt.key; else body._subject = subject;
+    // si la page elle-même interdit la requête (politique de sécurité), le navigateur le signale : on s'en sert pour expliquer
+    const host = new URL(tgt.url).hostname;
+    let blocked = false, why = '';
+    const onCsp = ev => { if ((ev.blockedURI || '').indexOf(host) > -1) blocked = true; };
+    document.addEventListener('securitypolicyviolation', onCsp);
+    try {
+      let r;
+      try { r = await fetch(tgt.url, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) }); }
+      catch (err) { why = 'réseau : ' + (err && err.message || err); throw err; }
+      let j = null;
+      try { j = await r.json(); } catch {}
+      if (!r.ok || (j && (j.success === false || j.ok === false))) { why = 'refus du service (' + r.status + ') ' + ((j && (j.message || j.error)) || ''); throw new Error(why); }
+      form.reset();
+      $$('.field', form).forEach(f => f.classList.remove('invalid'));
+      say(status, 'Merci, votre message a bien été envoyé. Je vous répondrai dès que possible.');
+    } catch {
+      await new Promise(res => setTimeout(res, 60));   // laisse arriver l'éventuel signal de la politique de sécurité
+      try { console.warn('[contact] envoi non abouti —', blocked ? 'requête interdite par la page' : why); } catch {}
+      const lead = blocked ? 'Cette page n’autorise pas l’envoi direct du message.' : 'L’envoi n’a pas abouti.';
+      if (!to) say(status, lead + ' Réessayez dans un instant.');
+      else {
+        const a = document.createElement('a'); a.href = mailHref; a.textContent = 'envoyer le message depuis votre application mail';
+        status.replaceChildren(document.createTextNode(lead + ' Vous pouvez '), a, document.createTextNode(', ou m’écrire directement à '));
+        const m = document.createElement('a'); m.href = 'mailto:' + to; m.textContent = to;
+        status.append(m, '.');
+      }
+    } finally { document.removeEventListener('securitypolicyviolation', onCsp); sending = false; btn.disabled = false; }
+  });
+  form.addEventListener('input', e => {
+    const f = e.target.closest('.field');
+    if (f && f.classList.contains('invalid')) {
+      const c = CHECKS.find(([id]) => id === e.target.id);
+      if (c && c[1](e.target.value)) { f.classList.remove('invalid'); $('#' + c[0] + '-err').textContent = ''; e.target.setAttribute('aria-invalid', 'false'); }
+    }
+  });
+
+  /* ---------- Premier rendu avec les valeurs par défaut ---------- */
+  renderAll();
+  observeReveals();
+
+  /* ---------- Contenu enregistré (content.json) ---------- */
+  const snapshot = () => ({
+    v: 1,
+    texts: Object.fromEntries(Object.entries(S).filter(([k, v]) => v !== C0[k])),
+    images: { ...IMG },
+    videos: Object.keys(VID).filter(k => IMG[k]).sort(),
+    fonts: { ...FONTS },
+  });
+  let saved = JSON.stringify(snapshot());
+  function applyPayload(data) {
+    Object.keys(S).forEach(k => { S[k] = C0[k]; });
+    Object.entries((data && data.texts) || {}).forEach(([k, v]) => { if (k in C0 && typeof v === 'string') S[k] = v; });
+    IMG = {};
+    Object.entries((data && data.images) || {}).forEach(([k, v]) => { if (typeof v === 'string' && /^[\w-]{8,64}$/.test(v)) IMG[k] = v; });
+    VID = {};
+    ((data && data.videos) || []).forEach(k => { if (typeof k === 'string' && IMG[k]) VID[k] = true; });
+    MEDIA = {};
+    Object.entries((data && data.media) || {}).forEach(([k, v]) => { if (/^[\w-]{8,64}$/.test(k) && typeof v === 'string' && /^assets\/[\w\/.-]+$/.test(v) && !v.includes('..')) MEDIA[k] = v; });
+    FONTS = {};
+    Object.entries((data && data.fonts) || {}).forEach(([k, v]) => {
+      if (['bold', 'book', 'thin', 'mono'].includes(k) && typeof v === 'string' && /^[\w-]{8,64}$/.test(v)) FONTS[k] = v;
+    });
+    loadFonts();
+  }
+
+  /* ---------- Polices ajoutées depuis le panneau (Stolzl, Cherry) : lues dans les fichiers de la maquette ---------- */
+  const fontFaces = {};
+  function loadFont(slot) {
+    const id = FONTS[slot], cur = fontFaces[slot];
+    if (cur && cur.id === id) return cur.p;
+    if (cur && cur.face) document.fonts.delete(cur.face);
+    delete fontFaces[slot];
+    if (!id) return Promise.resolve();
+    const [, , family, weight] = FONT_SLOTS.find(f => f[0] === slot);
+    const rec = { id, face: null };
+    rec.p = (async () => {
+      try {
+        let face;
+        try {
+          const buf = await (await fetch(blobURL(id))).arrayBuffer();
+          face = new FontFace(family, buf, { weight });
+        } catch { face = new FontFace(family, `url(${blobURL(id)})`, { weight }); }
+        await face.load();
+        document.fonts.add(face);
+        rec.face = face;
+      } catch {}
+    })();
+    fontFaces[slot] = rec;
+    return rec.p;
+  }
+  const loadFonts = () => Promise.all(FONT_SLOTS.map(f => loadFont(f[0])));
+  const contentReady = fetch('content.json', { cache: 'no-store' })
+    .then(r => (r.ok ? r.json() : null))
+    .catch(() => null)
+    .then(async data => {
+      if (data) { applyPayload(data); renderAll(); }
+      saved = JSON.stringify(snapshot());
+      await Promise.race([loadFonts(), new Promise(r => setTimeout(r, 3500))]);
+    });
+
+  /* =====================================================================
+     ÉDITION — panneau « Modifier le contenu ». Visible seulement pour les
+     personnes qui peuvent modifier la maquette sur claude.ai.
+     ===================================================================== */
+  const SCHEMA = [
+    { t: 'Accueil', f: [
+      ['hero.sub', 'Phrase en bas de page (footer)'],
+      ['img:portrait', 'Photo du résumé'],
+      ['bio.0', 'Résumé — paragraphe 1', 'area'],
+      ['bio.1', 'Résumé — paragraphe 2', 'area'],
+      ['bio.2', 'Résumé — paragraphe 3', 'area'],
+    ] },
+    { t: 'Projets', sub: IDS.map(id => ({ t: `Projet ${id}`, live: `p${id}.title`, f: [
+      [`p${id}.title`, 'Titre'], [`p${id}.disc`, 'Discipline'], [`p${id}.year`, 'Année'],
+      [`p${id}.context`, 'Contexte'], [`p${id}.role`, 'Rôle'],
+      [`p${id}.desc`, 'Résumé (colonne de gauche)', 'area'],
+      [`p${id}.t1`, 'Texte 1', 'area'], [`p${id}.t2`, 'Texte 2', 'area'],
+      [`img:p${id}.cover`, 'Vignette galerie et aperçu (carré 1:1)'],
+      [`img:p${id}.main`, 'Visuel principal (format 16:10)'],
+      ...(NO_DETAIL.has(id) ? [] : SOLO_DETAIL.has(id) ? [[`img:p${id}.d1`, 'Détail (format 3:2)']] : [[`img:p${id}.d1`, 'Détail 1 (format 4:5)'], [`img:p${id}.d2`, 'Détail 2 (format 4:5)']]),
+      [`img:p${id}.scene`, 'Mise en situation (format 3:2)'],
+    ] })) },
+    { t: 'À propos', f: [
+      ['img:ap', 'Photo (format paysage 16:9)'],
+      ['ap.0', 'Texte — paragraphe 1', 'area'], ['ap.1', 'Texte — paragraphe 2', 'area'],
+      ['att.v', 'Vision — la citation en majuscules, sur toute la largeur de la page (les guillemets anglais “ ” sont ajoutés)', 'area'],
+    ] },
+    { t: 'Parcours (C.V)', f: [
+      ['pdf:link.cv', 'C.V en PDF — fichier à ajouter (le bouton « C.V — PDF » s’active dès que le fichier est envoyé)'],
+      ['link.cv', 'Ou lien du C.V en PDF — adresse complète, ou chemin du fichier publié avec le site, par exemple assets/CV_Tim_Bosson_2026.pdf (laisser vide si le fichier est ajouté ci-dessus)'],
+    ], sub: Array.from({ length: NCV }, (_, i) => ({ t: `Rubrique ${pad(i + 1)}`, live: `cv.${i}.title`, f: [
+      [`cv.${i}.title`, 'Titre'], [`cv.${i}.sub`, 'Sous-titre'],
+      [`cv.${i}.rows`, 'Lignes — une par ligne : date | titre | détail', 'area'],
+    ] })) },
+    { t: 'Domaines d’expertise (accueil et À propos)', sub: Array.from({ length: NK }, (_, i) => ({ t: `Domaine ${pad(i + 1)}`, live: `kw.${i}.name`, f: [
+      [`kw.${i}.name`, 'Nom du domaine'], [`kw.${i}.desc`, 'Paragraphe', 'area'],
+    ] })) },
+    { t: 'Loisirs', sub: Array.from({ length: 4 }, (_, i) => ({ t: `Loisir ${pad(i + 1)}`, live: `lz.${i}.title`, f: [
+      [`lz.${i}.title`, 'Titre'], [`lz.${i}.sub`, 'Sous-titre'],
+      [`lz.${i}.p1`, 'Paragraphe 1', 'area'], [`lz.${i}.p2`, 'Paragraphe 2', 'area'],
+      [`img:lz.${i}`, 'Photo (format 4:3)'],
+    ] })) },
+    { t: 'Contact & liens', f: [
+      ['contact.intro', 'Phrase de la page Contact', 'area'],
+      ['contact.email', 'Adresse email'],
+      ['contact.endpoint', 'Formulaire de contact — clé d’accès Web3Forms (ou adresse d’un formulaire Formspree) : les messages arrivent dans ta boîte mail. Vide : le formulaire ouvre l’application mail du visiteur'],
+      ['link.instagram', 'Lien Instagram (adresse complète)'],
+      ['link.behance', 'Lien Behance'],
+      ['link.linkedin', 'Lien LinkedIn'],
+      ['footer.cta', 'Lien du footer'],
+      ['portfolio.intro', 'Phrase de la page Portfolio', 'area'],
+    ] },
+    { t: 'Mentions légales', f: [
+      ['legal.ed.0', 'Éditeur — paragraphe 1', 'area'], ['legal.ed.1', 'Éditeur — paragraphe 2 (directeur de la publication)', 'area'],
+      ['legal.host', 'Hébergeur — nom et adresse (à adapter si l’hébergement change)', 'area'],
+      ['legal.ip.0', 'Propriété intellectuelle — paragraphe 1', 'area'], ['legal.ip.1', 'Propriété intellectuelle — paragraphe 2', 'area'],
+      ['legal.data.0', 'Données personnelles — paragraphe 1', 'area'], ['legal.data.1', 'Données personnelles — paragraphe 2 (services tiers)', 'area'], ['legal.data.2', 'Données personnelles — paragraphe 3', 'area'],
+      ['legal.date', 'Date de mise à jour'],
+    ] },
+    { t: 'Polices', fonts: true },
+  ];
+  const FONT_SLOTS = [
+    ['bold', 'Stolzl Bold — titres, en majuscules', 'TB Stolzl', '700'],
+    ['book', 'Stolzl Book — textes, liste des projets et footer', 'TB Stolzl', '400'],
+    ['thin', 'Stolzl Thin — nom en haut de l’accueil', 'TB Stolzl', '100'],
+    ['mono', 'Cherry Light — annotations et éléments de composition', 'TB Cherry', '300'],
+  ];
+
+  const edToggle = $('#ed-toggle'), ed = $('#ed'), edBody = $('#ed-body'), edStatus = $('#ed-status');
+  const edSave = $('#ed-save'), edCancel = $('#ed-cancel'), edNote = $('#ed-note');
+  const DRAFT = 'tb-content-draft';
+  const store = {
+    get() { try { return JSON.parse(localStorage.getItem(DRAFT) || 'null'); } catch { return null; } },
+    set(v) { try { localStorage.setItem(DRAFT, JSON.stringify(v)); } catch {} },
+    clear() { try { localStorage.removeItem(DRAFT); } catch {} },
+  };
+  const fieldId = k => 'ed-' + k.replace(/[^\w]/g, '-');
+  let art = null, ast = null;
+  const isDirty = () => JSON.stringify(snapshot()) !== saved;
+  function setStatus(msg) { edStatus.textContent = msg; }
+  function refreshDirty() {
+    const d = isDirty();
+    edSave.disabled = !d;
+    edCancel.disabled = !d;
+    if (d) setStatus('Modifications non enregistrées');
+  }
+  let renderT, draftT;
+  function changed() {
+    clearTimeout(renderT);
+    renderT = setTimeout(renderAll, 120);
+    clearTimeout(draftT);
+    draftT = setTimeout(() => store.set({ ...snapshot(), at: Date.now() }), 500);
+    refreshDirty();
+  }
+
+  function buildField([key, label, kind]) {
+    const wrap = document.createElement('div');
+    wrap.className = 'ed-f';
+    wrap.dataset.key = key;
+    if (key.startsWith('pdf:')) {
+      const slot = key.slice(4);
+      wrap.classList.add('ed-fontf');
+      wrap.innerHTML = `<span class="ed-l"></span><div class="ed-img-btns"><label class="ed-btn">Choisir le fichier PDF<input type="file" accept="application/pdf,.pdf" hidden></label><button type="button" class="ed-link" data-rm>Retirer</button><span class="ed-msg" role="status"></span></div>`;
+      $('.ed-l', wrap).textContent = label;
+      const input = $('input', wrap), msg = $('.ed-msg', wrap);
+      input.addEventListener('change', async () => {
+        const file = input.files && input.files[0];
+        input.value = '';
+        if (!file) return;
+        if (!/\.pdf$/i.test(file.name) && file.type !== 'application/pdf') { msg.textContent = 'Format non pris en charge : PDF uniquement.'; return; }
+        if (file.size > 20 * 1024 * 1024) { msg.textContent = 'Fichier trop lourd (20 Mo maximum).'; return; }
+        msg.textContent = 'Envoi…';
+        try {
+          const res = await ast.upload(new Blob([file], { type: 'application/pdf' }), { type: 'application/pdf' });
+          S[slot] = '/_blob/' + res.id;
+          msg.textContent = 'Fichier ajouté';
+          $('[data-rm]', wrap).hidden = false;
+          const t = $(`.ed-f[data-key="${CSS.escape(slot)}"] input`, edBody);
+          if (t) t.value = S[slot];
+          changed();
+        } catch (e) {
+          msg.textContent = e && e.code === 'unsupported_type' ? 'Ce compte ne peut pas ajouter de PDF ici : ajoute-le depuis le compte propriétaire de la maquette.' : (UPLOAD_ERR[e && e.code] || 'L’envoi a échoué. Réessaie dans un instant.');
+        }
+      });
+      $('[data-rm]', wrap).addEventListener('click', () => {
+        S[slot] = '';
+        msg.textContent = '';
+        $('[data-rm]', wrap).hidden = true;
+        const t = $(`.ed-f[data-key="${CSS.escape(slot)}"] input`, edBody);
+        if (t) t.value = '';
+        changed();
+      });
+      return wrap;
+    }
+    if (key.startsWith('img:')) {
+      const slot = key.slice(4);
+      wrap.classList.add('ed-imgf');
+      wrap.innerHTML = `<span class="ed-l"></span><div class="ed-img"><div class="ed-thumb ph"></div><div class="ed-img-btns"><label class="ed-btn">Choisir une image ou une vidéo<input type="file" accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm" hidden></label><button type="button" class="ed-link" data-rm>Retirer</button><span class="ed-msg" role="status"></span></div></div>`;
+      $('.ed-l', wrap).textContent = label;
+      const input = $('input', wrap), msg = $('.ed-msg', wrap);
+      input.addEventListener('change', async () => {
+        const file = input.files && input.files[0];
+        input.value = '';
+        if (!file) return;
+        msg.textContent = 'Envoi…';
+        try {
+          const blob = await prepareImage(file);
+          const res = await ast.upload(blob, { type: blob.type });
+          IMG[slot] = res.id;
+          if (/^video\//.test(blob.type)) VID[slot] = true; else delete VID[slot];
+          msg.textContent = 'Image ajoutée';
+          fillThumb(wrap);
+          changed();
+        } catch (e) {
+          msg.textContent = UPLOAD_ERR[e && e.code] || 'L’envoi a échoué. Réessaie dans un instant.';
+        }
+      });
+      $('[data-rm]', wrap).addEventListener('click', () => {
+        delete IMG[slot];
+        delete VID[slot];
+        msg.textContent = '';
+        fillThumb(wrap);
+        changed();
+      });
+      return wrap;
+    }
+    const id = fieldId(key);
+    const l = document.createElement('label');
+    l.className = 'ed-l'; l.htmlFor = id; l.textContent = label;
+    const input = document.createElement(kind === 'area' ? 'textarea' : 'input');
+    input.id = id;
+    if (kind === 'area') input.rows = key.endsWith('.rows') ? 5 : 4;
+    else input.type = key === 'contact.email' ? 'email' : key.startsWith('link.') ? 'url' : 'text';
+    input.addEventListener('input', () => {
+      grow(input);
+      S[key] = kind === 'area' && !key.endsWith('.rows') ? input.value.replace(/\s*\n\s*/g, ' ') : input.value;
+      const live = input.closest('details[data-live]');
+      if (live && live.dataset.live === key) $('.ed-sum-v', live).textContent = input.value;
+      changed();
+    });
+    wrap.append(l, input);
+    return wrap;
+  }
+  function buildFontField([slot, label]) {
+    const wrap = document.createElement('div');
+    wrap.className = 'ed-f ed-fontf';
+    wrap.dataset.key = 'font:' + slot;
+    wrap.innerHTML = `<span class="ed-l"></span><div class="ed-img-btns"><label class="ed-btn">Choisir un fichier<input type="file" accept=".woff2,.woff,.otf,.ttf,font/woff2,font/woff,font/otf,font/ttf" hidden></label><button type="button" class="ed-link" data-rm>Retirer</button><span class="ed-msg" role="status"></span></div>`;
+    $('.ed-l', wrap).textContent = label;
+    const input = $('input', wrap), msg = $('.ed-msg', wrap);
+    input.addEventListener('change', async () => {
+      const file = input.files && input.files[0];
+      input.value = '';
+      if (!file) return;
+      const ext = ((file.name.match(/\.(woff2|woff|otf|ttf)$/i) || [])[1] || '').toLowerCase();
+      if (!ext) { msg.textContent = 'Format non pris en charge : WOFF2, WOFF, OTF ou TTF.'; return; }
+      if (file.size > 15 * 1024 * 1024) { msg.textContent = 'Fichier trop lourd (15 Mo maximum).'; return; }
+      const type = { woff2: 'font/woff2', woff: 'font/woff', otf: 'font/otf', ttf: 'font/ttf' }[ext];
+      msg.textContent = 'Envoi…';
+      try {
+        const res = await ast.upload(new Blob([file], { type }), { type });
+        FONTS[slot] = res.id;
+        await loadFont(slot);
+        msg.textContent = 'Police ajoutée';
+        $('[data-rm]', wrap).hidden = false;
+        changed();
+      } catch (e) {
+        msg.textContent = UPLOAD_ERR[e && e.code] || 'L’envoi a échoué. Réessaie dans un instant.';
+      }
+    });
+    $('[data-rm]', wrap).addEventListener('click', () => {
+      delete FONTS[slot];
+      loadFont(slot);
+      msg.textContent = '';
+      $('[data-rm]', wrap).hidden = true;
+      changed();
+    });
+    return wrap;
+  }
+  function fillFontField(w) {
+    const slot = w.dataset.key.slice(5), has = !!FONTS[slot];
+    $('.ed-msg', w).textContent = has ? 'Police ajoutée' : '';
+    $('[data-rm]', w).hidden = !has;
+  }
+  function buildEditor() {
+    const intro = document.createElement('p');
+    intro.className = 'ed-intro';
+    intro.textContent = 'Clique sur un texte ou une image de la page pour aller au bon champ. Les changements s’affichent en direct. « Enregistrer » les publie dans la maquette.';
+    edBody.appendChild(intro);
+    SCHEMA.forEach((g, gi) => {
+      const det = document.createElement('details');
+      det.className = 'ed-g';
+      if (gi === 0) det.open = true;
+      const sum = document.createElement('summary');
+      sum.textContent = g.t;
+      det.appendChild(sum);
+      (g.f || []).forEach(f => det.appendChild(buildField(f)));
+      if (g.fonts) {
+        const hint = document.createElement('p');
+        hint.className = 'ed-hint';
+        hint.textContent = 'Titres : Stolzl Bold en majuscules. Textes, liste des projets et footer : Stolzl Book. Nom de l’accueil : Stolzl Thin. Annotations : Cherry Light. La maquette utilise ces polices si elles sont installées sur l’ordinateur. Pour qu’elles s’affichent partout, ajoute ici les fichiers (WOFF2, OTF ou TTF). Vérifie que ta licence autorise l’usage sur le web.';
+        det.appendChild(hint);
+        FONT_SLOTS.forEach(f => det.appendChild(buildFontField(f)));
+      }
+      (g.sub || []).forEach(s => {
+        const sd = document.createElement('details');
+        sd.className = 'ed-sub';
+        sd.dataset.live = s.live;
+        sd.innerHTML = `<summary><span class="ed-sum-t"></span><span class="ed-sum-v"></span></summary>`;
+        $('.ed-sum-t', sd).textContent = s.t;
+        s.f.forEach(f => sd.appendChild(buildField(f)));
+        det.appendChild(sd);
+      });
+      edBody.appendChild(det);
+    });
+  }
+  function fillThumb(wrap) {
+    const slot = wrap.dataset.key.slice(4), u = imgURL(slot);
+    const fb = $(`[data-img="${CSS.escape(slot)}"][data-fallback]`);
+    const shown = u || (fb ? fb.dataset.fallback : '');
+    const th = $('.ed-thumb', wrap);
+    th.classList.toggle('has-img', !!shown);
+    if (shown && !(u && VID[slot])) th.style.setProperty('--img', `url("${shown}")`); else th.style.removeProperty('--img');
+    setVideo(th, u && VID[slot] ? u : '');
+    $('[data-rm]', wrap).hidden = !u;
+  }
+  function grow(ta) { if (ta.tagName === 'TEXTAREA') { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 2 + 'px'; } }
+  function fillFields() {
+    $$('.ed-f', edBody).forEach(w => {
+      const k = w.dataset.key;
+      if (k.startsWith('font:')) { fillFontField(w); return; }
+      if (k.startsWith('pdf:')) { const has = /^\/_blob\//.test(T(k.slice(4))); $('.ed-msg', w).textContent = has ? 'Fichier ajouté' : ''; $('[data-rm]', w).hidden = !has; return; }
+      if (k.startsWith('img:')) { fillThumb(w); return; }
+      const input = $('input, textarea', w);
+      if (document.activeElement !== input) input.value = T(k);
+      grow(input);
+    });
+    $$('details[data-live]', edBody).forEach(d => { $('.ed-sum-v', d).textContent = T(d.dataset.live); });
+  }
+  const UPLOAD_ERR = {
+    too_large: 'Fichier trop lourd (20 Mo maximum).',
+    unsupported_type: 'Format non pris en charge : JPG, PNG, WebP, GIF, MP4 ou WebM.',
+    quota_or_state: 'L’espace de stockage de la maquette est plein.',
+    rate_limited: 'Trop d’envois d’un coup. Réessaie dans un instant.',
+    not_granted: 'Tu n’as pas les droits pour ajouter des images ici.',
+    capability_disabled: 'L’ajout d’images n’est pas disponible dans cette vue.',
+    store_unavailable: 'Le stockage ne répond pas. Réessaie dans un instant.',
+  };
+  async function prepareImage(file) {
+    if (file.type === 'video/mp4' || file.type === 'video/webm') {
+      if (file.size > 20 * 1024 * 1024) throw { code: 'too_large' };
+      return file;
+    }
+    const ok = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+    if (!ok.includes(file.type)) throw { code: 'unsupported_type' };
+    if (file.type === 'image/gif' || file.size < 1.5e6) return file;
+    const bmp = await createImageBitmap(file);
+    const s = Math.min(1, 2400 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(bmp.width * s); c.height = Math.round(bmp.height * s);
+    c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+    const toBlob = type => new Promise(r => c.toBlob(r, type, 0.86));
+    let blob = await toBlob('image/webp');
+    if (!blob || blob.type !== 'image/webp') blob = await toBlob('image/jpeg');
+    return blob || file;
+  }
+  $('#ed-body').addEventListener('toggle', e => { if (e.target.open) $$('textarea', e.target).forEach(grow); }, true);
+  function openEditor(open) {
+    ed.classList.toggle('open', open);
+    root.classList.toggle('editing', open);
+    edToggle.setAttribute('aria-expanded', String(open));
+    edToggle.textContent = open ? 'Fermer le panneau' : 'Modifier le contenu';
+    if (open) fillFields();
+  }
+  function focusField(key, pick) {
+    const w = $(`.ed-f[data-key="${CSS.escape(key)}"]`, edBody);
+    if (!w) return;
+    for (let d = w.closest('details'); d; d = d.parentElement && d.parentElement.closest('details')) d.open = true;
+    w.scrollIntoView({ block: 'center', behavior: reduced ? 'auto' : 'smooth' });
+    w.classList.remove('flash'); void w.offsetWidth; w.classList.add('flash');
+    if (pick) $('input[type=file]', w)?.click();
+    else $('input, textarea', w)?.focus({ preventScroll: true });
+  }
+  document.addEventListener('click', e => {
+    if (!root.classList.contains('editing') || e.target.closest('#ed, #ed-toggle')) return;
+    const el = e.target.closest('[data-edit], [data-img], a[data-link]');
+    if (!el) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (!ed.classList.contains('open')) openEditor(true);
+    focusField(el.dataset.img ? 'img:' + el.dataset.img : el.dataset.edit ? el.dataset.edit : el.dataset.link === 'cv' ? 'pdf:link.cv' : 'link.' + el.dataset.link, !!el.dataset.img);
+  }, true);
+
+  async function save() {
+    edSave.disabled = true;
+    setStatus('Enregistrement…');
+    const payload = snapshot();
+    store.set({ ...payload, at: Date.now() });
+    try {
+      await art.publish({ 'content.json': { content: JSON.stringify(payload), contentType: 'application/json' } });
+      saved = JSON.stringify(payload);
+      store.clear();
+      const t = new Date();
+      setStatus(`Enregistré à ${pad(t.getHours())} h ${pad(t.getMinutes())}`);
+      edCancel.disabled = true;
+    } catch (e) {
+      const code = e && e.code;
+      if (code === 'conflict') setStatus('Une version plus récente existe : la page se recharge. Tes modifications restent en brouillon.');
+      else if (code === 'not_writer' || code === 'not_granted') setStatus('Cette vue est en lecture seule : l’enregistrement n’est pas possible ici.');
+      else if (code === 'rate_limited') setStatus('Trop d’enregistrements rapprochés. Attends quelques secondes.');
+      else if (code === 'capability_disabled' || code === 'capability_removed') setStatus('L’enregistrement n’est pas disponible dans cette vue. Ouvre la maquette depuis claude.ai.');
+      else setStatus('L’enregistrement a échoué. Réessaie dans un instant.');
+      edSave.disabled = !isDirty();
+    }
+  }
+  function cancelChanges() {
+    applyPayload(JSON.parse(saved));
+    store.clear();
+    renderAll();
+    fillFields();
+    refreshDirty();
+    setStatus('Modifications annulées');
+  }
+  function offerDraft() {
+    const d = store.get();
+    if (!d || JSON.stringify({ v: d.v, texts: d.texts, images: d.images, videos: d.videos || [], fonts: d.fonts || {} }) === saved) return;
+    const when = d.at ? new Date(d.at) : null;
+    edNote.hidden = false;
+    edNote.innerHTML = '<span></span> <button type="button" class="ed-link" data-take>Reprendre</button> <button type="button" class="ed-link" data-drop>Ignorer</button>';
+    edNote.firstChild.textContent = `Brouillon non enregistré${when ? ` du ${when.toLocaleDateString('fr-FR')} à ${pad(when.getHours())} h ${pad(when.getMinutes())}` : ''}.`;
+    $('[data-take]', edNote).addEventListener('click', () => {
+      applyPayload(d); renderAll(); fillFields(); refreshDirty(); edNote.hidden = true;
+    });
+    $('[data-drop]', edNote).addEventListener('click', () => { store.clear(); edNote.hidden = true; });
+  }
+  function enableEditor(a, s) {
+    art = a; ast = s;
+    buildEditor();
+    ed.hidden = false;
+    edToggle.hidden = false;
+    edToggle.addEventListener('click', () => openEditor(!ed.classList.contains('open')));
+    $('#ed-close').addEventListener('click', () => openEditor(false));
+    edSave.addEventListener('click', save);
+    edCancel.addEventListener('click', cancelChanges);
+    addEventListener('keydown', e => { if (e.key === 'Escape' && ed.classList.contains('open')) openEditor(false); });
+    contentReady.then(() => { fillFields(); refreshDirty(); setStatus('Aucune modification'); offerDraft(); });
+  }
+  if (window.claude && typeof window.claude.use === 'function') {
+    Promise.all([window.claude.use('artifact'), window.claude.use('assets')])
+      .then(([a, s]) => { if (a && s) enableEditor(a, s); })
+      .catch(() => {});
+  }
+
+  /* ---------- Loader : remplissage du gris au noir ---------- */
+  const loader = $('#loader');
+  function start() {
+    show(resolve(location.hash));
+    requestAnimationFrame(frame);
+  }
+  if (reduced) {
+    loader.remove();
+    start();
+  } else {
+    lenis?.stop();
+    const fill = $('#ld-fill');
+    const t0 = performance.now(), MIN = 1600;
+    let ready = false, done = false;
+    Promise.all([document.fonts?.ready, new Promise(r => addEventListener('load', r, { once: true })), contentReady]).then(() => { ready = true; });
+    setTimeout(() => { ready = true; }, 4500);
+    const finish = () => {
+      if (done) return; done = true;
+      fill.style.clipPath = 'inset(0 0 0 0)';
+      setTimeout(() => {
+        loader.classList.add('out');
+        lenis?.start();
+        start();
+        setTimeout(() => loader.remove(), 800);
+      }, 250);
+    };
+    loader.addEventListener('click', finish);
+    (function tick(now) {
+      if (done) return;
+      const k = clamp((now - t0) / MIN, 0, 1);
+      const shown = ready ? k : Math.min(k, 0.88);
+      const e = 1 - Math.pow(1 - shown, 2);
+      fill.style.clipPath = `inset(${((1 - e) * 100).toFixed(2)}% 0 0 0)`;
+      if (k >= 1 && ready) finish(); else requestAnimationFrame(tick);
+    })(t0);
+  }
+})();
+</script>
+
+</body></html>
