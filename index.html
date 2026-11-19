@@ -201,6 +201,8 @@ main.is-leaving{opacity:0}
 .h-link:focus-visible .rc>span{transform:translateY(-100%)}
 @media (hover:hover){.h-link:hover .rc>span{transform:translateY(-100%)}}
 .h-doodle{position:absolute;z-index:0;width:calc(1474 * var(--hk));right:calc(-128 * var(--hk));top:calc(50% - 592 * var(--hk));transform:rotate(-1deg);will-change:transform}
+.hero{-webkit-user-select:none;user-select:none}
+.h-doodle,.h-doodle img,.ld-fig img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;pointer-events:none}   /* le bonhomme fait partie de la page : on ne peut ni le saisir, ni le glisser, ni le sélectionner */
 .h-doodle img{width:100%;height:auto;clip-path:circle(0% at 4% 96%);transition:clip-path 1.6s var(--ease) .3s}
 .play .h-doodle img{clip-path:circle(150% at 4% 96%)}
 .h-doodle .float{animation:float 5.5s ease-in-out infinite alternate;transform-origin:60% 70%}
@@ -400,7 +402,7 @@ html.editing .btn-cv.is-off{pointer-events:auto;cursor:pointer}
 .js .vz-q::before{opacity:0;transition:opacity .5s ease-out}
 .js .vz.is-in .vz-q::before{opacity:1}
 /* Signature manuscrite : à droite de la fin de la phrase (position calculée par placeSig), elle se dévoile de gauche à droite une fois le dernier mot écrit */
-.vz-sig{position:absolute;top:0;right:calc(max(var(--m), 16px, env(safe-area-inset-right, 0px)) + 110 * var(--u));width:calc(250 * var(--u));margin:0;color:var(--ink);pointer-events:none}
+.vz-sig{position:absolute;top:0;right:calc(max(var(--m), 16px, env(safe-area-inset-right, 0px)) + 238 * var(--u));width:calc(250 * var(--u));margin:0;color:var(--ink);pointer-events:none}
 .vz-sig svg{display:block;width:100%;height:auto;fill:currentColor;overflow:visible}
 .js .vz-sig{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s cubic-bezier(.65, 0, .35, 1) calc(.45s + var(--n, 20) * 50ms)}
 .js .vz.is-in .vz-sig{clip-path:inset(0 0 0 0)}
@@ -512,61 +514,84 @@ html.has-cursor .cursor,html.has-cursor .cursor-label{display:block}
 
 /* ——— Téléphone ——— */
 @media (max-width:760px){
-  :root{--m:16px;--g:12px;--fs-h:44px;--fs-d:24px;--fs-l:18.5px;--fs-b:16.5px;--fs-m:14.5px;--fs-s:11px;--bar:50px}
+  :root{--m:16px;--g:12px;--fs-h:38px;--fs-d:21px;--fs-l:16.5px;--fs-b:15px;--fs-m:13.5px;--fs-s:10.5px;--bar:50px}
   .grid,.idx-head,.idx-row,.acc-btn,.acc-row{grid-template-columns:repeat(4,minmax(0,1fr))}
   .c1-5,.c1-6,.c1-4,.c5-10,.c7-10,.sec-head .right,.ap-photo,.bio.ap-text{grid-column:1 / -1}
   .c7-8{grid-column:1 / span 2}.c9-10{grid-column:3 / span 2}
 
-  .hero{height:100vh;height:100svh;min-height:560px;--hk:calc(var(--u) * 3.69)}
-  .h-name{left:16px;top:calc(env(safe-area-inset-top, 0px) + 22px);font-size:19px}
-  .h-cta{left:16px;top:auto;bottom:calc(118 * var(--hk) + env(safe-area-inset-bottom, 0px))}
-  .h-link{font-size:clamp(27px, 8.2vw, 36px)}
-  .h-doodle{width:calc(452 * var(--hk));right:calc(-30 * var(--hk));top:calc(env(safe-area-inset-top, 0px) + 66 * var(--hk))}
-  .h-hint{left:12px;bottom:calc(30 * var(--hk) + env(safe-area-inset-bottom, 0px));width:20px;height:60px}
+  /* Accueil : trois zones qui se suivent (nom · bonhomme · liens). Le bonhomme prend la place qui reste et ne touche jamais aux textes. */
+  .hero{display:flex;flex-direction:column;height:100vh;height:100svh;min-height:560px;--hk:calc(var(--u) * 3.69);
+    padding:calc(env(safe-area-inset-top, 0px) + 22px) 16px calc(env(safe-area-inset-bottom, 0px) + 112px)}
+  .h-name{order:1;position:static;flex:none;font-size:17px}
+  .h-doodle{order:2;position:relative;right:auto;top:auto;flex:1 1 0;min-height:0;width:calc(100% + 32px);margin:18px -16px 26px;display:flex;align-items:center;justify-content:center;container-type:size}
+  .h-doodle .float{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+  .h-doodle img{flex:none;width:100%;max-width:none;height:auto;max-height:100%;object-fit:contain}
+  @supports (width:1cqw){.h-doodle img{width:min(112cqw, 123.7cqh);max-height:none}}
+  .h-cta{order:3;position:static;flex:none;align-self:flex-start}
+  .h-link{font-size:clamp(24px, 7.2vw, 32px)}
+  .h-hint{left:12px;bottom:calc(30px + env(safe-area-inset-bottom, 0px));width:20px;height:60px}
 
-  .sec{margin-top:72px}
-  .sec-head{margin-bottom:24px;padding-top:12px}
-  .bio{margin-top:22px}
-  .bio-cta{margin-top:20px}
+  /* Plus d'air entre les sections, et entre les textes et les images */
+  .sec{margin-top:104px}
+  .sec-head{margin-bottom:32px;padding-top:14px}
+  .bio{margin-top:30px}
+  .bio p+p{margin-top:1.3em}
+  .bio-cta{margin-top:30px}
   .carousel{height:78vw}
   .slide{width:78vw;left:11vw}
-  .gal-foot{row-gap:10px}
+  .gal-foot{row-gap:14px;margin-top:0;margin-bottom:30px}
 
-  .footer-wrap{height:auto;margin-top:96px}
-  .footer{height:auto;gap:28px;padding-top:28px}
-  .f-big{font-size:32px}
-  .f-col{margin-top:22px}
+  .footer-wrap{height:auto;margin-top:120px}
+  .footer{height:auto;gap:32px;padding-top:32px}
+  .f-big{font-size:28px}
+  .f-col{margin-top:24px}
   .f-c,.f-t{grid-column:1 / -1}
   .f-t{white-space:normal;margin-top:6px}
   .f-up{grid-column:1 / -1;justify-self:start;margin-top:12px}
 
-  .page{padding-top:calc(var(--bar) + 44px)}
-  .p-head{row-gap:14px;margin-bottom:28px}
+  .page{padding-top:calc(var(--bar) + 52px)}
+  .p-head{row-gap:16px;margin-bottom:40px}
   .hide-m{display:none}
-  .idx-row{padding-block:14px}
+  .idx-row{padding-block:18px}
   .c-t{grid-column:2 / span 2}
   .idx-head .arr,.idx-row .arr{grid-column:4}
   .preview{display:none}
   .proj-aside,.proj-main{grid-column:1 / -1;position:static;padding:0;border:0}
-  .proj-main{margin-top:28px}
-  .proj-text{padding-block:14px}
-  .pj{padding-top:28px;padding-bottom:64px}
+  .proj-main{margin-top:44px}
+  .proj-flow{gap:24px}
+  .proj-main .pair{gap:12px}
+  .proj-text{padding-block:16px}
+  .proj-title{margin:14px 0 22px}
+  .meta{gap:8px 18px;padding-top:14px;margin-bottom:28px}
+  .proj-desc{font-size:15px;margin-bottom:30px}
+  .pj{padding-top:44px;padding-bottom:96px}
   .dots{display:none}   /* sur téléphone, les projets se suivent : la liste répétée à chaque projet serait trop longue */
+  .acc-btn{padding-block:18px}
   .acc-btn .d{grid-column:1}.acc-btn .t{grid-column:2 / span 2}.acc-btn .x{display:none}.acc-btn .pm{grid-column:4}
+  .acc-row{padding-bottom:20px}
   .acc-row .d,.acc-row .t,.acc-row .x{grid-column:1 / -1}
-  .acc-row .t,.acc-row .x{margin-top:4px}
-  .bio.ap-text,.ct-form{margin-top:24px}
+  .acc-row .t,.acc-row .x{margin-top:6px}
+  .dm-row{padding-bottom:24px}
+  .cv-actions{margin-top:36px}
+  .bio.ap-text,.ct-form{margin-top:28px}
+  .ct-form{gap:30px}
+  .ct-aside .blk+.blk{margin-top:28px}
+  .ct-obj .opts{gap:10px 24px}
+  .field input,.field textarea{font-size:16px}   /* 16 px minimum : en dessous, l'iPhone zoome sur le champ */
+  .lg-sec{padding-bottom:40px}
   .lz-body .lz-txt{grid-column:1 / -1}
   .lz-stack{--lzh:52px}
   .lz-head .d{grid-column:1}.lz-head .t{grid-column:2 / span 2}.lz-head .x{display:none}.lz-head .pm{grid-column:4}
-  .lz-img{grid-column:1 / -1;aspect-ratio:4 / 3;margin-top:14px}
-  .vz{margin-top:64px}
-  .vz-q{padding-block:30px var(--sig-pad, 0px)}
+  .lz-body{padding-top:14px;padding-bottom:48px}
+  .lz-img{grid-column:1 / -1;aspect-ratio:4 / 3;margin-top:26px}
+  .lz-txt p+p{margin-top:1em}
+  .vz{margin-top:104px}
+  .vz-q{padding-block:34px var(--sig-pad, 0px)}
   .vz-sig{width:clamp(92px, 30vw, 124px);right:calc(max(var(--m), 16px, env(safe-area-inset-right, 0px)) + 22px)}
-  .vz-q::before{font-size:96px;margin-bottom:18px}
-  .vz-q p{font-size:clamp(23px, 7.4vw, 34px);max-width:none;text-align:left}
-  .vz + .dm{margin-top:64px}
-  .dm{margin-top:72px}
+  .vz-q::before{font-size:80px;margin-bottom:16px}
+  .vz-q p{font-size:clamp(20px, 6.3vw, 29px);max-width:none;text-align:left}
+  .vz + .dm{margin-top:104px}
+  .dm{margin-top:104px}
   .dm-txt{grid-column:1 / -1}
   .proj-title{font-size:var(--pj-fs, var(--fs-h))}
   .idx-row .t,.acc-btn .t,.lz-head .t{white-space:normal}   /* colonnes très étroites sur téléphone : les titres de liste peuvent passer à la ligne */
@@ -652,8 +677,8 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
 
 <div class="loader" id="loader" aria-hidden="true">
   <div class="ld-fig">
-    <img class="ld-base" src="assets/doodle.png" alt="">
-    <img class="ld-fill" id="ld-fill" src="assets/doodle.png" alt="">
+    <img class="ld-base" src="assets/doodle.png" alt="" draggable="false">
+    <img class="ld-fill" id="ld-fill" src="assets/doodle.png" alt="" draggable="false">
   </div>
 </div>
 
@@ -672,7 +697,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
         <a class="h-link" href="#portfolio" data-roll="Portfolio">Portfolio</a>
         <a class="h-link" href="#cv" data-roll="C.V">C.V</a>
       </nav>
-      <div class="h-doodle" id="doodle" aria-hidden="true"><div class="float"><img src="assets/doodle.png" alt=""></div></div>
+      <div class="h-doodle" id="doodle" aria-hidden="true"><div class="float"><img src="assets/doodle.png" alt="" draggable="false"></div></div>
       <button class="h-hint fade late2" type="button" id="h-hint" aria-label="Défiler vers la suite"><svg viewBox="0 0 29 88" aria-hidden="true" focusable="false"><path d="M14.5 1.4v85M1.8 74.2l12.7 12.7 12.7-12.7"/></svg></button>
     </div>
 
