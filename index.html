@@ -1386,22 +1386,40 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     after?.();
     setTimeout(() => { lenis?.resize(); sizeFooter(); }, 650);
   }
+  /* Survol « avec intention » : un menu ne s'ouvre que lorsque la souris s'arrête sur sa ligne (≈ 0,12 s). En traversant la liste, aucune ligne ne s'ouvre au passage, et quand une ligne glisse
+     sous un curseur immobile (le menu précédent se referme), rien ne s'ouvre non plus : il faut bouger la souris d'au moins 30 px depuis la dernière ouverture. */
+  const mouseClick = e => (e.pointerType ? e.pointerType === 'mouse' : finePointer && e.detail > 0);   // clic à la souris (et non au clavier ni au doigt)
   function hoverAccordion(container, open) {
-    if (!finePointer) return;
-    let timer = 0;
-    container.addEventListener('pointerover', e => {
+    let timer = 0, endT = 0, pend = null, lockUntil = 0, ax = -1e4, ay = -1e4, lx = -1e4, ly = -1e4, sx = 0, sy = 0, lastMove = 0;
+    const dist = (x, y, u, v) => Math.abs(x - u) + Math.abs(y - v);
+    const closedBtn = el => { const b = el?.closest?.('.acc-btn'); return b && container.contains(b) && !b.closest('.acc-item').classList.contains('open') ? b : null; };
+    const go = b => {
+      clearTimeout(timer); pend = null;
+      ax = lx; ay = ly; lockUntil = performance.now() + 520;
+      open(b);
+      clearTimeout(endT); endT = setTimeout(settle, 540);
+    };
+    const settle = () => {   // le menu a fini de glisser : si la souris vient de se diriger volontairement vers une autre ligne, on l'ouvre
+      if (performance.now() - lastMove > 220 || dist(lx, ly, ax, ay) < 30) return;
+      const b = closedBtn(document.elementFromPoint(lx, ly));
+      if (b) go(b);
+    };
+    container.addEventListener('pointermove', e => {
       if (e.pointerType !== 'mouse') return;
-      const b = e.target.closest('.acc-btn');
-      if (!b || b.contains(e.relatedTarget) || b.closest('.acc-item').classList.contains('open')) return;
-      clearTimeout(timer);
+      if (dist(e.clientX, e.clientY, lx, ly) < 1) return;   // pas de vrai mouvement (la page a bougé sous la souris)
+      lx = e.clientX; ly = e.clientY; lastMove = performance.now();
+      const b = closedBtn(e.target);
+      if (!b || performance.now() < lockUntil || dist(lx, ly, ax, ay) < 30) { clearTimeout(timer); pend = null; return; }
+      if (pend === b && dist(lx, ly, sx, sy) < 6) return;   // quasi immobile : le délai continue
+      clearTimeout(timer); pend = b; sx = lx; sy = ly;
       timer = setTimeout(() => {
-        if (performance.now() - realT > 250 || !b.matches(':hover')) return;
-        open(b);
-      }, 90);
+        pend = null;
+        if (b.matches(':hover') && performance.now() >= lockUntil && !b.closest('.acc-item').classList.contains('open')) go(b);
+      }, 120);
     });
     container.addEventListener('pointerout', e => {
-      const b = e.target.closest('.acc-btn');
-      if (b && !b.contains(e.relatedTarget)) clearTimeout(timer);
+      const b = e.target.closest?.('.acc-btn');
+      if (b && !b.contains(e.relatedTarget)) { clearTimeout(timer); pend = null; }
     });
   }
   /* ---------- Domaines d'expertise : la même section (menu déroulant, comme le C.V) sur l'accueil et sur À propos ---------- */
@@ -1413,7 +1431,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     sec.addEventListener('click', e => {
       const b = e.target.closest('.acc-btn');
       if (!b) return;
-      if (finePointer && e.detail > 0) { accOpenOnly(b); return; }   // souris : le survol ouvre, le clic ne ferme pas
+      if (mouseClick(e)) { accOpenOnly(b); return; }   // souris : le survol ouvre, le clic ne ferme pas
       const item = b.closest('.acc-item'), open = !item.classList.contains('open');
       item.classList.toggle('open', open);
       b.setAttribute('aria-expanded', String(open));
@@ -2008,7 +2026,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   accEl.addEventListener('click', e => {
     const b = e.target.closest('.acc-btn');
     if (!b) return;
-    if (finePointer && e.detail > 0) { cvOnly(b); return; }   // souris : le survol ouvre, le clic ne ferme pas
+    if (mouseClick(e)) { cvOnly(b); return; }   // souris : le survol ouvre, le clic ne ferme pas
     const i = +b.dataset.i, item = b.closest('.acc-item');
     const open = !item.classList.contains('open');
     item.classList.toggle('open', open);
