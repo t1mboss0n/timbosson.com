@@ -25,14 +25,14 @@
 /* Projet 11 « Illustrations, Lyon » retiré : la sélection compte dix projets (le compteur, la liste et la navigation suivent le nombre de projets).
    Signature manuscrite à droite de la Vision · mentions légales (#mentions-legales, lien dans le footer, textes modifiables dans le panneau) · C.V en PDF (fichier à ajouter dans « Modifier le contenu » → Parcours (C.V) ; à la mise en ligne définitive : assets/CV_Tim_Bosson_2026.pdf) ·
    balises de partage pour timbosson.com (assets/preview.jpg) · NOMADE sans cadres « détail » (deux formats paysage) · relecture complète des textes.
-   V16. Titres : Stolzl Bold en majuscules · textes : Stolzl Book · annotations : Cherry Light (le nom de l'accueil reste en Stolzl Thin).
+   V16. Titres : Stolzl Bold en majuscules · textes : Stolzl Book · annotations : Cherry Light (le nom, l'intitulé et les domaines de l'accueil sont en Stolzl Light).
    Galerie sans encadrés sur les images : seul le titre « Projet — Domaine » reste, sur une seule ligne · aucun titrage ne passe à la ligne ·
    Projets : un projet à la fois dans une scène épinglée (les textes et images défilent, puis la colonne de gauche glisse et le projet suivant apparaît en fondu), footer après le dernier ·
    Islafood : un seul cadre « détail » en 3:2 · Fanzine : pas de cadre « mise en situation » tant qu'il est vide ·
    liste des projets et footer en Stolzl Book · Vision : citation plus grande, justifiée, qui s'écrit mot par mot (machine à écrire fluide), sans signature, marges réduites, guillemets anglais “ ” ·
    accueil : « Portfolio » et « C.V » centrés en hauteur, à gauche (alignés sur le nom) · projets : plus d'étiquette « Agrandir » au survol des images (la galerie de l'accueil la garde) ·
    bouton « C.V — PDF » (lien à saisir dans le mode édition). */
-/* Polices. Titres : Stolzl Bold (majuscules). Textes : Stolzl Book. Nom en haut de l'accueil : Stolzl Thin. Annotations : Cherry Light.
+/* Polices. Titres : Stolzl Bold (majuscules). Textes : Stolzl Book. Nom en haut de l'accueil : Stolzl Light. Annotations : Cherry Light.
    Stolzl et Cherry ne sont pas hébergées ici : la page les prend sur l'ordinateur
    où elles sont installées, ou depuis les fichiers ajoutés dans « Modifier le contenu » → Polices.
    Sans elles, Lexend et DM Mono (Google Fonts) prennent le relais avec les mêmes graisses. */
@@ -45,12 +45,21 @@
 /* Layout: 10 colonnes, marges 60px, gouttières 20px sur un canevas de 1440px (Figma).
    --u vaut 1px à 1440 de large : toute la mise en page garde les proportions de la maquette. */
 :root{
-  --paper:#ffffff;
-  --ink:#000000;
-  --grey:#5a5a5a;       /* texte secondaire lisible (AA) */
-  --grey-soft:#bdbdbd;  /* gris Figma : départ du défilement gris → noir, éléments inactifs */
-  --rule:#dbdbdb;
-  --ph:#d9d9d9;         /* placeholders Figma */
+  /* Trois couleurs par thème (légende de la maquette) :
+     --paper = couleur de fond · --ink = textes principaux (Stolzl : titres, sous-titres, paragraphes) · --acc = annotations (Cherry Light) et éléments graphiques de second plan.
+     Costume (la base) : fond #F7F7F7, tout le reste #0B0B0B.
+     Les nuances intermédiaires (gris des textes secondaires, fonds de vignettes…) sont des mélanges de ces trois couleurs : elles suivent donc chaque thème. */
+  --paper:#F7F7F7;
+  --ink:#0B0B0B;
+  --acc:#0B0B0B;
+  --grey:color-mix(in srgb, var(--ink) 70%, var(--paper));        /* texte secondaire */
+  --grey-soft:color-mix(in srgb, var(--ink) 30%, var(--paper));   /* départ du défilement → texte, éléments inactifs */
+  --line:var(--acc);                                               /* filets : éléments graphiques de second plan */
+  --rule:var(--line);
+  --note:var(--acc);                                               /* annotations discrètes */
+  --ph:color-mix(in srgb, var(--ink) 9%, var(--paper));            /* vignettes en attente d'image, bandeau du footer */
+  --ph-line:color-mix(in srgb, var(--ink) 22%, var(--ph));
+  transition:--paper .8s ease, --ink .8s ease, --acc .8s ease;      /* fondu vers les couleurs du thème */
 
   /* Hiérarchie : Stolzl Bold en majuscules = titres, Stolzl Book = textes, Cherry Light = annotations et éléments de composition */
   --sans:"TB Stolzl","Stolzl","Lexend","Helvetica Neue",Arial,sans-serif;
@@ -58,7 +67,6 @@
   --mono:"TB Cherry","Cherry","DM Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
   --w-b:700;            /* Stolzl Bold : titres */
   --w-r:400;            /* Stolzl Book : textes */
-  --w-t:100;            /* Stolzl Thin : le nom en haut de l'accueil, rien d'autre */
   --w-l:300;            /* Cherry Light : annotations */
 
   /* Pictogrammes : traits fins, utilisés comme masques (ils prennent la couleur du texte) */
@@ -67,24 +75,37 @@
   --i-x:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.2'%3E%3Cpath d='M2.5 2.5l11 11M13.5 2.5l-11 11'/%3E%3C/svg%3E");
   --i-ar:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.2'%3E%3Cpath d='M1 8h13.6M9.4 3.2L14.6 8l-5.2 4.8'/%3E%3C/svg%3E");
 
-  --u:calc(100vw / 1440);
-  --m:calc(60 * var(--u));
-  --g:calc(20 * var(--u));
+  /* Échelle : --u1 = 1px sur un écran de 1440 de large (marges et grille, qui gardent les proportions de la maquette).
+     --u = unité réduite (× 0,6) pour les espacements et les grands textes · --uc = unité des images et du footer (× 0,72). */
+  --u1:calc(100vw / 1440);
+  --u:calc(var(--u1) * .6);
+  --uc:calc(var(--u1) * .72);
+  --m:calc(60 * var(--u1));
+  --g:calc(20 * var(--u1));
   /* Trois niveaux bien séparés.
-     Titres (Stolzl Bold, majuscules) : --fs-h titres de page · --fs-d noms dans les listes · accueil et citations plus grands.
-     Textes (Stolzl Book)             : --fs-l texte d'accroche · --fs-b texte courant · --fs-m légendes.
+     Titres (Stolzl Bold, majuscules) : --fs-h titres de page · --fs-d noms dans les listes · citations plus grandes.
+     Textes (Stolzl Book)             : --fs-l texte d'accroche · --fs-b texte courant (14 px sur 1440) · --fs-m légendes.
      Annotations (Cherry Light)       : --fs-s. */
-  --fs-h:calc(64 * var(--u));
-  --fs-d:calc(30 * var(--u));
-  --fs-l:max(18px, calc(21 * var(--u)));
-  --fs-b:max(16.5px, calc(18 * var(--u)));
-  --fs-m:max(14px, calc(15.5 * var(--u)));
-  --fs-s:max(11px, calc(12 * var(--u)));
-  --bar:calc(56 * var(--u));
+  --fs-h:max(26px, calc(32 * var(--u1)));
+  --fs-d:max(15px, calc(17 * var(--u1)));
+  --fs-l:max(14px, calc(15 * var(--u1)));
+  --fs-b:max(13.5px, calc(14 * var(--u1)));
+  --fs-m:max(12.5px, calc(13 * var(--u1)));
+  --fs-s:max(10.5px, calc(11 * var(--u1)));
+  --bar:max(40px, calc(56 * var(--u)));
 
   --ease:cubic-bezier(.16,1,.3,1);
   color-scheme:light;
 }
+:root.theme-init{transition:none}
+
+/* ——— Thèmes : « Costume » est la base ; les trois autres remplacent les trois couleurs (le changement se fait en fondu) ——— */
+@property --paper{syntax:"<color>";inherits:true;initial-value:#F7F7F7}
+@property --ink{syntax:"<color>";inherits:true;initial-value:#0B0B0B}
+@property --acc{syntax:"<color>";inherits:true;initial-value:#0B0B0B}
+:root[data-theme="galet"]{--paper:#203542;--ink:#A4ABB3;--acc:#F5F4F3;color-scheme:dark}
+:root[data-theme="theatre"]{--paper:#120303;--ink:#BA0001;--acc:#F1E8CC;color-scheme:dark}
+:root[data-theme="expresso"]{--paper:#E9CBA6;--ink:#5E3F14;--acc:#1D1305}
 
 html.lenis, html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto !important}
@@ -136,7 +157,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .lnk:hover .ic-ar.l{transform:rotate(180deg) translateX(3px)}
 .lnk:hover .ic-ar.u{transform:rotate(-90deg) translateX(3px)}
 .muted{color:var(--grey)}
-.todo{font-family:var(--mono);font-weight:var(--w-l);font-size:.62em;letter-spacing:.04em;text-transform:uppercase;color:var(--grey);background:#f2f2f2;padding:.1em .4em}
+.todo{font-family:var(--mono);font-weight:var(--w-l);font-size:.62em;letter-spacing:.04em;text-transform:uppercase;color:var(--grey);background:color-mix(in srgb, var(--ink) 8%, var(--paper));padding:.1em .4em}
 
 /* Liens texte, sans encadré */
 .lnk{display:inline-flex;align-items:center;gap:.6em;min-height:28px;transition:color .2s}
@@ -148,7 +169,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* Grille 10 colonnes, touche G */
 .gridview{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:0;transition:opacity .3s}
 .gridview .grid{height:100%}
-.gridview .grid span{background:rgba(0,0,0,.04);border-left:1px solid rgba(0,0,0,.12);border-right:1px solid rgba(0,0,0,.12)}
+.gridview .grid span{background:color-mix(in srgb, var(--ink) 5%, transparent);border-left:1px solid color-mix(in srgb, var(--ink) 14%, transparent);border-right:1px solid color-mix(in srgb, var(--ink) 14%, transparent)}
 html.show-grid .gridview{opacity:1}
 
 /* ——— Header épuré : Tim Bosson / C.V ——— */
@@ -156,7 +177,7 @@ html.show-grid .gridview{opacity:1}
   position:fixed;top:0;left:0;right:0;z-index:60;background:var(--paper);
   height:calc(var(--bar) + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);
   display:flex;align-items:center;justify-content:space-between;gap:16px;
-  font-size:var(--fs-m);line-height:1;border-bottom:1px solid var(--ink);
+  font-size:var(--fs-m);line-height:1;border-bottom:1px solid var(--line);
   transition:opacity .4s var(--ease),visibility .4s;
 }
 .topbar.is-hidden{opacity:0;visibility:hidden}
@@ -183,16 +204,21 @@ main.is-leaving{opacity:0}
 .play .fade.f1{transition-delay:.5s}.play .fade.f2{transition-delay:.62s}.play .fade.f3{transition-delay:.74s}
 
 /* ——— HERO ———
-   D'après la maquette : le nom en Thin en haut à gauche, deux liens en Bold à gauche (les lettres roulent au survol), une flèche pour défiler,
-   et le personnage en très grand, qui déborde à droite et en bas et flotte quand on bouge la souris.
-   --hk = unité de la composition : 1px sur un écran de 1920 × 1024 ; elle se réduit avec la largeur ou la hauteur de la fenêtre. */
-.hero{position:relative;height:100vh;height:100svh;min-height:440px;overflow:hidden;overflow:clip;--hk:min(calc(var(--u) * .75), calc(100vh / 1024))}
-@supports (height:100svh){.hero{--hk:min(calc(var(--u) * .75), calc(100svh / 1024))}}
-.h-name{position:absolute;left:var(--m);top:calc(64 * var(--hk));z-index:2;margin:0;font-family:var(--display);font-weight:var(--w-t);text-transform:uppercase;
-  font-size:max(22px, calc(38 * var(--hk)));line-height:1;letter-spacing:.004em;white-space:nowrap}
-.h-cta{position:absolute;left:var(--m);top:0;bottom:0;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;pointer-events:none}
+   Reprise de la maquette « page d'accueil » (1440 × 900) : une composition centrée sur le milieu de l'écran, textes en 14 px.
+   --hu = 1px sur 1440 × 900 ; elle se réduit si la fenêtre est plus étroite ou moins haute. Les repères sont pris depuis le centre (50 %) : la composition reste équilibrée à toute taille.
+   Stolzl Light en majuscules pour le nom, l'intitulé et la liste des domaines · Stolzl Bold pour « Portfolio » et « C.V » · dix points de 14 px · le bonhomme (928 px) est cliquable : il change le thème de couleurs, et se réduit à son contour au survol. */
+.hero{position:relative;height:100vh;height:100svh;min-height:440px;overflow:hidden;overflow:clip;--hu:min(var(--u1), calc(100vh / 900));--dw:max(9px, calc(14 * var(--hu)));--hfs:max(12.5px, calc(14 * var(--hu)));--hlh:max(17px, calc(19 * var(--hu)))}
+@supports (height:100svh){.hero{--hu:min(var(--u1), calc(100svh / 900))}}
+.h-top{display:contents}
+.h-id,.h-dom{position:absolute;z-index:2;margin:0;padding:0;list-style:none;font-family:var(--sans);font-weight:var(--w-l);font-size:var(--hfs);line-height:var(--hlh);letter-spacing:0;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.h-id{left:var(--m);top:calc(50% - 365.5 * var(--hu) - var(--hlh) / 2)}
+.h-dom{left:calc(50% + 7 * var(--hu));top:calc(50% - 366 * var(--hu) - var(--hlh) / 2)}
+.h-name,.h-role{margin:0;font:inherit;letter-spacing:inherit;text-transform:uppercase}
+.h-cta{position:absolute;inset:0;z-index:2;pointer-events:none}
 .h-cta .h-link{pointer-events:auto}
-.h-link{--lh:1.263;display:block;font-size:max(22px, calc(38 * var(--hk)));line-height:var(--lh);letter-spacing:.004em;color:var(--ink);white-space:nowrap}
+.h-link{--lh:1.4;position:absolute;left:calc(var(--m) + 133 * var(--hu));display:block;font-size:var(--hfs);line-height:var(--lh);letter-spacing:0;color:var(--ink);white-space:nowrap}
+.h-link.l1{top:calc(50% - .7em)}
+.h-link.l2{top:calc(50% + 183 * var(--hu) - .7em)}
 .h-link:focus-visible{outline-offset:6px}
 /* Les lettres roulent : chaque lettre est en double dans une fenêtre d'une ligne, le survol fait glisser la pile vers le haut, lettre après lettre */
 .roll{display:inline-flex;white-space:pre}
@@ -200,22 +226,32 @@ main.is-leaving{opacity:0}
 .rc>span{display:block;height:calc(1em * var(--lh));line-height:calc(1em * var(--lh));transition:transform .62s cubic-bezier(.7,0,.2,1) calc(var(--i, 0) * 22ms);backface-visibility:hidden}
 .h-link:focus-visible .rc>span{transform:translateY(-100%)}
 @media (hover:hover){.h-link:hover .rc>span{transform:translateY(-100%)}}
-.h-doodle{position:absolute;z-index:0;width:calc(1474 * var(--hk));right:calc(-128 * var(--hk));top:calc(50% - 592 * var(--hk));transform:rotate(-1deg);will-change:transform}
+/* Les dix points de la maquette (le dernier, en bas à gauche, invite à défiler) */
+.hd{position:absolute;z-index:1;width:var(--dw);height:var(--dw);margin:calc(var(--dw) / -2) 0 0 calc(var(--dw) / -2);border-radius:50%;background:var(--ink);transform:scale(0);pointer-events:none}
+.play .hd{transform:none;transition:transform .9s var(--ease) calc(.55s + var(--i, 0) * 70ms)}
+.h-hint{position:absolute;z-index:2;left:calc(var(--m) + 7 * var(--hu));top:calc(50% + 366 * var(--hu));width:34px;height:34px;margin:-17px 0 0 -17px;display:grid;place-items:center;color:var(--ink)}
+.h-hint i{display:block;width:var(--dw);height:var(--dw);border-radius:50%;background:currentColor;animation:bob 2.8s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+/* Le bonhomme : deux masques de dessin (ils prennent la couleur du texte) : le plein, et son contour fin (assets/doodle-outline.png).
+   Au survol, le plein s'efface et il ne reste que le contour. */
+.h-doodle{position:absolute;z-index:0;width:calc(928 * var(--hu));left:calc(50% - 164 * var(--hu));top:calc(50% - 354.1 * var(--hu));transform:rotate(-1deg);will-change:transform}
 .hero{-webkit-user-select:none;user-select:none}
-.h-doodle,.h-doodle img,.ld-fig img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;pointer-events:none}   /* le bonhomme fait partie de la page : on ne peut ni le saisir, ni le glisser, ni le sélectionner */
-.h-doodle img{width:100%;height:auto;clip-path:circle(0% at 4% 96%);transition:clip-path 1.6s var(--ease) .3s}
-.play .h-doodle img{clip-path:circle(150% at 4% 96%)}
-.h-doodle .float{animation:float 5.5s ease-in-out infinite alternate;transform-origin:60% 70%}
-@keyframes float{from{transform:translateY(0) rotate(0)}to{transform:translateY(calc(8 * var(--hk))) rotate(.4deg)}}
-.h-hint{position:absolute;left:calc(var(--m) - 9 * var(--hk));bottom:calc(48 * var(--hk));z-index:2;display:block;width:max(14px, calc(29 * var(--hk)));height:max(42px, calc(88 * var(--hk)));color:var(--ink)}
-.h-hint svg{display:block;width:100%;height:100%;overflow:visible;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;animation:bob 2.8s cubic-bezier(.45,0,.55,1) infinite}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(calc(10 * var(--hk)))}}
-@keyframes nudge{0%,100%{transform:rotate(90deg) translateX(0)}50%{transform:rotate(90deg) translateX(5px)}}
+.h-doodle,.dd,.ld-fig>div{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;pointer-events:none}   /* le bonhomme fait partie de la page : on ne peut ni le saisir, ni le glisser, ni le sélectionner (le clic est détecté par le script, sur le trait) */
+.ld-base,.ld-fill,.dd-fill,.dd-line{display:block;background:var(--ink);-webkit-mask:url("assets/doodle.png") center / contain no-repeat;mask:url("assets/doodle.png") center / contain no-repeat}
+.ld-base,.ld-fill{position:relative;width:100%;aspect-ratio:1895 / 1532}
+.dd{position:relative;display:block;width:100%;aspect-ratio:1895 / 1532;clip-path:circle(0% at 4% 96%);transition:clip-path 1.6s var(--ease) .3s}
+.play .dd{clip-path:circle(150% at 4% 96%)}
+.dd-fill,.dd-line{position:absolute;inset:0;transition:opacity .45s var(--ease)}
+.dd-line{opacity:0;-webkit-mask-image:url("assets/doodle-outline.png");mask-image:url("assets/doodle-outline.png")}
+.h-doodle.hot .dd-fill,.h-theme:focus-visible + .h-doodle .dd-fill{opacity:0}
+.h-doodle.hot .dd-line,.h-theme:focus-visible + .h-doodle .dd-line{opacity:1}
+.h-doodle .float{position:relative;animation:float 5.5s ease-in-out infinite alternate;transform-origin:60% 70%}
+@keyframes float{from{transform:translateY(0) rotate(0)}to{transform:translateY(calc(8 * var(--hu))) rotate(.4deg)}}
 
 /* ——— Sections ——— */
 .sec{position:relative;margin-top:calc(150 * var(--u))}
 .sec.first{margin-top:0}
-.sec-head{border-top:1px solid var(--ink);padding-top:calc(14 * var(--u));margin-bottom:calc(52 * var(--u));align-items:center;row-gap:10px}
+.sec-head{border-top:1px solid var(--line);padding-top:calc(14 * var(--u));margin-bottom:calc(52 * var(--u));align-items:center;row-gap:10px}
 .sec-head .right{grid-column:7 / span 4;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .sec-head.no-rule{border-top:0;padding-top:0;margin-bottom:calc(14 * var(--u))}
 .sec-head .label{display:flex;align-items:center;gap:.8em}
@@ -233,9 +269,9 @@ main.is-leaving{opacity:0}
 .bio-cta{margin-top:calc(40 * var(--u))}
 
 /* Galerie / carrousel (Figma : carré 696 centré, voisins coupés) */
-.carousel{position:relative;height:calc(696 * var(--u));overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+.carousel{position:relative;height:calc(696 * var(--uc));overflow:hidden;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
 .carousel:active{cursor:grabbing}
-.slide{position:absolute;top:0;left:calc(50% - 348 * var(--u));width:calc(696 * var(--u));height:100%;will-change:transform;-webkit-user-drag:none}
+.slide{position:absolute;top:0;left:calc(50% - 348 * var(--uc));width:calc(696 * var(--uc));height:100%;will-change:transform;-webkit-user-drag:none}
 .slide .ph{height:100%;transition:transform .9s var(--ease)}
 .slide:hover .ph{transform:scale(.975)}
 /* Aucune étiquette sur les vignettes : le titre « Projet — Domaine » est donné une seule fois, au-dessus du carrousel. */
@@ -249,19 +285,19 @@ main.is-leaving{opacity:0}
 /* Placeholder (boîte barrée du croquis) */
 .ph{position:relative;background-color:var(--ph);
   background-image:
-    linear-gradient(to top right,transparent calc(50% - .6px),var(--grey-soft) calc(50% - .6px),var(--grey-soft) calc(50% + .6px),transparent calc(50% + .6px)),
-    linear-gradient(to bottom right,transparent calc(50% - .6px),var(--grey-soft) calc(50% - .6px),var(--grey-soft) calc(50% + .6px),transparent calc(50% + .6px));
+    linear-gradient(to top right,transparent calc(50% - .6px),var(--ph-line) calc(50% - .6px),var(--ph-line) calc(50% + .6px),transparent calc(50% + .6px)),
+    linear-gradient(to bottom right,transparent calc(50% - .6px),var(--ph-line) calc(50% - .6px),var(--ph-line) calc(50% + .6px),transparent calc(50% + .6px));
 }
-.ph .ph-dim{position:absolute;right:12px;bottom:10px;color:#8a8a8a}
+.ph .ph-dim{position:absolute;right:12px;bottom:10px;color:var(--note)}
 .ph.has-img{background-image:var(--img);background-size:cover;background-position:center}
 .ph.has-img .ph-dim{display:none}
 .ph-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
-.ph.tone2{background-color:#cfcfcf}.ph.tone3{background-color:#e2e2e2}.ph.tone4{background-color:#c6c6c6}.ph.tone5{background-color:#dcdcdc}.ph.tone6{background-color:#d2d2d2}
+.ph.tone2{background-color:color-mix(in srgb, var(--ink) 13%, var(--paper))}.ph.tone3{background-color:color-mix(in srgb, var(--ink) 6%, var(--paper))}.ph.tone4{background-color:color-mix(in srgb, var(--ink) 15%, var(--paper))}.ph.tone5{background-color:color-mix(in srgb, var(--ink) 8%, var(--paper))}.ph.tone6{background-color:color-mix(in srgb, var(--ink) 11%, var(--paper))}
 
 /* ——— Footer (bandeau gris Figma) à rideau ——— */
-.footer-wrap{position:relative;height:calc(340 * var(--u));clip-path:inset(0 0 0 0);margin-top:calc(200 * var(--u))}
-.footer{position:fixed;left:0;right:0;bottom:0;height:calc(340 * var(--u));background:var(--ph);color:var(--ink);
-  display:flex;flex-direction:column;justify-content:space-between;padding-top:calc(40 * var(--u));padding-bottom:calc(28 * var(--u) + env(safe-area-inset-bottom,0px))}
+.footer-wrap{position:relative;height:calc(340 * var(--uc));clip-path:inset(0 0 0 0);margin-top:calc(200 * var(--u))}
+.footer{position:fixed;left:0;right:0;bottom:0;height:calc(340 * var(--uc));background:var(--ph);color:var(--ink);
+  display:flex;flex-direction:column;justify-content:space-between;padding-top:calc(40 * var(--uc));padding-bottom:calc(28 * var(--uc) + env(safe-area-inset-bottom,0px))}
 .f-big{font-size:calc(44 * var(--u));line-height:1;display:inline-flex;align-items:center;gap:.3em;transition:color .2s}
 .f-big .ic{width:.62em;height:.62em;vertical-align:baseline}
 .f-big:hover{color:var(--grey)}
@@ -283,8 +319,8 @@ main.is-leaving{opacity:0}
 .p-title{font-size:var(--fs-h);line-height:1}
 .p-intro{color:var(--grey);font-size:var(--fs-b);line-height:1.45;max-width:40ch}
 .idx-head,.idx-row{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));column-gap:var(--g);align-items:center}
-.idx-head{padding-bottom:10px;border-bottom:1px solid var(--ink);color:var(--grey)}
-.idx-row{position:relative;border-bottom:1px solid var(--ink);padding-block:calc(18 * var(--u));isolation:isolate}
+.idx-head{padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--note)}
+.idx-row{position:relative;border-bottom:1px solid var(--line);padding-block:calc(18 * var(--u));isolation:isolate}
 .idx-row::before{content:"";position:absolute;inset:0 calc(-1 * max(var(--m),16px));background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease);z-index:-1}
 .idx-row:hover,.idx-row:focus-visible{color:var(--paper)}
 .idx-row:hover::before,.idx-row:focus-visible::before{transform:scaleY(1)}
@@ -307,10 +343,10 @@ main.is-leaving{opacity:0}
 .pj{position:relative;padding-top:calc(40 * var(--u));padding-bottom:calc(130 * var(--u))}
 .pj:first-child{padding-top:0}
 .pj:last-child{padding-bottom:0}
-.pj+.pj{border-top:1px solid var(--ink)}
+.pj+.pj{border-top:1px solid var(--line)}
 .proj{align-items:start}
 .proj-aside{grid-column:1 / span 4;padding-right:var(--g)}
-.proj-main{grid-column:5 / span 6;border-left:1px solid var(--ink);padding-left:var(--g)}
+.proj-main{grid-column:5 / span 6;border-left:1px solid var(--line);padding-left:var(--g)}
 .proj-flow{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--g)}
 @media (min-width:761px){
   #view-projet.is-stage{padding-top:calc(var(--bar) + env(safe-area-inset-top,0px))}
@@ -327,13 +363,13 @@ main.is-leaving{opacity:0}
 /* Titre du projet : une seule ligne, même taille pour tous les projets (--pj-fs, calculée par le script d'après le titre le plus long) */
 .proj-title{font-size:var(--pj-fs, calc(42 * var(--u)));line-height:1.04;margin:14px 0 calc(22 * var(--u))}
 #view-projet.wrap-ok .proj-title{white-space:normal}
-.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;border-top:1px solid var(--ink);padding-top:12px;margin-bottom:calc(20 * var(--u))}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;border-top:1px solid var(--line);padding-top:12px;margin-bottom:calc(20 * var(--u))}
 .meta dt{color:var(--grey)}.meta dd{margin:0}
-.proj-desc{font-size:max(16px, calc(17 * var(--u)));line-height:1.45;margin-bottom:calc(24 * var(--u))}
+.proj-desc{font-size:var(--fs-l);line-height:1.45;margin-bottom:calc(24 * var(--u))}
 /* Liste des projets : Stolzl Book (nom — domaine), le projet en cours en noir */
-.dots{border-top:1px solid var(--ink);padding-top:9px;margin-bottom:calc(16 * var(--u))}
+.dots{border-top:1px solid var(--line);padding-top:9px;margin-bottom:calc(16 * var(--u))}
 .proj-aside.compact .dots{display:none}
-.dots a{display:flex;align-items:center;gap:.85em;padding:1px 0;font-family:var(--sans);font-weight:var(--w-r);font-size:max(13.5px, calc(15 * var(--u)));letter-spacing:0;text-transform:none;line-height:1.3;white-space:nowrap;color:var(--grey);transition:color .3s}
+.dots a{display:flex;align-items:center;gap:.85em;padding:1px 0;font-family:var(--sans);font-weight:var(--w-r);font-size:var(--fs-m);letter-spacing:0;text-transform:none;line-height:1.3;white-space:nowrap;color:var(--grey);transition:color .3s}
 .dots .tx{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .dots .ds::before{content:"\00a0— "}
 .dots a:hover{color:var(--ink)}
@@ -352,8 +388,8 @@ main.is-leaving{opacity:0}
 sup.n{font-family:var(--mono);font-size:max(9.5px, calc(10 * var(--u)));letter-spacing:.04em;line-height:1;margin-left:.3em;vertical-align:super}
 
 /* Parcours / C.V : menu déroulant */
-.acc{border-top:1px solid var(--ink)}
-.acc-item{border-bottom:1px solid var(--ink)}
+.acc{border-top:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
 .acc-btn,.acc-row{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));column-gap:var(--g);align-items:baseline;width:100%;text-align:left}
 .acc-btn{padding-block:calc(22 * var(--u))}
 .acc-btn .d,.acc-row .d{grid-column:1 / span 2}
@@ -371,8 +407,8 @@ sup.n{font-family:var(--mono);font-size:max(9.5px, calc(10 * var(--u)));letter-s
 .acc-row .x{grid-column:7 / span 4;color:var(--grey);font-size:var(--fs-b);line-height:1.4}
 .cv-actions{margin-top:calc(28 * var(--u))}
 /* Bouton « C.V — PDF » : contour noir, il se remplit au survol. Le lien se saisit dans « Modifier le contenu ». */
-.btn-cv{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:calc(16 * var(--u));min-height:44px;padding:calc(14 * var(--u)) calc(24 * var(--u));border:1px solid var(--ink);
-  font-family:var(--mono);font-weight:var(--w-l);font-size:max(12px, calc(13 * var(--u)));letter-spacing:.08em;text-transform:uppercase;line-height:1;transition:color .45s var(--ease),border-color .3s}
+.btn-cv{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:calc(16 * var(--u));min-height:38px;padding:calc(14 * var(--u)) calc(24 * var(--u));border:1px solid var(--ink);
+  font-family:var(--mono);font-weight:var(--w-l);font-size:max(11.5px, calc(12 * var(--u1)));letter-spacing:.08em;text-transform:uppercase;line-height:1;transition:color .45s var(--ease),border-color .3s}
 .btn-cv::before{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease);z-index:-1}
 .btn-cv:hover,.btn-cv:focus-visible{color:var(--paper)}
 .btn-cv:hover::before,.btn-cv:focus-visible::before{transform:scaleY(1)}
@@ -409,7 +445,7 @@ html.editing .btn-cv.is-off{pointer-events:auto;cursor:pointer}
 
 /* ——— Mentions légales ——— */
 .lg{padding-bottom:calc(20 * var(--u))}
-.lg-sec{border-top:1px solid var(--ink);padding-top:calc(14 * var(--u));padding-bottom:calc(64 * var(--u));row-gap:14px;align-items:start}
+.lg-sec{border-top:1px solid var(--line);padding-top:calc(14 * var(--u));padding-bottom:calc(64 * var(--u));row-gap:14px;align-items:start}
 .lg-sec .label{margin:0}
 .lg-txt{display:grid;gap:1.1em;font-size:var(--fs-b);line-height:1.5}
 .lg-txt p{margin:0;text-wrap:pretty}
@@ -423,10 +459,10 @@ html.editing .btn-cv.is-off{pointer-events:auto;cursor:pointer}
 .dm-txt{grid-column:3 / span 6;font-size:var(--fs-l);line-height:1.45}
 /* Loisirs : cartes empilées au défilement ; les titres déjà lus restent visibles comme des onglets */
 .lz-stack{--lzh:calc(64 * var(--u));position:relative}
-.lz-stack::after{content:"";display:block;height:1px;margin-inline:max(var(--m),16px);background:var(--ink)}
+.lz-stack::after{content:"";display:block;height:1px;margin-inline:max(var(--m),16px);background:var(--line)}
 .lz-card{position:sticky;top:calc(var(--bar) + var(--i) * var(--lzh));background:var(--paper)}
 .lz-head{position:relative;width:100%;height:var(--lzh);align-items:center;text-align:left;background:var(--paper)}
-.lz-head::before{content:"";position:absolute;top:0;left:max(var(--m),16px);right:max(var(--m),16px);height:1px;background:var(--ink)}
+.lz-head::before{content:"";position:absolute;top:0;left:max(var(--m),16px);right:max(var(--m),16px);height:1px;background:var(--line)}
 .lz-head .d{grid-column:1 / span 2}
 .lz-head .t{grid-column:3 / span 4;font-size:var(--fs-d);line-height:1.1;transition:color .4s}
 .lz-head .x{grid-column:7 / span 3;color:var(--grey)}
@@ -497,39 +533,42 @@ h1,h2,.gal-cap,.p-title,.proj-title{text-wrap:balance}
 /* ——— Loader : le bonhomme se remplit du gris au noir ——— */
 .loader{position:fixed;inset:0;z-index:200;background:var(--paper);display:grid;place-items:center;transition:opacity .7s ease}
 .loader.out{opacity:0;pointer-events:none}
-.ld-fig{position:relative;width:clamp(150px, 17vw, 250px)}
-.ld-fig img{width:100%;height:auto}
+.ld-fig{position:relative;width:clamp(130px, 13vw, 200px)}
 .ld-base{opacity:.16}
 .ld-fill{position:absolute;inset:0;clip-path:inset(100% 0 0 0)}
 
-/* ——— Curseur : un point, avec beaucoup de retard ——— */
+/* ——— Curseur : un point, presque sans retard ——— */
 .cursor,.cursor-label{position:fixed;left:0;top:0;pointer-events:none;z-index:300;display:none}
 html.has-cursor .cursor,html.has-cursor .cursor-label{display:block}
 .cursor{mix-blend-mode:difference}
-.cursor i{display:block;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;transition:transform .45s var(--ease)}
-.cursor.is-media i,.cursor.is-hidden i{transform:scale(0)}
-.cursor-label span{display:inline-flex;align-items:center;justify-content:center;gap:.5em;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;background:var(--ink);color:var(--paper);
-  font-family:var(--mono);font-weight:var(--w-l);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;transform:scale(0);transition:transform .45s var(--ease);box-shadow:0 0 0 1px var(--paper)}
+.cursor i{display:block;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;transform:scale(0);transition:transform .45s var(--ease)}
+.cursor:not(.is-media):not(.is-hidden) i{transform:none}
+.cursor-label span{display:inline-flex;align-items:center;justify-content:center;gap:.5em;width:80px;height:80px;margin:-40px 0 0 -40px;border-radius:50%;background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-weight:var(--w-l);font-size:11px;letter-spacing:.06em;text-transform:uppercase;transform:scale(0);transition:transform .45s var(--ease);box-shadow:0 0 0 1px var(--paper)}
 .cursor-label.on span{transform:scale(1)}
 
 /* ——— Téléphone ——— */
 @media (max-width:760px){
-  :root{--m:16px;--g:12px;--fs-h:38px;--fs-d:21px;--fs-l:16.5px;--fs-b:15px;--fs-m:13.5px;--fs-s:10.5px;--bar:50px}
+  :root{--m:16px;--g:12px;--u:var(--u1);--uc:var(--u1);--fs-h:30px;--fs-d:17px;--fs-l:15px;--fs-b:14px;--fs-m:13px;--fs-s:10.5px;--bar:50px}
   .grid,.idx-head,.idx-row,.acc-btn,.acc-row{grid-template-columns:repeat(4,minmax(0,1fr))}
   .c1-5,.c1-6,.c1-4,.c5-10,.c7-10,.sec-head .right,.ap-photo,.bio.ap-text{grid-column:1 / -1}
   .c7-8{grid-column:1 / span 2}.c9-10{grid-column:3 / span 2}
 
-  /* Accueil : trois zones qui se suivent (nom · bonhomme · liens). Le bonhomme prend la place qui reste et ne touche jamais aux textes. */
-  .hero{display:flex;flex-direction:column;height:100vh;height:100svh;min-height:560px;--hk:calc(var(--u) * 3.69);
+  /* Accueil : trois zones qui se suivent (nom et domaines · bonhomme · liens). Le bonhomme prend la place qui reste et ne touche jamais aux textes. */
+  .hero{display:flex;flex-direction:column;height:100vh;height:100svh;min-height:560px;--hu:calc(100vw / 390);--hfs:14px;--hlh:19px;--dw:13px;
     padding:calc(env(safe-area-inset-top, 0px) + 22px) 16px calc(env(safe-area-inset-bottom, 0px) + 112px)}
-  .h-name{order:1;position:static;flex:none;font-size:17px}
-  .h-doodle{order:2;position:relative;right:auto;top:auto;flex:1 1 0;min-height:0;width:calc(100% + 32px);margin:18px -16px 26px;display:flex;align-items:center;justify-content:center;container-type:size}
+  .h-top{display:flex;order:1;flex:none;justify-content:space-between;align-items:flex-start;gap:16px}
+  .h-id,.h-dom{position:static;white-space:normal}
+  .h-id{flex:1 1 0;min-width:0}
+  .h-dom{flex:none}
+  .h-doodle{order:2;position:relative;left:auto;top:auto;flex:1 1 0;min-height:0;width:calc(100% + 32px);margin:18px -16px 26px;display:flex;align-items:center;justify-content:center;container-type:size}
   .h-doodle .float{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
-  .h-doodle img{flex:none;width:100%;max-width:none;height:auto;max-height:100%;object-fit:contain}
-  @supports (width:1cqw){.h-doodle img{width:min(112cqw, 123.7cqh);max-height:none}}
-  .h-cta{order:3;position:static;flex:none;align-self:flex-start}
-  .h-link{font-size:clamp(24px, 7.2vw, 32px)}
-  .h-hint{left:12px;bottom:calc(30px + env(safe-area-inset-bottom, 0px));width:20px;height:60px}
+  .dd{flex:none;width:100%;max-width:none}
+  @supports (width:1cqw){.dd{width:min(112cqw, 123.7cqh)}}
+  .h-cta{order:3;position:static;flex:none;align-self:flex-start;pointer-events:auto}
+  .h-link{position:static;padding-block:7px;pointer-events:auto}
+  .hd{display:none}
+  .h-hint{left:6px;top:auto;bottom:calc(13px + env(safe-area-inset-bottom, 0px));margin:0}
 
   /* Plus d'air entre les sections, et entre les textes et les images */
   .sec{margin-top:104px}
@@ -543,7 +582,7 @@ html.has-cursor .cursor,html.has-cursor .cursor-label{display:block}
 
   .footer-wrap{height:auto;margin-top:120px}
   .footer{height:auto;gap:32px;padding-top:32px}
-  .f-big{font-size:28px}
+  .f-big{font-size:24px}
   .f-col{margin-top:24px}
   .f-c,.f-t{grid-column:1 / -1}
   .f-t{white-space:normal;margin-top:6px}
@@ -563,10 +602,11 @@ html.has-cursor .cursor,html.has-cursor .cursor-label{display:block}
   .proj-text{padding-block:16px}
   .proj-title{margin:14px 0 22px}
   .meta{gap:8px 18px;padding-top:14px;margin-bottom:28px}
-  .proj-desc{font-size:15px;margin-bottom:30px}
+  .proj-desc{font-size:14px;margin-bottom:30px}
   .pj{padding-top:44px;padding-bottom:96px}
   .dots{display:none}   /* sur téléphone, les projets se suivent : la liste répétée à chaque projet serait trop longue */
   .acc-btn{padding-block:18px}
+  .btn-cv{min-height:44px}
   .acc-btn .d{grid-column:1}.acc-btn .t{grid-column:2 / span 2}.acc-btn .x{display:none}.acc-btn .pm{grid-column:4}
   .acc-row{padding-bottom:20px}
   .acc-row .d,.acc-row .t,.acc-row .x{grid-column:1 / -1}
@@ -588,8 +628,8 @@ html.has-cursor .cursor,html.has-cursor .cursor-label{display:block}
   .vz{margin-top:104px}
   .vz-q{padding-block:34px var(--sig-pad, 0px)}
   .vz-sig{width:clamp(92px, 30vw, 124px);right:calc(max(var(--m), 16px, env(safe-area-inset-right, 0px)) + 22px)}
-  .vz-q::before{font-size:80px;margin-bottom:16px}
-  .vz-q p{font-size:clamp(20px, 6.3vw, 29px);max-width:none;text-align:left}
+  .vz-q::before{font-size:64px;margin-bottom:14px}
+  .vz-q p{font-size:clamp(18px, 5.6vw, 25px);max-width:none;text-align:left}
   .vz + .dm{margin-top:104px}
   .dm{margin-top:104px}
   .dm-txt{grid-column:1 / -1}
@@ -600,13 +640,13 @@ html.has-cursor .cursor,html.has-cursor .cursor-label{display:block}
 
 /* Dégradé blanc en bas d'écran : il reste du contenu à faire défiler */
 .scroll-fade{position:fixed;left:0;right:0;bottom:0;height:clamp(64px, 13vh, 150px);z-index:55;pointer-events:none;
-  background:linear-gradient(to top, #fff 0%, rgba(255,255,255,.85) 35%, rgba(255,255,255,0) 100%);transition:opacity .5s ease}
+  background:linear-gradient(to top, var(--paper) 0%, color-mix(in srgb, var(--paper) 85%, transparent) 35%, color-mix(in srgb, var(--paper) 0%, transparent) 100%);transition:opacity .5s ease}
 .scroll-fade.off{opacity:0}
 
 /* ——— Panneau « Modifier le contenu » (visible pour les éditeurs uniquement) ——— */
 .ed-toggle{position:fixed;left:max(16px, env(safe-area-inset-left, 0px));bottom:calc(16px + env(safe-area-inset-bottom, 0px));z-index:150;
   background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:11px 14px}
-.ed-toggle:hover{background:#333}
+.ed-toggle:hover{background:color-mix(in srgb, var(--ink) 82%, var(--paper))}
 .ed{--w-r:400;font-weight:var(--w-r);position:fixed;top:0;right:0;bottom:0;width:min(440px, 100vw);z-index:160;background:var(--paper);border-left:1px solid var(--ink);
   display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .5s var(--ease),visibility .5s}
 .ed.open{transform:none;visibility:visible}
@@ -655,7 +695,8 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   *,*::before,*::after{animation:none !important;transition:none !important}
   .mask>.mi{transform:none}
   .fade{opacity:1;transform:none}
-  .h-doodle img{clip-path:none}
+  .dd{clip-path:none}
+  .hd{transform:none}
   [data-words] .w{color:var(--ink)}
   .js [data-reveal]:not(.portrait){opacity:1;transform:none}
   .js .portrait[data-reveal]{clip-path:none}
@@ -666,6 +707,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   .js #view-projet:not(.is-stage) .pj .proj-aside .fade{opacity:1;transform:none}
 }
 </style>
+<script>try{var t=localStorage.getItem('tb-theme');if(/^(galet|theatre|expresso)$/.test(t))document.documentElement.setAttribute('data-theme',t);document.documentElement.className+=' theme-init'}catch(e){document.documentElement.className+=' theme-init'}</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -677,8 +719,8 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
 
 <div class="loader" id="loader" aria-hidden="true">
   <div class="ld-fig">
-    <img class="ld-base" src="assets/doodle.png" alt="" draggable="false">
-    <img class="ld-fill" id="ld-fill" src="assets/doodle.png" alt="" draggable="false">
+    <div class="ld-base"></div>
+    <div class="ld-fill" id="ld-fill"></div>
   </div>
 </div>
 
@@ -692,13 +734,36 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   <!-- ================= ACCUEIL ================= -->
   <section class="view" id="view-accueil" data-view="accueil">
     <div class="hero" id="hero">
-      <h1 class="h-name"><span class="mask"><span class="mi">Tim Bosson</span></span></h1>
+      <div class="h-top">
+        <div class="h-id">
+          <h1 class="h-name"><span class="mask"><span class="mi" data-edit="hero.name">TIM BOSSON</span></span></h1>
+          <p class="h-role"><span class="mask d1"><span class="mi" data-edit="hero.role">3/5 DIR. ART &amp; DESIGN GRAPHIQUE</span></span></p>
+        </div>
+        <ul class="h-dom fade late" aria-label="Domaines">
+          <li data-edit="hero.d0">ÉDITION</li>
+          <li data-edit="hero.d1">PUBLICITÉ</li>
+          <li data-edit="hero.d2">STRATÉGIE</li>
+          <li data-edit="hero.d3">TYPOGRAPHIE</li>
+          <li data-edit="hero.d4">SIGNALÉTIQUE</li>
+        </ul>
+      </div>
+      <i class="hd" style="--i:0;left:calc(50% - 267 * var(--hu));top:calc(50% - 366 * var(--hu))" aria-hidden="true"></i>
+      <i class="hd" style="--i:1;left:calc(50% - 133 * var(--hu));top:calc(50% - 366 * var(--hu))" aria-hidden="true"></i>
+      <i class="hd" style="--i:2;left:calc(var(--m) + 7 * var(--hu));top:calc(50% - 274 * var(--hu))" aria-hidden="true"></i>
+      <i class="hd" style="--i:3;left:calc(var(--m) + 126 * var(--hu));top:calc(50% - 274 * var(--hu))" aria-hidden="true"></i>
+      <i class="hd" style="--i:4;left:calc(50% - 267 * var(--hu));top:calc(50% - 274 * var(--hu))" aria-hidden="true"></i>
+      <i class="hd" style="--i:5;left:calc(50% - 133 * var(--hu));top:calc(50% - 274 * var(--hu))" aria-hidden="true"></i>
+      <i class="hd" style="--i:6;left:calc(var(--m) + 7 * var(--hu));top:calc(50% - 183 * var(--hu))" aria-hidden="true"></i>
+      <i class="hd" style="--i:7;left:calc(var(--m) + 7 * var(--hu));top:calc(50%)" aria-hidden="true"></i>
+      <i class="hd" style="--i:8;left:calc(var(--m) + 7 * var(--hu));top:calc(50% + 183 * var(--hu))" aria-hidden="true"></i>
       <nav class="h-cta fade late2" aria-label="Accès rapide">
-        <a class="h-link" href="#portfolio" data-roll="Portfolio">Portfolio</a>
-        <a class="h-link" href="#cv" data-roll="C.V">C.V</a>
+        <a class="h-link l1" href="#portfolio" data-roll="Portfolio">Portfolio</a>
+        <a class="h-link l2" href="#cv" data-roll="C.V">C.V</a>
       </nav>
-      <div class="h-doodle" id="doodle" aria-hidden="true"><div class="float"><img src="assets/doodle.png" alt="" draggable="false"></div></div>
-      <button class="h-hint fade late2" type="button" id="h-hint" aria-label="Défiler vers la suite"><svg viewBox="0 0 29 88" aria-hidden="true" focusable="false"><path d="M14.5 1.4v85M1.8 74.2l12.7 12.7 12.7-12.7"/></svg></button>
+      <button class="h-theme sr-only" id="h-theme" type="button">Changer de couleurs</button>
+      <div class="h-doodle" id="doodle" aria-hidden="true"><div class="float"><div class="dd" id="dd"><i class="dd-fill"></i><i class="dd-line"></i></div></div></div>
+      <span class="sr-only" id="theme-live" aria-live="polite"></span>
+      <button class="h-hint fade late2" type="button" id="h-hint" aria-label="Défiler vers la suite"><i></i></button>
     </div>
 
     <!-- Résumé -->
@@ -958,7 +1023,9 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   const lerp = (a, b, t) => a + (b - a) * t;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const pad = n => String(n).padStart(2, '0');
-  const U = () => root.clientWidth / 1440;
+  const U1 = () => root.clientWidth / 1440;   // 1px sur 1440 de large : marges, grille
+  const UK = 0.6, UC = 0.72;                  // échelle réduite (espacements, grands textes) et échelle des images
+  const U = () => U1() * UK;
 
   /* ---------- Typographie française : aucune césure, aucun signe seul en bout de ligne ---------- */
   const NB = '\u00A0';
@@ -1194,6 +1261,9 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   const DISC = ['Édition', 'Identité', 'Publicité', 'Direction artistique', 'Stratégie', 'Communication'];
   const TITLES = { '07': 'Toca Loco', '08': 'Islafood', '09': 'Fanzine', '10': 'NOMADE' };
   const C0 = {
+    'hero.name': 'TIM BOSSON',
+    'hero.role': '3/5 DIR. ART & DESIGN GRAPHIQUE',
+    'hero.d0': 'ÉDITION', 'hero.d1': 'PUBLICITÉ', 'hero.d2': 'STRATÉGIE', 'hero.d3': 'TYPOGRAPHIE', 'hero.d4': 'SIGNALÉTIQUE',
     'hero.sub': 'Étudiant en troisième année de direction artistique et design graphique.',
     'bio.0': 'Attiré depuis toujours par l’édition, l’amour des lettres et la force de l\'image, j\'ai vu mon cheminement vers le design graphique s\'imposer comme une évidence. Après un temps d\'exploration, j\'ai trouvé mon ancrage à l’École Brassart, où je prépare aujourd\'hui un mastère en direction artistique.',
     'bio.1': 'Mon univers créatif ne s\'arrête pas aux frontières du visuel. L’écriture, intimement liée à la musique, ainsi que les jeux de stratégie qui ont façonné ma jeunesse, sont autant de mondes qui ont forgé mon regard.',
@@ -1258,7 +1328,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   const P = (i, f) => T(`p${IDS[i]}.${f}`);
 
   /* ---------- Unité --u ---------- */
-  const setU = () => root.style.setProperty('--u', U() + 'px');
+  const setU = () => root.style.setProperty('--u1', U1() + 'px');
   setU();
   addEventListener('resize', setU);
   let rlT;
@@ -1273,7 +1343,6 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   const topOf = el => el.getBoundingClientRect().top + scrollY - ($('#topbar').offsetHeight + 24);
 
   /* ---------- Mots : gris → noir au défilement ---------- */
-  const SOFT = 189;
   const WORDS = new Map();
   const SPLIT = '[data-words] p';
   function splitP(p) {
@@ -1295,8 +1364,44 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     const n = words.length, spread = 6;
     words.forEach((w, i) => {
       const t = clamp(p * (n + spread) - i, 0, spread) / spread;
-      const v = Math.round(SOFT * (1 - t));
-      if (v !== w.v) { w.v = v; w.el.style.color = `rgb(${v},${v},${v})`; }
+      const v = Math.round(100 * t);
+      if (v !== w.v) { w.v = v; w.el.style.color = v >= 100 ? 'var(--ink)' : v <= 0 ? 'var(--grey-soft)' : `color-mix(in srgb, var(--ink) ${v}%, var(--grey-soft))`; }
+    });
+  }
+  /* ---------- Menus déroulants : ils s'ouvrent au survol (souris), un seul à la fois ----------
+     Le survol compte seulement si le curseur a vraiment bougé : quand la page défile ou que les lignes se déplacent sous un curseur immobile, rien ne s'ouvre.
+     Au clic (souris), le menu s'ouvre s'il ne l'est pas déjà, mais ne se referme pas. Clavier et téléphone : comme avant (un appui ouvre ou ferme). */
+  let realX = -1, realY = -1, realT = 0;
+  addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    if (Math.abs(e.clientX - realX) + Math.abs(e.clientY - realY) >= 1) { realX = e.clientX; realY = e.clientY; realT = performance.now(); }
+  }, { passive: true });
+  function accOpenOnly(b, after) {
+    const keep = b.closest('.acc-item');
+    $$('.acc-item', b.closest('.acc')).forEach(it => {
+      const on = it === keep;
+      it.classList.toggle('open', on);
+      $('.acc-btn', it).setAttribute('aria-expanded', String(on));
+    });
+    after?.();
+    setTimeout(() => { lenis?.resize(); sizeFooter(); }, 650);
+  }
+  function hoverAccordion(container, open) {
+    if (!finePointer) return;
+    let timer = 0;
+    container.addEventListener('pointerover', e => {
+      if (e.pointerType !== 'mouse') return;
+      const b = e.target.closest('.acc-btn');
+      if (!b || b.contains(e.relatedTarget) || b.closest('.acc-item').classList.contains('open')) return;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        if (performance.now() - realT > 250 || !b.matches(':hover')) return;
+        open(b);
+      }, 90);
+    });
+    container.addEventListener('pointerout', e => {
+      const b = e.target.closest('.acc-btn');
+      if (b && !b.contains(e.relatedTarget)) clearTimeout(timer);
     });
   }
   /* ---------- Domaines d'expertise : la même section (menu déroulant, comme le C.V) sur l'accueil et sur À propos ---------- */
@@ -1304,9 +1409,11 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     sec.setAttribute('aria-labelledby', `t-dm${n}`);
     sec.innerHTML = `<div class="sec-head wrap grid no-rule"><h2 class="c1-4 label" id="t-dm${n}">Domaines d’expertise</h2><p class="right mono muted"><span>Ce que je pratique</span></p></div>`
       + `<div class="wrap"><div class="acc" data-reveal>${Array.from({ length: NK }, (_, i) => `<div class="acc-item${i ? '' : ' open'}"><h3><button class="acc-btn" type="button" id="dm${n}-b${i}" aria-controls="dm${n}-p${i}" aria-expanded="${i ? 'false' : 'true'}"><span class="d mono">${pad(i + 1)}</span><span class="t" data-edit="kw.${i}.name"></span><i class="pm ic ic-plus" aria-hidden="true"></i></button></h3><div class="acc-panel" id="dm${n}-p${i}" role="region" aria-labelledby="dm${n}-b${i}"><div><div class="acc-row dm-row"><p class="dm-txt" data-edit="kw.${i}.desc" data-just></p></div></div></div></div>`).join('')}</div></div>`;
+    hoverAccordion(sec, b => accOpenOnly(b));
     sec.addEventListener('click', e => {
       const b = e.target.closest('.acc-btn');
       if (!b) return;
+      if (finePointer && e.detail > 0) { accOpenOnly(b); return; }   // souris : le survol ouvre, le clic ne ferme pas
       const item = b.closest('.acc-item'), open = !item.classList.contains('open');
       item.classList.toggle('open', open);
       b.setAttribute('aria-expanded', String(open));
@@ -1340,9 +1447,17 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   const blobURL = id => MEDIA[id] || '/_blob/' + id;
   const imgURL = k => (IMG[k] ? blobURL(IMG[k]) : '');
   // Une vidéo hors de l'écran (ou d'un projet qui n'est pas affiché) est mise en pause, et reprend quand elle revient : elles ne tournent pas toutes à la fois.
+  // Chargement : une vidéo ne charge que ses premières images (preload « metadata ») ; elle charge tout dès qu'elle approche de l'écran (un quart d'écran de marge), pour que les vidéos
+  // lointaines (bas d'un projet, vignettes éloignées du carrousel) ne se disputent pas la connexion avec celles qu'on regarde.
   const vidIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => {
-    if (en.isIntersecting && vidOk(en.target)) { if (!reduced) en.target.play().catch(() => {}); } else en.target.pause();
-  }), { rootMargin: '8% 0px' }) : null;
+    const v = en.target;
+    v._vis = en.isIntersecting;
+    if (en.isIntersecting && v.preload !== 'auto') v.preload = 'auto';
+    if (en.isIntersecting && vidOk(v)) { if (!reduced) v.play().catch(() => {}); } else v.pause();
+  }), { rootMargin: '25% 25%' }) : null;
+  // Une vidéo visible qui n'a pas démarré (réseau, économie d'énergie du téléphone) est relancée au premier geste au lieu de rester vide
+  const kickVideos = () => $$('video.ph-vid').forEach(v => { if (!reduced && v._vis && v.paused && vidOk(v)) v.play().catch(() => {}); });
+  ['touchstart', 'pointerdown', 'keydown'].forEach(ev => addEventListener(ev, kickVideos, { once: true, passive: true }));
   // Vidéo en boucle, muette, sans contrôles : elle remplit le cadre comme une image (même recadrage).
   function setVideo(host, url) {
     let v = host.querySelector(':scope > video.ph-vid');
@@ -1352,6 +1467,9 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
       v.className = 'ph-vid';
       v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = !reduced && !vidIO;
       v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('aria-hidden', 'true');
+      v.preload = !vidIO || host.closest('.slide')?._far === false ? 'auto' : 'metadata';   // carrousel : les vignettes proches du centre chargent tout de suite
+      v.addEventListener('canplay', () => { if (!reduced && v._vis && v.paused && vidOk(v)) v.play().catch(() => {}); });
+      v.addEventListener('error', () => { if ((v._try = (v._try || 0) + 1) <= 3) setTimeout(() => { if (v.isConnected) v.load(); }, 1500 * v._try); });   // échec réseau : on réessaie
       host.appendChild(v);
       vidIO?.observe(v);
     }
@@ -1418,7 +1536,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     C.active = -1;
   }
   const C = { pos: 1, target: 1, drag: null, moved: 0, active: -1 };
-  const step = () => slides[0].offsetWidth + (innerWidth <= 760 ? 12 : 24 * U());
+  const step = () => slides[0].offsetWidth + (innerWidth <= 760 ? 12 : 24 * U1() * UC);
   const wrapD = d => ((d + N / 2) % N + N) % N - N / 2;
   function carRender() {
     C.pos = C.drag ? C.target : lerp(C.pos, C.target, reduced ? 1 : 0.11);
@@ -1429,6 +1547,8 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
       el.dataset.d = d;
       el.style.transform = `translate3d(${d * s}px,0,0)`;
       el.tabIndex = Math.abs(d) < 0.5 ? 0 : -1;
+      const far = Math.abs(d) > 2.6;
+      if (el._far !== far) { el._far = far; if (!far) $$('video.ph-vid', el).forEach(v => { v.preload = 'auto'; }); }
     });
     const act = ((Math.round(C.target) % N) + N) % N;
     if (act !== C.active) {
@@ -1604,7 +1724,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     st.s = -1; st.act = -1; st.O = [];
     if (on) {
       nearIO?.disconnect();
-      pjSecs.forEach(s => { s.near = false; s.live = false; s.el.classList.remove('near', 'live', 'is-in'); });
+      pjSecs.forEach(s => { s.near = false; s.live = false; clearTimeout(s.mt); s.el.classList.remove('near', 'live', 'is-in'); });
     } else {
       pjScroller.style.height = '';
       pjStage.classList.remove('is-swap');
@@ -1654,6 +1774,8 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   if ('ResizeObserver' in window) { const ro = new ResizeObserver(queueMeasure); pjSecs.forEach(s => ro.observe(s.flow)); }
 
   // Position de la page → état de chaque projet (colonne de gauche : ay / ao ; colonne de droite : fy / fo)
+  // Un défilement rapide ne lance pas tous les téléchargements : un projet charge ses médias un instant après être devenu proche (voisin : un peu plus tard) et les retire après un moment
+  const mediaSoon = (p, delay) => { clearTimeout(p.mt); p.mt = setTimeout(() => $$('[data-img]', p.el).forEach(applyImg), delay); };
   function stageApply(force) {
     if (!staged || !st.O.length) return;
     const s = clamp(scrollY - st.y0, 0, st.S);
@@ -1688,7 +1810,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
         $$('video.ph-vid', p.el).forEach(v => { if (live && !reduced) v.play().catch(() => {}); else v.pause(); });
       }
       const near = Math.abs(i - act) <= 1;   // images et vidéos : le projet affiché et ses deux voisins
-      if (p.near !== near) { p.near = near; p.el.classList.toggle('near', near); $$('[data-img]', p.el).forEach(applyImg); }
+      if (p.near !== near) { p.near = near; p.el.classList.toggle('near', near); mediaSoon(p, near ? (i === act ? 60 : 450) : 4000); }
     });
     if (act !== st.act) { st.act = act; if (!spyHold) setCurrentProject(IDS[act]); }
   }
@@ -1841,7 +1963,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     else if (current?.view === 'projet') measureProjects();
   }
 
-  /* ---------- Parcours : menu déroulant (clic), généré depuis le contenu ---------- */
+  /* ---------- Parcours : menu déroulant (survol), généré depuis le contenu ---------- */
   const accEl = $('#acc');
   const cvOpen = new Set([0]);
   function renderCV() {
@@ -1881,9 +2003,12 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
       return item;
     }));
   }
+  const cvOnly = b => accOpenOnly(b, () => { cvOpen.clear(); cvOpen.add(+b.dataset.i); });
+  hoverAccordion(accEl, cvOnly);
   accEl.addEventListener('click', e => {
     const b = e.target.closest('.acc-btn');
     if (!b) return;
+    if (finePointer && e.detail > 0) { cvOnly(b); return; }   // souris : le survol ouvre, le clic ne ferme pas
     const i = +b.dataset.i, item = b.closest('.acc-item');
     const open = !item.classList.contains('open');
     item.classList.toggle('open', open);
@@ -2012,10 +2137,10 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   new ResizeObserver(sizeFooter).observe(ft);
   $('#year').textContent = new Date().getFullYear();
 
-  /* ---------- Curseur : un point, avec beaucoup de retard ---------- */
+  /* ---------- Curseur : un point, à peine en retard (juste de quoi lisser le mouvement) ---------- */
   const cur = $('#cursor'), lab = $('#cursor-label'), labTxt = lab.firstElementChild;
-  const M = { x: 0, y: 0, cx: 0, cy: 0, nx: 0, ny: 0, seen: false };
-  const CURSOR_LAG = 0.065; // plus petit = plus de retard
+  const M = { x: 0, y: 0, cx: 0, cy: 0, nx: 0, ny: 0, seen: false, ui: false };
+  const CURSOR_LAG = 0.5; // plus petit = plus de retard (0,065 avant)
   if (finePointer) {
     root.classList.add('has-cursor');
     cur.classList.add('is-hidden');
@@ -2027,6 +2152,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     root.addEventListener('mouseleave', () => { cur.classList.add('is-hidden'); lab.classList.remove('on'); });
     root.addEventListener('mouseenter', () => { if (M.seen) cur.classList.remove('is-hidden'); });
     document.addEventListener('pointerover', e => {
+      M.ui = !!e.target.closest('a, button, input, textarea, select, label, [data-edit]');
       const media = !root.classList.contains('editing') && e.target.closest('[data-cursor="media"], .slide, .carousel');
       if (media) {
         let label = media.dataset.cursorLabel || 'Voir';
@@ -2043,10 +2169,86 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     });
   }
 
+  /* ---------- Thèmes de couleurs : le bonhomme de l'accueil est un bouton ---------- */
+  const THEMES = [
+    { id: 'costume', name: 'Costume', bg: '#F7F7F7' },
+    { id: 'galet', name: 'Galet', bg: '#203542' },
+    { id: 'theatre', name: 'Théâtre', bg: '#120303' },
+    { id: 'expresso', name: 'Expresso', bg: '#E9CBA6' },
+  ];
+  const themeBtn = $('#h-theme'), themeLive = $('#theme-live'), doodleBox = $('#doodle'), dd = $('#dd');
+  const metaTheme = (() => { let m = document.querySelector('meta[name="theme-color"]'); if (!m) { m = document.createElement('meta'); m.name = 'theme-color'; document.head.appendChild(m); } return m; })();
+  let themeI = Math.max(0, THEMES.findIndex(t => t.id === root.dataset.theme));
+  let hot = false;
+  const nextTheme = () => THEMES[(themeI + 1) % THEMES.length];
+  function setTheme(i, user) {
+    themeI = (i + THEMES.length) % THEMES.length;
+    const t = THEMES[themeI];
+    if (t.id === 'costume') root.removeAttribute('data-theme'); else root.dataset.theme = t.id;
+    metaTheme.content = t.bg;
+    if (user) { try { localStorage.setItem('tb-theme', t.id); } catch (e) {} themeLive.textContent = `Thème ${t.name}`; }
+    themeBtn.setAttribute('aria-label', `Changer de couleurs. Thème actuel : ${t.name}. Suivant : ${nextTheme().name}.`);
+  }
+  setTheme(themeI, false);
+  themeBtn.addEventListener('click', () => setTheme(themeI + 1, true));
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove('theme-init')));
+
+  // Masque de survol : le trait du dessin, élargi d'une dizaine de pixels (le dessin est fait de traits fins : on ne vise pas au pixel près)
+  let ddMask = null, ddW = 0, ddH = 0;
+  (function loadMask() {
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const w = 380, h = Math.round(w * img.naturalHeight / img.naturalWidth), R = 5;
+        const c = document.createElement('canvas'); c.width = w; c.height = h;
+        const g = c.getContext('2d', { willReadFrequently: true });
+        g.drawImage(img, 0, 0, w, h);
+        const a = g.getImageData(0, 0, w, h).data;
+        const src = new Uint8Array(w * h), tmp = new Uint8Array(w * h), out = new Uint8Array(w * h);
+        for (let i = 0; i < w * h; i++) src[i] = a[i * 4 + 3] > 12 ? 1 : 0;
+        for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+          let v = 0;
+          for (let k = Math.max(0, x - R), e = Math.min(w - 1, x + R); k <= e; k++) if (src[y * w + k]) { v = 1; break; }
+          tmp[y * w + x] = v;
+        }
+        for (let x = 0; x < w; x++) for (let y = 0; y < h; y++) {
+          let v = 0;
+          for (let k = Math.max(0, y - R), e = Math.min(h - 1, y + R); k <= e; k++) if (tmp[k * w + x]) { v = 1; break; }
+          out[y * w + x] = v;
+        }
+        ddMask = out; ddW = w; ddH = h;
+      } catch (e) { ddMask = null; }
+    };
+    img.src = 'assets/doodle.png';
+  })();
+  function onDoodle(px, py) {
+    const w = dd.offsetWidth, h = dd.offsetHeight;
+    if (!w) return false;
+    const r = dd.getBoundingClientRect();
+    if (px < r.left - 4 || px > r.right + 4 || py < r.top - 4 || py > r.bottom + 4) return false;
+    if (!ddMask) return true;   // masque indisponible : toute la zone du dessin
+    const th = (D.r - 1) * Math.PI / 180, vx = px - (r.left + r.width / 2), vy = py - (r.top + r.height / 2);
+    const ux = vx * Math.cos(th) + vy * Math.sin(th), uy = -vx * Math.sin(th) + vy * Math.cos(th);
+    const ix = Math.floor((ux + w / 2) / w * ddW), iy = Math.floor((uy + h / 2) / h * ddH);
+    return ix >= 0 && iy >= 0 && ix < ddW && iy < ddH && ddMask[iy * ddW + ix] === 1;
+  }
+  function setHot(v) {
+    if (v === hot) return;
+    hot = v;
+    doodleBox.classList.toggle('hot', v);
+  }
+  const checkHot = () => setHot(finePointer && M.seen && !M.ui && current?.view === 'accueil' && scrollY < innerHeight && !root.classList.contains('editing') && onDoodle(M.x, M.y));
+  document.addEventListener('click', e => {
+    if (current?.view !== 'accueil' || root.classList.contains('editing') || scrollY >= innerHeight) return;
+    if (e.target.closest('a, button, input, textarea, select, label, [data-edit]')) return;
+    if (onDoodle(e.clientX, e.clientY)) setTheme(themeI + 1, true);
+  });
+
+
   /* ---------- Header : caché en haut de l'accueil ---------- */
   const topbar = $('#topbar');
   function updateTopbar() {
-    const hide = current?.view === 'accueil' && scrollY < U() * 180;
+    const hide = current?.view === 'accueil' && scrollY < U1() * 180;
     topbar.classList.toggle('is-hidden', hide);
   }
 
@@ -2065,10 +2267,11 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
       cur.style.transform = lab.style.transform = `translate3d(${M.cx}px,${M.cy}px,0)`;
       if (preview.classList.contains('on')) preview.style.transform = `translate3d(${M.cx + 24}px,${M.cy - preview.offsetHeight / 2}px,0)`;
     }
+    if (finePointer) checkHot();
     if (current?.view === 'accueil') {
       if (!reduced) {   // le personnage flotte quand la souris bouge (inclinaison de base : -1°, comme sur la maquette)
         D.x = lerp(D.x, M.nx * 12, 0.05); D.y = lerp(D.y, M.ny * 8, 0.05); D.r = lerp(D.r, M.nx * 0.7, 0.05);
-        doodle.style.transform = `translate3d(${(D.x * U()).toFixed(2)}px,${(D.y * U()).toFixed(2)}px,0) rotate(${(D.r - 1).toFixed(3)}deg)`;
+        doodle.style.transform = `translate3d(${(D.x * U1()).toFixed(2)}px,${(D.y * U1()).toFixed(2)}px,0) rotate(${(D.r - 1).toFixed(3)}deg)`;
       }
       carRender();
     }
@@ -2199,7 +2402,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     Object.entries((data && data.media) || {}).forEach(([k, v]) => { if (/^[\w-]{8,64}$/.test(k) && typeof v === 'string' && /^assets\/[\w\/.-]+$/.test(v) && !v.includes('..')) MEDIA[k] = v; });
     FONTS = {};
     Object.entries((data && data.fonts) || {}).forEach(([k, v]) => {
-      if (['bold', 'book', 'thin', 'mono'].includes(k) && typeof v === 'string' && /^[\w-]{8,64}$/.test(v)) FONTS[k] = v;
+      if (['bold', 'book', 'light', 'thin', 'mono'].includes(k) && typeof v === 'string' && /^[\w-]{8,64}$/.test(v)) FONTS[k] = v;
     });
     loadFonts();
   }
@@ -2245,6 +2448,9 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
      ===================================================================== */
   const SCHEMA = [
     { t: 'Accueil', f: [
+      ['hero.name', 'Nom (haut de l’accueil)'],
+      ['hero.role', 'Intitulé (sous le nom)'],
+      ['hero.d0', 'Domaine 1 (liste de l’accueil)'], ['hero.d1', 'Domaine 2'], ['hero.d2', 'Domaine 3'], ['hero.d3', 'Domaine 4'], ['hero.d4', 'Domaine 5'],
       ['hero.sub', 'Phrase en bas de page (footer)'],
       ['img:portrait', 'Photo du résumé'],
       ['bio.0', 'Résumé — paragraphe 1', 'area'],
@@ -2303,7 +2509,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
   const FONT_SLOTS = [
     ['bold', 'Stolzl Bold — titres, en majuscules', 'TB Stolzl', '700'],
     ['book', 'Stolzl Book — textes, liste des projets et footer', 'TB Stolzl', '400'],
-    ['thin', 'Stolzl Thin — nom en haut de l’accueil', 'TB Stolzl', '100'],
+    ['light', 'Stolzl Light — nom, intitulé et domaines de l’accueil', 'TB Stolzl', '300'],
     ['mono', 'Cherry Light — annotations et éléments de composition', 'TB Cherry', '300'],
   ];
 
@@ -2479,7 +2685,7 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
       if (g.fonts) {
         const hint = document.createElement('p');
         hint.className = 'ed-hint';
-        hint.textContent = 'Titres : Stolzl Bold en majuscules. Textes, liste des projets et footer : Stolzl Book. Nom de l’accueil : Stolzl Thin. Annotations : Cherry Light. La maquette utilise ces polices si elles sont installées sur l’ordinateur. Pour qu’elles s’affichent partout, ajoute ici les fichiers (WOFF2, OTF ou TTF). Vérifie que ta licence autorise l’usage sur le web.';
+        hint.textContent = 'Titres : Stolzl Bold en majuscules. Textes, liste des projets et footer : Stolzl Book. Nom, intitulé et domaines de l’accueil : Stolzl Light. Annotations : Cherry Light. La maquette utilise ces polices si elles sont installées sur l’ordinateur. Pour qu’elles s’affichent partout, ajoute ici les fichiers (WOFF2, OTF ou TTF). Vérifie que ta licence autorise l’usage sur le web.';
         det.appendChild(hint);
         FONT_SLOTS.forEach(f => det.appendChild(buildFontField(f)));
       }
