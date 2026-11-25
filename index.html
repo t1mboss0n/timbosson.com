@@ -1406,7 +1406,8 @@ html.editing [data-edit]:hover,html.editing [data-img]:hover{outline:1px solid v
     };
     container.addEventListener('pointermove', e => {
       if (e.pointerType !== 'mouse') return;
-      if (dist(e.clientX, e.clientY, lx, ly) < 1) return;   // pas de vrai mouvement (la page a bougé sous la souris)
+      if (e.movementX === 0 && e.movementY === 0) return;   // mouvement « fantôme » : le navigateur répète la dernière position quand la page défile ou change sous une souris immobile
+      if (dist(e.clientX, e.clientY, lx, ly) < 1) return;
       lx = e.clientX; ly = e.clientY; lastMove = performance.now();
       const b = closedBtn(e.target);
       if (!b || performance.now() < lockUntil || dist(lx, ly, ax, ay) < 30) { clearTimeout(timer); pend = null; return; }
